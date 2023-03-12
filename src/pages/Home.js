@@ -29,7 +29,6 @@ export default function Home() {
 
                     })}
                 </div>
-                <h1>asdh</h1>
             </div>
         </div>
     )
