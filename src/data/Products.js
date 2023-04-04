@@ -34,4 +34,22 @@ export const productos = [
         stock: 50,
         precio: 500.00
     }
+    ,
+    {
+        nombre: "Crepusculo",
+        autor: "Kenya rico",
+        imagen: "https://imgs.search.brave.com/10_-0f68EO_DusWjaRVig1V9JhoaLN8BdDw6TeAWg1k/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly9pbWFn/ZXMtbmEuc3NsLWlt/YWdlcy1hbWF6b24u/Y29tL2ltYWdlcy9J/LzgxN2s4JTJCMnp6/YUwuanBn",
+        anio: 2005,
+        stock: 50,
+        precio: 500.00
+    }
+    ,
+    {
+        nombre: "Kenia",
+        autor: "Keniaaa autor",
+        imagen: "https://imgs.search.brave.com/uM0DiOeIxHgCRaa_bKmHwkEkJB5il2OGJpA1GE_isJ8/rs:fit:1000:1200:1/g:ce/aHR0cHM6Ly9pbWFn/ZXNzbDEuY2FzYWRl/bGxpYnJvLmNvbS9h/L2wvdDAvNjEvOTc4/ODQyMDY1MTM2MS5q/cGc",
+        anio: 2010,
+        stock: 10,
+        precio: 300.00
+    }
 ]
