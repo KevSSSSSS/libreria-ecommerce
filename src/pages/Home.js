@@ -28,7 +28,7 @@ export default function Home() {
                     <div style={{ width: "100%", backgroundColor: "#ebebeb", alignItems: "center", justifyContent: "space-around", display: "flex", padding: 20 }}>
                         {productos.slice(0, 6).map((book) => {
                             return (
-                                <CardBooks data={book}></CardBooks>
+                                <CardBooks key={book.nombre} data={book}></CardBooks>
                             )
                         })}
                     </div>

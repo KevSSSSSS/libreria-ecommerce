@@ -11,10 +11,12 @@ export default function NavTabMenu() {
 
     return (
         <div style={{ width: "100%", height: "5vh", backgroundColor: colors.primary, alignItems: "center", justifyContent: "space-between", display: "flex", padding: 20 }}>
-            <Button style={{ backgroundColor: colors.primary, borderColor: colors.primary, marginRight: 16, alignItems: "center", display: "flex" }} type="submit">
-                <BsFillHouseFill size={24} style={{ marginRight: 6 }} />
-                Inicio
-            </Button>
+            <Link to={"/"} style={{textDecoration: "none"}}>
+                <Button style={{ backgroundColor: colors.primary, borderColor: colors.primary, marginRight: 16, alignItems: "center", display: "flex" }} type="submit">
+                    <BsFillHouseFill size={24} style={{ marginRight: 6 }} />
+                    Inicio
+                </Button>
+            </Link>
             <Dropdown>
                 <Dropdown.Toggle style={{ backgroundColor: colors.primary, borderColor: colors.primary, marginRight: 16, alignItems: "center", display: "flex" }}>
                     <BsFillBookmarksFill size={24} style={{ marginRight: 6 }} />
@@ -23,7 +25,7 @@ export default function NavTabMenu() {
                 <Dropdown.Menu>
                     {categories.map((cat) => {
                         return (
-                            <Dropdown.Item style={{ backgroundColor: colors.white }}>{cat}</Dropdown.Item>
+                            <Dropdown.Item key={cat} style={{ backgroundColor: colors.white }}>{cat}</Dropdown.Item>
                         )
                     })}
                 </Dropdown.Menu>
@@ -43,9 +45,9 @@ export default function NavTabMenu() {
                     </Button>
                 </Link >
                 <Link to={"/register"}>
-                <Button style={{ backgroundColor: colors.primary, borderColor: colors.primary }} type="submit">
-                    Registrarse
-                </Button>
+                    <Button style={{ backgroundColor: colors.primary, borderColor: colors.primary }} type="submit">
+                        Registrarse
+                    </Button>
                 </Link>
             </div>
         </div>
