@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { productos } from "../data/Products";
 import { Form, Button, Image } from "react-bootstrap";
 import { colors } from "../constants/constants";
@@ -14,14 +14,20 @@ import { categories } from "../data/Categories";
 export default function Home() {
     let contador = 0;
 
+    useEffect(() => {
+        fetch('http://localhost:4000/test/libros')
+          .then(response => response.json())
+          .then(data => console.log(data));
+      }, []);
+
     return (
         <>
             <MasterPage />
             <NavTabMenu />
-            <BannerHome/>
+            <BannerHome />
             <div style={{ backgroundColor: "#ebebeb" }}>
                 <div style={{ marginLeft: 40, marginRight: 40 }}>
-                    <div style={{display: "flex", alignItems: "center"}}>
+                    <div style={{ display: "flex", alignItems: "center" }}>
                         <h2 style={{ marginRight: 20 }}>Libros</h2>
                         <div >Ver más</div>
                     </div>

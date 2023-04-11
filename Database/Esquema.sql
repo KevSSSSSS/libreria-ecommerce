@@ -2,6 +2,7 @@ CREATE TABLE Libros (
   id_libro INT(11) NOT NULL AUTO_INCREMENT,
   titulo VARCHAR(255) NOT NULL,
   autor VARCHAR(255) NOT NULL,
+  foto VARCHAR(255) NOT NULL,
   editorial VARCHAR(255) NOT NULL,
   descripcion TEXT,
   precio DECIMAL(10,2) NOT NULL,
@@ -28,7 +29,8 @@ CREATE TABLE Usuarios (
   id_usuario INT(11) NOT NULL AUTO_INCREMENT,
   rol VARCHAR(50) NOT NULL,
   nombre VARCHAR(255) NOT NULL,
-  apellido VARCHAR(255) NOT NULL,
+  apellido_p VARCHAR(255) NOT NULL,
+  apellido_m VARCHAR(255) NOT NULL,
   email VARCHAR(255) NOT NULL,
   contrasena VARCHAR(255) NOT NULL,
   PRIMARY KEY (id_usuario)

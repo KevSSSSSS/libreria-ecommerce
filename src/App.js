@@ -10,17 +10,21 @@ import Register from './pages/Register';
 import Home from './pages/Home';
 import Book from './pages/Book';
 
+import { UserProvider } from './context/UserContext';
+
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path='/book/:book' element={<Book/>}/>
-      </Routes>
-    </Router>
+    <UserProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path='/book/:book' element={<Book />} />
+        </Routes>
+      </Router>
+    </UserProvider>
   );
 }
 
