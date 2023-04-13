@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Button, Form, Image } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 
 import { colors, fontFamily } from "../constants/constants";
 import fondo from "../assets/background1.jpg";

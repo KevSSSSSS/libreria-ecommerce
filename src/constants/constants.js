@@ -1,3 +1,5 @@
+export const baseUrlAPI = "http://localhost:4000/test/";
+
 export const colors = {
     primary: "#fba71b",
     secondary: "#e1b683",

@@ -13,9 +13,6 @@ export default function NavTabMenu() {
 
     const { user, login, logout } = useContext(UserContext);
 
-    console.log(user);
-
-
     return (
         <div style={{ width: "100%", height: "5vh", backgroundColor: colors.primary, alignItems: "center", justifyContent: "space-between", display: "flex", padding: 20 }}>
             <Link to={"/"} style={{ textDecoration: "none" }}>

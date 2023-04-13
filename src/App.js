@@ -9,6 +9,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Home from './pages/Home';
 import Book from './pages/Book';
+import BooksList from './pages/BooksList';
 
 import { UserProvider } from './context/UserContext';
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path='/book/:book' element={<Book />} />
+          <Route path='/books' element={<BooksList/>}/>
         </Routes>
       </Router>
     </UserProvider>

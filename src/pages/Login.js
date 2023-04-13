@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
-import { Button, Form, Image } from "react-bootstrap";
+import { Button, Form, Image, Spinner } from "react-bootstrap";
 
-import { colors, fontFamily } from "../constants/constants";
+import { baseUrlAPI, colors, fontFamily } from "../constants/constants";
 import fondo from "../assets/background1.jpg";
 import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
@@ -11,6 +11,9 @@ export default function Login() {
     const navigate = useNavigate();
 
     const [dataUser, setDataUser] = useState({ email: "", contrasena: "" })
+    const [showErrorMessage, setShowErrorMesagge] = useState(false);
+    const [showErrorMessage2, setShowErrorMesagge2] = useState(false);
+    const [loading, setLoading] = useState(false);
 
     const handleLogin = (event) => {
         event.preventDefault();
@@ -18,16 +21,28 @@ export default function Login() {
     }
 
     const checkEmailAndPassword = () => {
-        fetch('http://localhost:4000/test/usuarios/?email='+dataUser.email+'&contrasena='+dataUser.contrasena)
-            .then(response => response.json())
-            .then(data =>  {
-                if (data.length > 0) {
-                    login(data[0]);
-                    navigate("/");
-                }else{
-                    console.log("No existe ese correo y contrasenia");
-                }
-            });
+        if (dataUser.email === "" || dataUser.contrasena === "") {
+            setShowErrorMesagge2(true);
+        } else {
+            setShowErrorMesagge2(false);
+            setLoading(true);
+            fetch(`${baseUrlAPI}usuarios/?email=${dataUser.email}&contrasena=${dataUser.contrasena}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.length > 0) {
+                        login(data[0]);
+                        navigate("/");
+                        setLoading(false);
+                        setDataUser({ email: "", contrasena: "" });
+                    } else {
+                        setShowErrorMesagge(true);
+                        setLoading(false);
+                    }
+                }).catch(e => {
+                    console.log(e);
+                    setLoading(false);
+                });
+        }
     }
 
     const handleChange = (event) => {
@@ -50,13 +65,16 @@ export default function Login() {
                             <Form.Label>Contraseña</Form.Label>
                             <Form.Control type="password" name="contrasena" placeholder="Introduzca su contraseña" onChange={handleChange}></Form.Control>
                         </Form.Group>
-                            <Button style={{ backgroundColor: colors.primary, borderColor: colors.primary, marginTop: 20 }} type="submit">
-                                Entrar
-                            </Button>
+                        {showErrorMessage2 && <div style={{ color: "red", marginTop: 8 }}>Los dos campos son requeridos.</div>}
+                        {showErrorMessage && <div style={{ color: "red", marginTop: 8 }}>El correo o contraseña están incorrectos.</div>}
+                        {loading && <div style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}><Spinner animation="border" variant="primary" /></div>}
+                        <Button style={{ backgroundColor: colors.primary, borderColor: colors.primary, marginTop: 20 }} disabled={loading} type="submit">
+                            Entrar
+                        </Button>
                     </Form>
                     <div style={{ marginTop: 20 }}>¿Aún no tienes una cuenta? Registrate gratis</div>
                     <Link to={"/register"}>
-                        <Button style={{ backgroundColor: colors.primary, borderColor: colors.primary, marginTop: 5 }} >
+                        <Button style={{ backgroundColor: colors.primary, borderColor: colors.primary, marginTop: 5 }} disabled={loading}>
                             Registrarse
                         </Button>
                     </Link>
