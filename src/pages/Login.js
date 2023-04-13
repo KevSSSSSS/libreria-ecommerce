@@ -7,7 +7,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 
 export default function Login() {
-    const { user, login, logout } = useContext(UserContext);
+    const { login } = useContext(UserContext);
     const navigate = useNavigate();
 
     const [dataUser, setDataUser] = useState({ email: "", contrasena: "" })
@@ -23,6 +23,7 @@ export default function Login() {
     const checkEmailAndPassword = () => {
         if (dataUser.email === "" || dataUser.contrasena === "") {
             setShowErrorMesagge2(true);
+            setShowErrorMesagge(false);
         } else {
             setShowErrorMesagge2(false);
             setLoading(true);
@@ -31,7 +32,7 @@ export default function Login() {
                 .then(data => {
                     if (data.length > 0) {
                         login(data[0]);
-                        navigate("/");
+                        routing(data[0].rol)
                         setLoading(false);
                         setDataUser({ email: "", contrasena: "" });
                     } else {
@@ -42,6 +43,14 @@ export default function Login() {
                     console.log(e);
                     setLoading(false);
                 });
+        }
+    }
+
+    const routing = (rol) =>{
+        if (rol === 'Administrador de inventario') {
+            navigate("/homeInventary");
+        }else{
+            navigate("/");
         }
     }
 
@@ -67,7 +76,7 @@ export default function Login() {
                         </Form.Group>
                         {showErrorMessage2 && <div style={{ color: "red", marginTop: 8 }}>Los dos campos son requeridos.</div>}
                         {showErrorMessage && <div style={{ color: "red", marginTop: 8 }}>El correo o contraseña están incorrectos.</div>}
-                        {loading && <div style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}><Spinner animation="border" variant="primary" /></div>}
+                        {loading && <div style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}><Spinner animation="grow" variant="warning" /></div>}
                         <Button style={{ backgroundColor: colors.primary, borderColor: colors.primary, marginTop: 20 }} disabled={loading} type="submit">
                             Entrar
                         </Button>

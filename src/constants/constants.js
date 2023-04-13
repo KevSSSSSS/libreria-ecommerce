@@ -5,7 +5,8 @@ export const colors = {
     secondary: "#e1b683",
     terceary: "#603815",
     white: "#ffffff",
-    black: "#000000"
+    black: "#000000",
+    blackSwift: "#EEEEEE"
 }
 
 export const fontFamily = {
