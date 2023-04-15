@@ -1,10 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Button, Spinner } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { colors } from "../../constants/constants";
 import TableBooks from "../../components/Inventario/TableBooks";
+import { UserContext } from "../../context/UserContext";
+import { AiOutlinePoweroff } from "react-icons/ai";
 
 export default function HomeInventary() {
+
+    const { user, login, logout } = useContext(UserContext);
 
     const navigate = useNavigate();
 
@@ -12,9 +16,10 @@ export default function HomeInventary() {
     const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-
         getBooks();
-
+        if (!user) {
+            navigate('/');
+        }
     }, [])
 
     const getBooks = () => {
@@ -29,9 +34,21 @@ export default function HomeInventary() {
     }
 
     return (
-        <div style={{ width: "100%", height: "100vh", backgroundColor: colors.blackSwift, display: "flex", alignItems: "center", justifyContent: "center" }}>
-            <div style={{ width: "80%", padding: 20, backgroundColor: colors.white, borderRadius: 10, boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.25)' }}>
-                <h1>Panel de inventario</h1>
+        <div style={{ width: "100%",  maxHeight: "150vh", backgroundColor: colors.blackSwift, display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <div style={{ width: "80%",  maxHeight: "150vh", padding: 20, backgroundColor: colors.white, borderRadius: 10, boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.25)' }}>
+                <div style={{ display: "flex", flexDirection: "row" }}>
+                    <div>
+                        <h1>Panel de inventario</h1>
+                        <h4>¡Bienvenido {user.nombre} eres el {user.rol}!</h4>
+                    </div>
+                    <div style={{display: "flex", width: "100%", alignItems: "center", justifyContent: "end"}}>
+                        <Button style={{display: "flex", alignItems: "center", justifyContent: "center"}} variant="danger" onClick={() => {
+                            logout();
+                            navigate("/");
+                        }}><AiOutlinePoweroff style={{marginRight: 8}}/> Cerrar sesión</Button>
+                    </div>
+                </div>
+                <br />
                 <Button onClick={() => {
                     navigate("/formBook");
                 }}>Añadir un libro</Button>

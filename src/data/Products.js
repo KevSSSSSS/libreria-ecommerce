@@ -50,7 +50,7 @@ export const productos = [
     }
     ,
     {
-        nombre: "Don Quijote de la Manc",
+        nombre: "Don Quijote de la Mancha",
         autor: "Miguel de Cervantes",
         imagen: "https://imgs.search.brave.com/VqHFfWnTuRRh-ydcuqf7mH7fsCs_NA1qH4xFBpYUHrs/rs:fit:736:952:1/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vNzM2/eC9mMC84NS8xOC9m/MDg1MThmZTdkNTg1/N2NmOTYzY2VjMWI0/ZDFmYTU1ZS5qcGc",
         sipnosis: "Una de las novelas más importantes de todos los tiempos y para muchos la obra definitiva de la literatura española. Escrita por Miguel de Cervantes (1547-1616) y publicada entre 1605 y 1615, narra las aventuras del ingenioso hidalgo Don Quijote de la Mancha (llamado realmente Alonso Quijano), en su misión personal de enmendar entuertos en donde los hubiere, acompañado de su fiel escudero, y amigo Sancho Panza. Nacida del amor de su autor por la novela caballeresca, Don Quijote se convirtió en una oda a ese particular estilo y en una crítica mordaz y humorística de la sociedad y el mundo de la época.",

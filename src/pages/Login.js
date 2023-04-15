@@ -35,6 +35,7 @@ export default function Login() {
                         routing(data[0].rol)
                         setLoading(false);
                         setDataUser({ email: "", contrasena: "" });
+                        localStorage.setItem("user", JSON.stringify(data[0]));
                     } else {
                         setShowErrorMesagge(true);
                         setLoading(false);
