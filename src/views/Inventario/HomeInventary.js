@@ -3,7 +3,7 @@ import { Button, Spinner } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { colors } from "../../constants/constants";
 import TableBooks from "../../components/Inventario/TableBooks";
-import { UserContext } from "../../context/UserContext";
+import { UserContext } from "../../models/UserContext";
 import { AiOutlinePoweroff } from "react-icons/ai";
 
 export default function HomeInventary() {

@@ -5,16 +5,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 //Importaciones de las paginas
-import Login from './pages/Login';
-import Register from './pages/Register';
-import Home from './pages/Home';
-import Book from './pages/Book';
-import BooksList from './pages/BooksList';
-import HomeInventary from './pages/Inventario/HomeInventary';
-import FormBook from './pages/Inventario/FormBook';
-import PurchaseUR from './pages/Compras/PurchaseUR';
+import Login from './views/Login';
+import Register from './views/Register';
+import Home from './views/Home';
+import Book from './views/Book';
+import BooksList from './views/BooksList';
+import HomeInventary from './views/Inventario/HomeInventary';
+import FormBook from './views/Inventario/FormBook';
+import PurchaseUR from './views/Compras/PurchaseUR';
 
-import { UserProvider } from './context/UserContext';
+import { UserProvider } from './models/UserContext';
 
 
 function App() {

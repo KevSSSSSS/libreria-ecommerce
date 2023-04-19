@@ -4,7 +4,7 @@ import { Button, Form, Image, Spinner } from "react-bootstrap";
 import { baseUrlAPI, colors, fontFamily } from "../constants/constants";
 import fondo from "../assets/background1.jpg";
 import { Link, useNavigate } from "react-router-dom";
-import { UserContext } from "../context/UserContext";
+import { UserContext } from "../models/UserContext";
 
 export default function Login() {
     const { login } = useContext(UserContext);

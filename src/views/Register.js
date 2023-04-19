@@ -3,7 +3,7 @@ import { Button, Form } from "react-bootstrap";
 
 import { colors, fontFamily } from "../constants/constants";
 import fondo from "../assets/background1.jpg";
-import { UserContext } from "../context/UserContext";
+import { UserContext } from "../models/UserContext";
 import { useNavigate } from "react-router";
 
 export default function Register() {

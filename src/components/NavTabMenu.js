@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { colors } from "../constants/constants";
 
-import { UserContext } from "../context/UserContext";
+import { UserContext } from "../models/UserContext";
 
 //Iconos
 import { BsFillHouseFill, BsFillBookmarksFill, BsFillCartFill, BsFillPersonFill, BsFilePerson, BsPersonVcard } from "react-icons/bs"
