@@ -12,6 +12,7 @@ import Book from './pages/Book';
 import BooksList from './pages/BooksList';
 import HomeInventary from './pages/Inventario/HomeInventary';
 import FormBook from './pages/Inventario/FormBook';
+import PurchaseUR from './pages/Compras/PurchaseUR';
 
 import { UserProvider } from './context/UserContext';
 
@@ -28,6 +29,9 @@ function App() {
           <Route path='/books' element={<BooksList />} />
           <Route path='/homeInventary' element={<HomeInventary />} />
           <Route path='/formBook' element={<FormBook />} />
+
+          <Route path='/purchaseem' element={<PurchaseUR />} />
+          
         </Routes>
       </Router>
     </UserProvider>
