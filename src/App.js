@@ -13,6 +13,7 @@ import BooksList from './views/BooksList';
 import HomeInventary from './views/Inventario/HomeInventary';
 import FormBook from './views/Inventario/FormBook';
 
+
 // All imports for Compras 
 import PurchaseUR from './views/Compras/PurchaseUR';
 import OrdersHome from './views/Compras/OrdersViews/OrdersHome';
@@ -27,6 +28,8 @@ import UpProduct from './views/Compras/UpndDown/UpProduct';
 import DownSupp from './views/Compras/UpndDown/DownSupp';
 import DownProduct from './views/Compras/UpndDown/DownProduct';
 // Emd imports for Compras
+
+
 import { UserProvider } from './models/UserContext';
 
 
@@ -58,6 +61,8 @@ function App() {
           <Route path='/downsupp' element={<DownSupp />} />
           <Route path='/downproduct' element={<DownProduct />} />
         //End routes for compras
+
+
         </Routes>
       </Router>
     </UserProvider>
