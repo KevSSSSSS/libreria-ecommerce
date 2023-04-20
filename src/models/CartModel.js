@@ -8,7 +8,7 @@ function CartModel() {
   };
 
   const removeCart = (productId) => {
-    const filteredUsers = cart.filter((product) => product.id !== productId);
+    const filteredProducts = cart.filter((product) => product.id !== productId);
     setCart(filteredUsers);
   };
 
