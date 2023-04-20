@@ -8,7 +8,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from './views/Login';
 import Register from './views/Register';
 import Home from './views/Home';
-import Book from './views/Book';
+import Book from './views/Devoluciones/Book';
 import BooksList from './views/BooksList';
 import HomeInventary from './views/Inventario/HomeInventary';
 import FormBook from './views/Inventario/FormBook';
@@ -46,6 +46,8 @@ function App() {
           <Route path='/books' element={<BooksList />} />
           <Route path='/homeInventary' element={<HomeInventary />} />
           <Route path='/formBook' element={<FormBook />} />
+          <Route path='/cart' element={<Cart/>}></Route>
+          <Route path='/payment' element={<Payment/>}/>
 
       //Routes for Compras all
           <Route path='/purchaseem' element={<PurchaseUR />} />

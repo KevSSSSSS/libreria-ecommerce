@@ -34,10 +34,12 @@ export default function NavTabMenu() {
                     })}
                 </Dropdown.Menu>
             </Dropdown>
-            <Button style={{ backgroundColor: colors.primary, borderColor: colors.primary, marginRight: 16, alignItems: "center", display: "flex" }} type="submit">
-                <BsFillCartFill size={24} style={{ marginRight: 6 }} />
-                Carrito
-            </Button>
+            <Link to={"/cart"} style={{ textDecoration: "none" }}>
+                <Button style={{ backgroundColor: colors.primary, borderColor: colors.primary, marginRight: 16, alignItems: "center", display: "flex" }} type="submit">
+                    <BsFillCartFill size={24} style={{ marginRight: 6 }} />
+                    Carrito
+                </Button>
+            </Link>
             <div>
                 {user ? (
                     <>
