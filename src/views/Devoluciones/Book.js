@@ -3,11 +3,12 @@ import React from "react";
 import { useLocation } from "react-router-dom";
 
 //Importación de componentes
-import MasterPage from "../components/MasterPage";
-import NavTabMenu from "../components/NavTabMenu";
+import MasterPage from "../../components/MasterPage";
+import NavTabMenu from "../../components/NavTabMenu";
 import { Button, Image } from "react-bootstrap";
-import { colors, fontFamily } from "../constants/constants";
+import { colors, fontFamily } from "../../constants/constants";
 import { BsCartPlus } from "react-icons/bs";
+import BannerHome from "../../components/BannerHome";
 
 
 export default function Book() {
@@ -17,6 +18,7 @@ export default function Book() {
         <>
             <MasterPage />
             <NavTabMenu />
+            <BannerHome />>
             <div style={{ alignItems: "center", justifyContent: "center", display: "flex" }}>
                 <div style={{ margin: 20, width: "60%", padding: 20, height: "80vh", display: "flex" }}>
                     <div style={{ width: "20%" }}>
