@@ -13,16 +13,22 @@ import BooksList from './views/BooksList';
 import HomeInventary from './views/Inventario/HomeInventary';
 import FormBook from './views/Inventario/FormBook';
 
+// All imports for Compras 
 import PurchaseUR from './views/Compras/PurchaseUR';
-import OrdersHome from './views/Compras/OrdersHome';
-import OrderAppli from './views/Compras/OrderAppli';
-import OrdersMod from './views/Compras/OrdersMod';
-import OrdersView from './views/Compras/OrdersView';
-import SuppHome from './views/Compras/SuppHome';
-import SuppMod from './views/Compras/SuppMod';
-import SuppView from './views/Compras/SuppView';
-
+import OrdersHome from './views/Compras/OrdersViews/OrdersHome';
+import OrderAppli from './views/Compras/OrdersViews/OrderAppli';
+import OrdersMod from './views/Compras/OrdersViews/OrdersMod';
+import OrdersView from './views/Compras/OrdersViews/OrdersView';
+import SuppHome from './views/Compras/SuppViews/SuppHome';
+import SuppMod from './views/Compras/SuppViews/SuppMod';
+import SuppView from './views/Compras/SuppViews/SuppView';
+import UpSupp from './views/Compras/UpndDown/UpSupp';
+import UpProduct from './views/Compras/UpndDown/UpProduct';
+import DownSupp from './views/Compras/UpndDown/DownSupp';
+import DownProduct from './views/Compras/UpndDown/DownProduct';
+// Emd imports for Compras
 import { UserProvider } from './models/UserContext';
+
 
 
 function App() {
@@ -38,6 +44,7 @@ function App() {
           <Route path='/homeInventary' element={<HomeInventary />} />
           <Route path='/formBook' element={<FormBook />} />
 
+      //Routes for Compras
           <Route path='/purchaseem' element={<PurchaseUR />} />
           <Route path='/ordershome' element={<OrdersHome />} />
           <Route path='/orderappli' element={<OrderAppli />} />
@@ -46,7 +53,11 @@ function App() {
           <Route path='/supphome' element={<SuppHome />} />
           <Route path='/suppmod' element={<SuppMod />} />
           <Route path='/suppview' element={<SuppView />} />
-          
+          <Route path='/upsupp' element={<UpSupp />} />
+          <Route path='/upproduct' element={<UpProduct />} />
+          <Route path='/downsupp' element={<DownSupp />} />
+          <Route path='/downproduct' element={<DownProduct />} />
+        //End routes for compras
         </Routes>
       </Router>
     </UserProvider>

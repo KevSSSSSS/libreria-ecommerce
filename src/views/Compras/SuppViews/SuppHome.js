@@ -1,10 +1,10 @@
 import React from "react";
-import MasterPage from "../../components/MasterPage";
-import NavTabMenu from "../../components/NavTabMenu";
+import MasterPage from "../../../components/MasterPage";
+import NavTabMenu from "../../../components/NavTabMenu";
 import { Button } from "react-bootstrap";
 import Table from 'react-bootstrap/Table';
 
-export default function PurchaseUR() {
+export default function SuppHome() {
     return (
         <>
             <MasterPage />
