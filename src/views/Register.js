@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { Button, Form } from "react-bootstrap";
 
-import { colors, fontFamily } from "../constants/constants";
+import { baseUrlAPI, colors, fontFamily } from "../constants/constants";
 import fondo from "../assets/background1.jpg";
 import { UserContext } from "../models/UserContext";
 import { useNavigate } from "react-router";
@@ -19,7 +19,7 @@ export default function Register() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        fetch('http://localhost:4000/test/usuarios', {
+        fetch(`${baseUrlAPI}usuarios`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

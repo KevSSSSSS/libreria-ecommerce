@@ -3,6 +3,7 @@ import { productos } from "../data/Products";
 import { Form, Button, Image, Spinner } from "react-bootstrap";
 import { colors } from "../constants/constants";
 import { useNavigate } from "react-router-dom";
+import { baseUrlAPI } from "../constants/constants";
 
 //Importaciones de componentes
 import MasterPage from "../components/MasterPage";
@@ -19,7 +20,7 @@ export default function Home() {
 
     useEffect(() => {
         setLoading(true);
-        fetch('http://localhost:4000/test/libros')
+        fetch(`${baseUrlAPI}libros`)
             .then(response => response.json())
             .then((data) => {
                 setBooks(data);

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Button, Spinner } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import { colors } from "../../constants/constants";
+import { baseUrlAPI, colors } from "../../constants/constants";
 import TableBooks from "../../components/Inventario/TableBooks";
 import { UserContext } from "../../models/UserContext";
 import { AiOutlinePoweroff } from "react-icons/ai";
@@ -24,7 +24,7 @@ export default function HomeInventary() {
 
     const getBooks = () => {
         setLoading(true);
-        fetch('http://localhost:4000/test/libros')
+        fetch(`${baseUrlAPI}libros`)
             .then(response => response.json())
             .then(data => {
                 setDatosTabla(data)

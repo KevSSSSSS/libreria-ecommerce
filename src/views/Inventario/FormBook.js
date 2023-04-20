@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, Col, Form, Row, Spinner, Toast, ToastContainer } from "react-bootstrap";
 import { useNavigate } from "react-router";
-import { colors } from "../../constants/constants";
+import { baseUrlAPI, colors } from "../../constants/constants";
 
 export default function FormBook() {
 
@@ -25,7 +25,7 @@ export default function FormBook() {
     const postBook = (event) => {
         event.preventDefault();
         setLoading(true);
-        fetch('http://localhost:4000/test/libros', {
+        fetch(`${baseUrlAPI}libros`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
