@@ -34,6 +34,8 @@ export default function DevolucionesHome() {
         }
     ]);
 
+
+    //Controladores
     const handleCheck = (id) => {
         setLibros((prevState) =>
             prevState.map((libro) =>

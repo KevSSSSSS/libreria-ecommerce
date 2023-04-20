@@ -5,15 +5,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 //Importaciones de las paginas
-import Login from './views/Login';
-import Register from './views/Register';
+import Login from './views/ClienteAnonimo/Login';
+import Register from './views/ClienteAnonimo/Register';
 import Home from './views/Home';
 import Book from './views/Devoluciones/Book';
 import BooksList from './views/BooksList';
 import HomeInventary from './views/Inventario/HomeInventary';
 import FormBook from './views/Inventario/FormBook';
 import Cart from './views/Devoluciones/Cart';
-import Payment from './views/Devoluciones/Payment';
+import Payment from './views/ClienteRegistrado/Payment';
 import Account from './views/Devoluciones/Account';
 
 
