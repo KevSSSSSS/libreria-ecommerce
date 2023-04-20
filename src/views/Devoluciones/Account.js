@@ -1,13 +1,12 @@
 import React from "react";
 import NavTabMenu from "../../components/NavTabMenu";
 import MasterPage from "../../components/MasterPage";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Button, Image } from "react-bootstrap";
 
 export default function Account() {
     const { state } = useLocation();
     const user = state?.user;
-    console.log(user);
     return (
         <>
             <MasterPage />
@@ -22,7 +21,9 @@ export default function Account() {
                 <div style={{ width: "50%", display: "flex", flexDirection: "column", justifyContent: "space-evenly", alignItems: "center" }}>
                     <div>Foto de perfil</div>
                     <Image width={"20%"} src={"https://imgs.search.brave.com/YQszaMPPSLRj_TTM4cBHqqHQCp8AMSLOZhCWLIebuBU/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly93d3cu/bG9nb2x5bnguY29t/L2ltYWdlcy9sb2dv/bHlueC84My84Mzky/NmUxNzM3MmFjMDNk/NzFlNzk5ZTNkMTgx/MmY3My5wbmc"}></Image>
-                    <Button>Mis pedidos</Button>
+                    <Link to={'/devoluciones'}>
+                        <Button>Devoluciones</Button>
+                    </Link>
                 </div>
             </div>
         </>

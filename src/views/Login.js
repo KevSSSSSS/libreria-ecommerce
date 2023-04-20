@@ -47,11 +47,15 @@ export default function Login() {
         }
     }
 
-    const routing = (rol) =>{
+    const routing = (rol) => {
         if (rol === 'Administrador de inventario') {
             navigate("/homeInventary");
-        }else{
-            navigate("/");
+        } else {
+            if (rol === 'Administrador de devoluciones') {
+                navigate("/devolucionesHome")
+            } else {
+                navigate("/");
+            }
         }
     }
 

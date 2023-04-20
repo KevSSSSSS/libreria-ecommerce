@@ -34,6 +34,8 @@ import DownProduct from './views/Compras/UpndDown/DownProduct';
 
 
 import { UserProvider } from './models/UserContext';
+import Devoluciones from './views/Devoluciones/DevolucionesCliente';
+import DevolucionesHome from './views/Devoluciones/DevolucionesHome';
 
 
 
@@ -52,6 +54,8 @@ function App() {
           <Route path='/cart' element={<Cart />}></Route>
           <Route path='/payment' element={<Payment />} />
           <Route path='/account' element={<Account />}/>
+          <Route path='/devoluciones' element={<Devoluciones/>}/>
+          <Route path='/devolucionesHome' element={<DevolucionesHome/>}/>
 
       //Routes for Compras all
           <Route path='/purchaseem' element={<PurchaseUR />} />
