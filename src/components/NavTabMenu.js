@@ -43,7 +43,7 @@ export default function NavTabMenu() {
             <div>
                 {user ? (
                     <>
-                        <Link to={"/login"}>
+                        <Link to={"/account"} state={{user: user}}>
                             <Button style={{ backgroundColor: colors.primary, borderColor: colors.primary, marginRight: 16 }} type="submit">
                                 <BsFilePerson size={24} /> {user.email}
                             </Button>

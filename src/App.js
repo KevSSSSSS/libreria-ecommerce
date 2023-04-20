@@ -14,6 +14,7 @@ import HomeInventary from './views/Inventario/HomeInventary';
 import FormBook from './views/Inventario/FormBook';
 import Cart from './views/Devoluciones/Cart';
 import Payment from './views/Devoluciones/Payment';
+import Account from './views/Devoluciones/Account';
 
 
 // All imports for Compras 
@@ -48,8 +49,9 @@ function App() {
           <Route path='/books' element={<BooksList />} />
           <Route path='/homeInventary' element={<HomeInventary />} />
           <Route path='/formBook' element={<FormBook />} />
-          <Route path='/cart' element={<Cart/>}></Route>
-          <Route path='/payment' element={<Payment/>}/>
+          <Route path='/cart' element={<Cart />}></Route>
+          <Route path='/payment' element={<Payment />} />
+          <Route path='/account' element={<Account />}/>
 
       //Routes for Compras all
           <Route path='/purchaseem' element={<PurchaseUR />} />

@@ -10,9 +10,9 @@ export default function Payment() {
             <MasterPage />
             <NavTabMenu />
             <div style={{ width: "100%", display: "flex" }}>
-                <div style={{ width: "50%" }}>
+                <div style={{ width: "50%", display:"flex", justifyContent: "center", alignItems: "center", flexDirection: "column"}}>
                     <h2>Datos de la operación</h2>
-                    <Form>
+                    <Form style={{display: "flex", justifyContent: "center", alignItems: "center"}}>
                         <Form.Group>
                             <Form.Label>Importe: </Form.Label>
                             <Form.Control type="number"></Form.Control>
@@ -24,7 +24,7 @@ export default function Payment() {
                     </Form>
                 </div>
                 <div style={{ width: "50%" }}>
-                    <Form>
+                    <Form style={{display: "flex", justifyContent: "center", alignItems: "center", marginTop: 30}}>
                         <Form.Group>
                             <Form.Label>No. Tarjeta </Form.Label>
                             <Form.Control type="number"></Form.Control>
@@ -32,8 +32,8 @@ export default function Payment() {
                             <Form.Control type="number"></Form.Control>
                             <Form.Label>CVV: </Form.Label>
                             <Form.Control type="number"></Form.Control>
-                            <Button>Cancelar</Button>
-                            <Button>Pagar</Button>
+                            <Button style={{marginTop: 50, marginRight: 20}}>Cancelar</Button>
+                            <Button style={{marginTop: 50, marginRight: 20}}>Pagar</Button>
                         </Form.Group>
                     </Form>
                 </div>
