@@ -12,6 +12,8 @@ import Book from './views/Devoluciones/Book';
 import BooksList from './views/BooksList';
 import HomeInventary from './views/Inventario/HomeInventary';
 import FormBook from './views/Inventario/FormBook';
+import Cart from './views/Devoluciones/Cart';
+import Payment from './views/Devoluciones/Payment';
 
 
 // All imports for Compras 
