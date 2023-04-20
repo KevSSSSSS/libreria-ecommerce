@@ -47,7 +47,7 @@ function App() {
           <Route path='/homeInventary' element={<HomeInventary />} />
           <Route path='/formBook' element={<FormBook />} />
 
-      //Routes for Compras
+      //Routes for Compras all
           <Route path='/purchaseem' element={<PurchaseUR />} />
           <Route path='/ordershome' element={<OrdersHome />} />
           <Route path='/orderappli' element={<OrderAppli />} />
