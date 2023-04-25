@@ -18,20 +18,12 @@ import Account from './views/Devoluciones/Account';
 
 
 // All imports for Compras 
-import PurchaseUR from './views/Compras/PurchaseUR';
-import OrdersHome from './views/Compras/OrdersViews/OrdersHome';
-import OrderAppli from './views/Compras/OrdersViews/OrderAppli';
-import OrdersMod from './views/Compras/OrdersViews/OrdersMod';
-import OrdersView from './views/Compras/OrdersViews/OrdersView';
-import SuppHome from './views/Compras/SuppViews/SuppHome';
-import SuppMod from './views/Compras/SuppViews/SuppMod';
-import SuppView from './views/Compras/SuppViews/SuppView';
-import UpSupp from './views/Compras/UpndDown/UpSupp';
-import UpProduct from './views/Compras/UpndDown/UpProduct';
-import DownSupp from './views/Compras/UpndDown/DownSupp';
-import DownProduct from './views/Compras/UpndDown/DownProduct';
+import UpProduct from './views/Compras/Products/UpProduct';
+import DownProduct from './views/Compras/Products/DownProduct';
 // Emd imports for Compras
-
+// All imports for Customer Support
+import CustomerSuppHome from './views/CustomerSupp/CSHome';
+// End imports for Customer Support
 
 import { UserProvider } from './models/UserContext';
 import Devoluciones from './views/Devoluciones/DevolucionesCliente';
@@ -57,21 +49,14 @@ function App() {
           <Route path='/devoluciones' element={<Devoluciones/>}/>
           <Route path='/devolucionesHome' element={<DevolucionesHome/>}/>
 
-      //Routes for Compras all
-          <Route path='/purchaseem' element={<PurchaseUR />} />
-          <Route path='/ordershome' element={<OrdersHome />} />
-          <Route path='/orderappli' element={<OrderAppli />} />
-          <Route path='/ordersmod' element={<OrdersMod />} />
-          <Route path='/ordersview' element={<OrdersView />} />
-          <Route path='/supphome' element={<SuppHome />} />
-          <Route path='/suppmod' element={<SuppMod />} />
-          <Route path='/suppview' element={<SuppView />} />
-          <Route path='/upsupp' element={<UpSupp />} />
+      //Routes for Compras
           <Route path='/upproduct' element={<UpProduct />} />
-          <Route path='/downsupp' element={<DownSupp />} />
           <Route path='/downproduct' element={<DownProduct />} />
-        //End routes for compras
-
+        //End routes for Compras
+        //Routes for Customer Support
+          <Route path='/cshome' element={<CustomerSuppHome />} />
+          
+        //End routes for Customer Support
 
         </Routes>
       </Router>
