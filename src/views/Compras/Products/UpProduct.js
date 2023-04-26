@@ -35,7 +35,7 @@ export default function UpProduct() {
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Foto</Form.Label>
-                        <Form.Control type="text" placeholder="Ingresa los datos..." />
+                        <Form.Control type="file" placeholder="Ingresa los datos..." />
                         <Form.Text className="text-muted"></Form.Text>
                     </Form.Group>
 
@@ -50,7 +50,7 @@ export default function UpProduct() {
 
                 </Form>
             </div>
-                //test
+                
         </>
     )
 }

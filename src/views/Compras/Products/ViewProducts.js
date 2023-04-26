@@ -35,15 +35,13 @@ export default function ViewProducts() {
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Foto</Form.Label>
-                        <Form.Control type="text" placeholder="Imagen obtenido de la BD" />
-                        <Form.Text className="text-muted"></Form.Text>
+                        <image></image>
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Sinopis</Form.Label>
-                        <Form.Control type="text" placeholder="Texto obtenido de la BD" />
-                        <Form.Text className="text-muted"></Form.Text>
-                    </Form.Group>
+                    <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                            <Form.Label>Sinopis</Form.Label>
+                            <Form.Control as="textarea" rows={3} />
+                        </Form.Group>
                     
                 </Form>
             </div>

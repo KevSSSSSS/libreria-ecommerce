@@ -27,6 +27,8 @@ import DownProduct from './views/Compras/Products/DownProduct';
 
 // All imports for Customer Support
 import CustomerSuppHome from './views/CustomerSupp/CSHome';
+import CallForm from './views/CustomerSupp/CallForm';
+import EmailForm from './views/CustomerSupp/EmailForm';
 // End imports for Customer Support
 
 import { UserProvider } from './models/UserContext';
@@ -63,7 +65,8 @@ function App() {
 
         //Routes for Customer Support
           <Route path='/cshome' element={<CustomerSuppHome />} />
-          
+          <Route path='/callform' element={<CallForm />} />
+          <Route path='/emailform' element={<EmailForm />} />
         //End routes for Customer Support
 
         </Routes>
