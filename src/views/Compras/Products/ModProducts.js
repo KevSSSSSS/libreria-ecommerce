@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 
-export default function DownProduct() {
+export default function ModProducts() {
     return (
         <>
             <MasterPage />
@@ -16,33 +16,38 @@ export default function DownProduct() {
                 <h3>Detalles del producto</h3>
                 <Form>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Clave:</Form.Label>
+                        <Form.Label>Nombre del libro</Form.Label>
                         <Form.Control type="text" placeholder="Texto obtenido de la BD" />
                         <Form.Text className="text-muted"></Form.Text>
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Nombre:</Form.Label>
+                        <Form.Label>Autor</Form.Label>
                         <Form.Control type="text" placeholder="Texto obtenido de la BD" />
                         <Form.Text className="text-muted"></Form.Text>
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Autor:</Form.Label>
+                        <Form.Label>Precio</Form.Label>
                         <Form.Control type="text" placeholder="Texto obtenido de la BD" />
                         <Form.Text className="text-muted"></Form.Text>
                     </Form.Group>
 
-                    <Button variant="primary" type="submit" style={{ marginLeft: 220 }}>
-                        Dar de baja del negocio
-                    </Button>
-                    <Button variant="primary" type="submit" style={{ marginLeft: 220, marginTop:30 }}>
-                        Dar de baja 1 unidad
-                    </Button>
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Foto</Form.Label>
+                        <Form.Control type="text" placeholder="Imagen obtenido de la BD" />
+                        <Form.Text className="text-muted"></Form.Text>
+                    </Form.Group>
 
+                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                        <Form.Label>Sinopis</Form.Label>
+                        <Form.Control type="text" placeholder="Texto obtenido de la BD" />
+                        <Form.Text className="text-muted"></Form.Text>
+                    </Form.Group>
+                    <Button variant = "info" size="lg" style={{ padding: 15, marginLeft: 250}}>Modificar</Button> 
                 </Form>
             </div>
-            <div style={{ float: "left", marginTop: -430, marginLeft: 80, width: 300, border: "solid", padding: 10}}>
+            <div style={{ float: "left", marginTop: -565, marginLeft: 80, width: 300, border: "solid", padding: 10}}>
                 <Form>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <h3>Selecciona la clave del producto</h3>

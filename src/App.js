@@ -17,10 +17,14 @@ import Payment from './views/ClienteRegistrado/Payment';
 import Account from './views/Devoluciones/Account';
 
 
-// All imports for Compras 
+// All imports for Compras
+import PurchaseHome from './views/Compras/PurchaseHome';
+import ViewProducts from './views/Compras/Products/ViewProducts';
+import ModProducts from './views/Compras/Products/ModProducts';
 import UpProduct from './views/Compras/Products/UpProduct';
 import DownProduct from './views/Compras/Products/DownProduct';
 // Emd imports for Compras
+
 // All imports for Customer Support
 import CustomerSuppHome from './views/CustomerSupp/CSHome';
 // End imports for Customer Support
@@ -50,9 +54,13 @@ function App() {
           <Route path='/devolucionesHome' element={<DevolucionesHome/>}/>
 
       //Routes for Compras
+          <Route path='/purchasehome' element={<PurchaseHome />} />
           <Route path='/upproduct' element={<UpProduct />} />
           <Route path='/downproduct' element={<DownProduct />} />
+          <Route path='/viewproducts' element={<ViewProducts />} />
+          <Route path='/modproducts' element={<ModProducts />} />
         //End routes for Compras
+
         //Routes for Customer Support
           <Route path='/cshome' element={<CustomerSuppHome />} />
           
