@@ -12,7 +12,7 @@ export default function CallForm() {
             <NavTabMenu />
             <h1 style={{ marginLeft: 600 }}>Bienvenido @user</h1>
 
-            <div style={{ float: "center", marginTop: 50, marginLeft: 600, width: 400 }}>
+            <div style={{ float: "center", marginTop: 50, marginLeft: 600, width: 400,  border: "solid", padding: 10}}>
                 <h2>Formulario de la llamada:</h2>
                 <Form>
                     <Form.Group className="mb-3" controlId="formBasicEmail">

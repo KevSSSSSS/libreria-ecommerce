@@ -3,7 +3,7 @@ import MasterPage from "../../components/MasterPage";
 import NavTabMenu from "../../components/NavTabMenu";
 import { Button } from "react-bootstrap";
 
-export default function CSHome() {
+export default function Terms() {
     return (
         <>
             <MasterPage />
@@ -19,20 +19,16 @@ export default function CSHome() {
                     <Button variant="info" size="lg" style={{ padding: 15, marginLeft: 1050, marginTop: -60, marginRight: 80 }}>Métodos de pago</Button>
                 </div>
             </div>
-            <div style={{ marginTop: 10, marginLeft: 200, marginRight: 100, border: "solid", float: "left", padding: 20 }}>
-                <h3 style={{ marginLeft: 200 }} >Opciones de atención: </h3>
-                <div style={{ padding: 10, marginLeft: 50 }}>
-                    <Button variant="info" size="lg" style={{ padding: 15, marginLeft: 20 }}>Llamada</Button>
-                    <Button variant="info" size="lg" style={{ padding: 15, marginLeft: 300 }}>Correo</Button>
+            <div style={{ marginTop: 10, marginLeft: 200, marginRight: 100, border: "solid", padding: 20 }}>
+                <h3 style={{ marginLeft: 0}} >Términos y condiciones de uso. </h3>
+                <div style={{ padding: 10, marginLeft: 50, border: "solid"}}>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin eget lectus suscipit, dictum ipsum vel, accumsan nisi. 
+                Nunc non tortor non nibh iaculis pellentesque. 
+                Nullam scelerisque dui purus, in feugiat metus consequat eget. Suspendisse eget nulla ipsum.
                 </div>
             </div>
-            <div style={{ marginTop: 10, marginRight: 100, border: "solid", float: "right", padding: 30 }}>
-                <div style={{ padding: 10 }}>
-                    <h3>Términos y condiciones de uso. </h3>
-                    <h3 style={{ marginLeft: 100 }}>Aviso de privacidad. </h3>
-                </div>
-            </div>
-            <div style={{ marginTop: 190, marginLeft: 200, marginRight: 100, border: "solid" }}>
+
+            <div style={{ marginTop: 10, marginLeft: 200, marginRight: 100, border: "solid" }}>
                 <h3 style={{ marginLeft: 500 }}> Horario de atención </h3>
                 <h3 style={{ marginLeft: 200 }}> Para llamadas </h3>
                 <h3 style={{ marginLeft: 850, marginTop: -40 }}> Para correos </h3>
