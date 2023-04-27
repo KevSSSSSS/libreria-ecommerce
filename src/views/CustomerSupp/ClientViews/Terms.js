@@ -1,6 +1,6 @@
 import React from "react";
-import MasterPage from "../../components/MasterPage";
-import NavTabMenu from "../../components/NavTabMenu";
+import MasterPage from "../../../components/MasterPage";
+import NavTabMenu from "../../../components/NavTabMenu";
 import { Button } from "react-bootstrap";
 
 export default function Terms() {

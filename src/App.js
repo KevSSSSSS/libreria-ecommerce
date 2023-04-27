@@ -25,13 +25,21 @@ import UpProduct from './views/Compras/Products/UpProduct';
 import DownProduct from './views/Compras/Products/DownProduct';
 // Emd imports for Compras
 
-// All imports for Customer Support
-import CustomerSuppHome from './views/CustomerSupp/CSHome';
-import CallForm from './views/CustomerSupp/CallForm';
-import EmailForm from './views/CustomerSupp/EmailForm';
-import Terms from './views/CustomerSupp/Terms';
-import Privacity from './views/CustomerSupp/Privacity';
-// End imports for Customer Support
+// All imports for Customer Support Client
+import CustomerSuppHome from './views/CustomerSupp/ClientViews/CSHome';
+import CallForm from './views/CustomerSupp/ClientViews/CallForm';
+import EmailForm from './views/CustomerSupp/ClientViews/EmailForm';
+import Terms from './views/CustomerSupp/ClientViews/Terms';
+import Privacity from './views/CustomerSupp/ClientViews/Privacity';
+// End imports for Customer Support Client
+
+// All imports for Customer Support Admon
+import CSAdmonHome from './views/CustomerSupp/AdmonViews/CSAdmonHome';
+import AllCalls from './views/CustomerSupp/AdmonViews/AllCalls';
+import AllMails from './views/CustomerSupp/AdmonViews/AllMails';
+import CallsView from './views/CustomerSupp/AdmonViews/CallsView';
+import EmailsView from './views/CustomerSupp/AdmonViews/EmailsView';
+// End imports for Customer Support Admon
 
 import { UserProvider } from './models/UserContext';
 import Devoluciones from './views/Devoluciones/DevolucionesCliente';
@@ -57,7 +65,7 @@ function App() {
           <Route path='/devoluciones' element={<Devoluciones/>}/>
           <Route path='/devolucionesHome' element={<DevolucionesHome/>}/>
 
-      //Routes for Compras
+      //Routes for Compras 
           <Route path='/purchasehome' element={<PurchaseHome />} />
           <Route path='/upproduct' element={<UpProduct />} />
           <Route path='/downproduct' element={<DownProduct />} />
@@ -65,13 +73,21 @@ function App() {
           <Route path='/modproducts' element={<ModProducts />} />
         //End routes for Compras
 
-        //Routes for Customer Support
+        //Routes for Customer Support Client
           <Route path='/cshome' element={<CustomerSuppHome />} />
           <Route path='/callform' element={<CallForm />} />
           <Route path='/emailform' element={<EmailForm />} />
           <Route path='/terms' element={<Terms />} />
           <Route path='/privacity' element={<Privacity />} />
-        //End routes for Customer Support
+        //End routes for Customer Support Client
+
+        // Routes for Customer Support Admon
+        <Route path='/csadmonhome' element={<CSAdmonHome />} />
+        <Route path='/allcalls' element={<AllCalls />} />
+        <Route path='/allmails' element={<AllMails />} />
+        <Route path='/callsview' element={<CallsView />} />
+        <Route path='/emailsview' element={<EmailsView />} />
+        // Routes for Customer Support Admon 
 
         </Routes>
       </Router>
