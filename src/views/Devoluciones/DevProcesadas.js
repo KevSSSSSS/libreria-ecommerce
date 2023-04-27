@@ -3,7 +3,7 @@ import MasterPage from "../../components/MasterPage";
 import NavTabMenu from "../../components/NavTabMenu";
 import { Table, Form, Container, Button } from "react-bootstrap";
 
-export default function DevolucionesHome() {
+export default function DevolucionesProc() {
     const [libros, setLibros] = useState([
         {
             id: 1,
@@ -12,7 +12,10 @@ export default function DevolucionesHome() {
             precio: 10.99,
             motivo: "",
             metodo: "",
-            devuelto: false
+            No_guia:"",
+            fecha_envio:"",
+            fecha_recibido:"",
+            fecha_atencion:""
         },
         {
             id: 2,
@@ -21,7 +24,10 @@ export default function DevolucionesHome() {
             precio: 14.99,
             motivo: "",
             metodo: "",
-            devuelto: false
+            No_guia:"",
+            fecha_envio:"",
+            fecha_recibido:"",
+            fecha_atencion:""
         },
         {
             id: 3,
@@ -30,7 +36,10 @@ export default function DevolucionesHome() {
             precio: 9.99,
             motivo: "",
             metodo: "",
-            devuelto: false
+            No_guia:"",
+            fecha_envio:"",
+            fecha_recibido:"",
+            fecha_atencion:""
         }
     ]);
 
@@ -56,7 +65,7 @@ export default function DevolucionesHome() {
         <>
             <MasterPage />
             <NavTabMenu />
-            <Container style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+            <Container style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", }}>
                 <h1>Devolución</h1>
                 <Table striped bordered hover>
                     <thead>
@@ -66,7 +75,11 @@ export default function DevolucionesHome() {
                             <th>Cantidad</th>
                             <th>Precio</th>
                             <th>Motivo de devolución</th>
-                            <th>Método de devolución</th>
+                            <th>Metodo de devolución</th>
+                            <th>Número de Guía</th>
+                            <th>Fecha de Envio</th>
+                            <th>Fecha de Recibido</th>
+                            <th>Fecha de atención</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -79,6 +92,7 @@ export default function DevolucionesHome() {
                                         onChange={() => handleCheck(libro.id)}
                                     />
                                 </td>
+                                <td>{libro.idLibro}</td>
                                 <td>{libro.nombre}</td>
                                 <td>{libro.cantidad}</td>
                                 <td>{libro.precio}</td>
@@ -102,11 +116,9 @@ export default function DevolucionesHome() {
                         ))}
                     </tbody>
                 </Table>
+                //finalizada /procesada
                 <div style={{ width: "100%", display: "flex", justifyContent: "space-evenly" }}>
-                    <Button onClick={location.href='atenderDev.js'}>Atender devolución</Button>
-
-                    <Button>Devolución paqueteria</Button>
-                    <Button>Almacen</Button>
+                    <Button>Cerrar</Button>
                 </div>
             </Container>
         </>

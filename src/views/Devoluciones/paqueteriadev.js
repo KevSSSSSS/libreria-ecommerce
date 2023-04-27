@@ -3,7 +3,7 @@ import MasterPage from "../../components/MasterPage";
 import NavTabMenu from "../../components/NavTabMenu";
 import { Table, Form, Container, Button } from "react-bootstrap";
 
-export default function DevolucionesHome() {
+export default function DevolucionesPaq() {
     const [libros, setLibros] = useState([
         {
             id: 1,
@@ -12,7 +12,9 @@ export default function DevolucionesHome() {
             precio: 10.99,
             motivo: "",
             metodo: "",
-            devuelto: false
+            devuelto: false,
+            Número_guía: "MX63783HJ",
+            Fecha_envio: ""
         },
         {
             id: 2,
@@ -21,7 +23,9 @@ export default function DevolucionesHome() {
             precio: 14.99,
             motivo: "",
             metodo: "",
-            devuelto: false
+            devuelto: false,
+            Número_guía: "MX63783HJ",
+            Fecha_envio: ""
         },
         {
             id: 3,
@@ -30,7 +34,9 @@ export default function DevolucionesHome() {
             precio: 9.99,
             motivo: "",
             metodo: "",
-            devuelto: false
+            devuelto: false,
+            Número_guía: "MX63783HJ",
+            Fecha_envio: ""
         }
     ]);
 
@@ -67,6 +73,8 @@ export default function DevolucionesHome() {
                             <th>Precio</th>
                             <th>Motivo de devolución</th>
                             <th>Método de devolución</th>
+                            <th>Número de guía</th>
+                            <th>Fecha de envio</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -103,10 +111,7 @@ export default function DevolucionesHome() {
                     </tbody>
                 </Table>
                 <div style={{ width: "100%", display: "flex", justifyContent: "space-evenly" }}>
-                    <Button onClick={location.href='atenderDev.js'}>Atender devolución</Button>
-
-                    <Button>Devolución paqueteria</Button>
-                    <Button>Almacen</Button>
+                    <Button>Cerrar</Button>
                 </div>
             </Container>
         </>
