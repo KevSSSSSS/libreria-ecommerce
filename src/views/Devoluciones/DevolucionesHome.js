@@ -103,7 +103,7 @@ export default function DevolucionesHome() {
                     </tbody>
                 </Table>
                 <div style={{ width: "100%", display: "flex", justifyContent: "space-evenly" }}>
-                    <Button onClick={location.href='atenderDev.js'}>Atender devolución</Button>
+                    <Button onClick={document.location.href='atenderDev.js'}>Atender devolución</Button>
 
                     <Button>Devolución paqueteria</Button>
                     <Button>Almacen</Button>
