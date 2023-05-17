@@ -103,3 +103,4 @@ CREATE TABLE Productos (
   activo INT(1) NOT NULL,
   PRIMARY KEY (id_producto)
 );
+//test
