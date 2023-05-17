@@ -32,7 +32,6 @@ export default function Register() {
                     login(dataUser);
                     navigate("/");
                 }
-                
             })
             .catch(error => {
                 console.error(error);
