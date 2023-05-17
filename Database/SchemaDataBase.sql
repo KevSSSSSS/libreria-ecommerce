@@ -66,7 +66,14 @@ CREATE TABLE SolicitudCorreos (
   descripcion VARCHAR(250) NOT NULL,
   activo INT(1) NOT NULL,
   PRIMARY KEY (id_correo),
-  FOREIGN KEY (id_cliente) REFERENCES Cliente(id_cliente),
+  FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente)
+);
+CREATE TABLE CorreosAtendidos (
+  id_correoatend INT(11) NOT NULL AUTO_INCREMENT,
+  id_correo INT(11) NOT NULL,
+  dateAt DATE, NOT NULL,
+  PRIMARY KEY (id_correoatend),
+  FOREIGN KEY (id_correo) REFERENCES SolicitudCorreos(id_correo)
 );
 CREATE TABLE SolicitudLlamadas (
   id_llamada INT(11) NOT NULL AUTO_INCREMENT,
@@ -77,5 +84,22 @@ CREATE TABLE SolicitudLlamadas (
   descripcion VARCHAR(250) NOT NULL,
   activo INT(1) NOT NULL,
   PRIMARY KEY (id_llamada),
-  FOREIGN KEY (id_cliente) REFERENCES Cliente(id_cliente),
+  FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente)
+);
+CREATE TABLE LlamadasAtendidas (
+  id_llamadaatend INT(11) NOT NULL AUTO_INCREMENT,
+  id_llamada INT(11) NOT NULL,
+  dateAt DATE, NOT NULL,
+  PRIMARY KEY (id_llamadaatend),
+  FOREIGN KEY (id_llamada) REFERENCES SolicitudLlamadas(id_llamada)
+);
+CREATE TABLE Productos (
+  id_producto INT(11) NOT NULL AUTO_INCREMENT,
+  nombre VARCHAR(50) NOT NULL,
+  autor VARCHAR(50) NOT NULL,
+  precio INT(11) NOT NULL,
+  foto VARCHAR(50) NOT NULL,
+  sinopsis VARCHAR(150) NOT NULL,
+  activo INT(1) NOT NULL,
+  PRIMARY KEY (id_producto)
 );
