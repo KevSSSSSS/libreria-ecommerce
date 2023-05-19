@@ -12,25 +12,31 @@ export default function CSAdmonHome() {
             <div style={{ marginTop: 50, marginLeft: 200, marginRight: 100, border: "solid", padding: 10, paddingBottom: 150 }}>
                 <h3>Revisar solicitudes de: </h3>
                 <div style={{ padding: 10, paddingTop: 50 }}>
-                    <Button variant="info" size="lg" style={{ padding: 15, marginLeft: 300 }}>Llamada</Button>
-                    <Button variant="info" size="lg" style={{ padding: 15, marginLeft: 300 }}>Correo</Button>
+                <a href="/allcalls">
+                    <Button variant="info" size="lg" style={{ padding: 15, marginLeft: 400 }}>Llamada</Button>
+                </a>
+                <a href="/allmails">
+                    <Button variant="info" size="lg" style={{ padding: 15, marginLeft: 400 }}>Correo</Button>
+                </a>
                 </div>
             </div>
             
             <div style={{ marginTop: 10, marginLeft: 200, marginRight: 100, border: "solid" }}>
-                <h3 style={{ marginLeft: 500 }}> Horario de atención </h3>
-                <h3 style={{ marginLeft: 200 }}> Para llamadas </h3>
-                <h3 style={{ marginLeft: 850, marginTop: -40 }}> Para correos </h3>
-                <div style={{ padding: 15, border: "solid", marginRight: 800, marginLeft: 100 }}>
+                <h3 style={{ marginLeft: 690 }}> Horario de atención </h3>
+
+                <div style={{ padding: 15, border: "solid", marginRight: 900, marginLeft: 100, marginTop: 15 }}>
+                <h3 style={{ marginLeft: 50 }}> Para llamadas </h3>
                     <p>El horario de atención de llamadas esta establecido de:</p>
                     <p>Lunes a Viernes de: 8:00 a.m. a 10:00 p.m.</p>
                     <p>Sábados y Domingos de 8:00 a.m. a 7:00 p.m.</p>
                 </div>
-                <div style={{ padding: 15, border: "solid", marginLeft: 800, marginRight: 100, marginTop: -225}}>
-                <p> El horario de atención de correos esta establecido de:</p>
-                <p>  Lunes a Viernes de: 7:00 a.m. a 10:00 p.m.</p>
-                <p>   Sábados y Domingos de 8:00 a.m. a 8:00 p.m.</p>
+                <div style={{ padding: 15, border: "solid", marginLeft: 900, marginRight: 100,  marginTop: -195, marginBottom: 5  }}>
+                <h3 style={{ marginLeft: 50}}> Para correos </h3>
+                    <p> El horario de atención de correos esta establecido de:</p>
+                    <p>  Lunes a Viernes de: 7:00 a.m. a 10:00 p.m.</p>
+                    <p>   Sábados y Domingos de 8:00 a.m. a 8:00 p.m.</p>
                 </div>
+
             </div>
         </>
     )

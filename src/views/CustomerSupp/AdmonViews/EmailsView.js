@@ -16,20 +16,32 @@ export default function CallsView() {
                 <h2>Datos de la solicitud:</h2>
                 <Form>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>{'Nombre del cliente:\nTexto extraido de la BD...'}</Form.Label>
+                        <Form.Label>{'Nombre del cliente:'}</Form.Label>
+                        <Form.Control
+                            disabled
+                            type="text"
+                        />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>{'Correo electrónico:\nTexto extraido de la BD...'}</Form.Label>
+                        <Form.Label>{'Correo electrónico:'}</Form.Label>
+                        <Form.Control
+                            disabled
+                            type="text"
+                        />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>{'Horario de disponibilidad:\nTexto extraido de la BD...'}</Form.Label>
+                        <Form.Label>{'Horario de disponibilidad:'}</Form.Label>
+                        <Form.Control
+                            disabled
+                            type="text"
+                        />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                         <Form.Label>Descripción de la situación:</Form.Label>
-                        <Form.Control as="textarea" rows={3} />
+                        <Form.Control as="textarea" disabled rows={3} />
                     </Form.Group>
 
                     <Button variant="primary" type="submit" style={{ marginLeft: 150 }}>

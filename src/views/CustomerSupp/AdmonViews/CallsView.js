@@ -15,21 +15,37 @@ export default function CallsView() {
             <div style={{ float: "center", marginTop: 50, marginLeft: 600, width: 400,  border: "solid", padding: 10}}>
                 <h2>Datos de la solicitud:</h2>
                 <Form>
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>{'Nombre del cliente:\nTexto extraido de la BD...'}</Form.Label>
+                    <Form.Group className="mb-3" controlId="formText">
+                        <Form.Label>{'Nombre del cliente:'}</Form.Label>
+                        <Form.Control
+                            disabled
+                            type="text"
+                        />
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>{'Número de teléfono:\nTexto extraido de la BD...'}</Form.Label>
+                    <Form.Group className="mb-3" controlId="formNumber">
+                        <Form.Label>{'Número de teléfono:'}</Form.Label>
+                        <Form.Control
+                            disabled
+                            type="text"
+                        />
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>{'Horario de disponibilidad:\nTexto extraido de la BD...'}</Form.Label>
+                    <Form.Group className="mb-3" controlId="formText">
+                        <Form.Label>{'Horario de disponibilidad:'}</Form.Label>
+                        <Form.Control
+                            disabled
+                            type="text"
+                        />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                         <Form.Label>Descripción de la situación:</Form.Label>
-                        <Form.Control as="textarea" rows={3} />
+                        <Form.Control 
+                        as="textarea" 
+                        rows={5} 
+                        disabled
+                        />
                     </Form.Group>
 
                     <Button variant="primary" type="submit" style={{ marginLeft: 150 }}>
