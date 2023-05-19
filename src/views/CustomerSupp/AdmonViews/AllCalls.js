@@ -51,10 +51,12 @@ export default function AllCalls() {
                             </Form.Select>
                         </FloatingLabel>
                     </Form.Group>
-
-                    <Button variant="primary" type="submit" style={{ marginLeft: 220 }}>
+                    
+                    <Button href="/callsview" variant="primary" style={{ marginLeft: 220 }}>
                         Revisar
                     </Button>
+                    
+
                 </Form>
                 </div>
             </div>

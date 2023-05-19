@@ -51,10 +51,11 @@ export default function AllMails() {
                             </Form.Select>
                         </FloatingLabel>
                     </Form.Group>
-
-                    <Button variant="primary" type="submit" style={{ marginLeft: 220 }}>
+                   
+                    <Button href="/emailsview" variant="primary" type="submit" style={{ marginLeft: 220 }}>
                         Revisar
                     </Button>
+                    
                 </Form>
                 </div>
             </div>
