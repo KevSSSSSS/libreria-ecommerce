@@ -3,6 +3,7 @@ import MasterPage from "../../../components/MasterPage";
 import NavTabMenu from "../../../components/NavTabMenu";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import FloatingLabel from 'react-bootstrap/FloatingLabel'
 
 
 export default function DownProduct() {
@@ -53,14 +54,16 @@ export default function DownProduct() {
             </div>
             <div style={{ float: "left", marginTop: -430, marginLeft: 80, width: 300, border: "solid", padding: 10}}>
                 <Form>
-                    <Form.Group className="mb-3" controlId="formIDSelect">
-                        <h3>Selecciona la clave del producto</h3>
+                <Form.Group className="mb-3" controlId="formIDSelect">
+                    <FloatingLabel controlId="floatingSelect" label="Selecciona la clave del producto">
+                        
                         <Form.Select aria-label="Default select example">
                             <option>Clave del producto</option>
                             <option value="1">One</option>
                             <option value="2">Two</option>
                             <option value="3">Three</option>
                         </Form.Select>
+                        </FloatingLabel>
                     </Form.Group>
 
                 </Form>
