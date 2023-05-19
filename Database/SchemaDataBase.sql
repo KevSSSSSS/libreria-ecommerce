@@ -60,7 +60,7 @@ CREATE TABLE Detalles_Pedidos (
 CREATE TABLE SolicitudCorreos (
   id_correo INT(11) NOT NULL AUTO_INCREMENT,
   id_cliente INT(11) NOT NULL,
-  nombre VARCHAR(50) NOT NULL,
+  nombreClient VARCHAR(50) NOT NULL,
   correo VARCHAR(50) NOT NULL,
   horario INT(11) NOT NULL,
   descripcion VARCHAR(250) NOT NULL,
@@ -78,7 +78,7 @@ CREATE TABLE CorreosAtendidos (
 CREATE TABLE SolicitudLlamadas (
   id_llamada INT(11) NOT NULL AUTO_INCREMENT,
   id_cliente INT(11) NOT NULL,
-  nombre VARCHAR(50) NOT NULL,
+  nombreClient VARCHAR(50) NOT NULL,
   numero INT(12) NOT NULL,
   horario INT(11) NOT NULL,
   descripcion VARCHAR(250) NOT NULL,
@@ -95,7 +95,7 @@ CREATE TABLE LlamadasAtendidas (
 );
 CREATE TABLE Productos (
   id_producto INT(11) NOT NULL AUTO_INCREMENT,
-  nombre VARCHAR(50) NOT NULL,
+  titulo VARCHAR(50) NOT NULL,
   autor VARCHAR(50) NOT NULL,
   precio INT(11) NOT NULL,
   foto VARCHAR(50) NOT NULL,
