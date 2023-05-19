@@ -15,36 +15,45 @@ export default function DownProduct() {
             <div style={{ float: "right", marginTop: 50, marginRight: 500, marginLeft: 500, width: 600, border: "solid", padding: 15}}>
                 <h3>Detalles del producto</h3>
                 <Form>
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Group className="mb-3" controlId="formIDProduct">
                         <Form.Label>Clave:</Form.Label>
-                        <Form.Control type="text" placeholder="Texto obtenido de la BD" />
-                        <Form.Text className="text-muted"></Form.Text>
+                        <Form.Control 
+                        type="text" 
+                        placeholder="Texto obtenido de la BD" 
+                        disabled
+                        />                     
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Group className="mb-3" controlId="formName">
                         <Form.Label>Nombre:</Form.Label>
-                        <Form.Control type="text" placeholder="Texto obtenido de la BD" />
-                        <Form.Text className="text-muted"></Form.Text>
+                        <Form.Control 
+                        type="text" 
+                        placeholder="Texto obtenido de la BD" 
+                        disabled 
+                        />                     
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Group className="mb-3" controlId="formAutor">
                         <Form.Label>Autor:</Form.Label>
-                        <Form.Control type="text" placeholder="Texto obtenido de la BD" />
-                        <Form.Text className="text-muted"></Form.Text>
+                        <Form.Control 
+                        type="text" 
+                        placeholder="Texto obtenido de la BD" 
+                        disabled 
+                        />                     
                     </Form.Group>
 
-                    <Button variant="primary" type="submit" style={{ marginLeft: 220 }}>
+                    <Button variant="primary" type="submit" style={{ marginLeft: 200 }}>
                         Dar de baja del negocio
                     </Button>
-                    <Button variant="primary" type="submit" style={{ marginLeft: 220, marginTop:30 }}>
-                        Dar de baja 1 unidad
+                    <Button variant="primary" type="submit" style={{ marginLeft: 200, marginTop:30 }}>
+                        Eliminar una unidad del inventario
                     </Button>
 
                 </Form>
             </div>
             <div style={{ float: "left", marginTop: -430, marginLeft: 80, width: 300, border: "solid", padding: 10}}>
                 <Form>
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Group className="mb-3" controlId="formIDSelect">
                         <h3>Selecciona la clave del producto</h3>
                         <Form.Select aria-label="Default select example">
                             <option>Clave del producto</option>
