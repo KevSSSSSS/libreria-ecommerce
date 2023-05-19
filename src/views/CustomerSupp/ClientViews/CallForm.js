@@ -15,25 +15,33 @@ export default function CallForm() {
             <div style={{ float: "center", marginTop: 50, marginLeft: 600, width: 400,  border: "solid", padding: 10}}>
                 <h2>Formulario de la llamada:</h2>
                 <Form>
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Nombre del cliente</Form.Label>
-                        <Form.Control type="text" placeholder="Ingresa los datos..." />
-                        <Form.Text className="text-muted"></Form.Text>
+                    <Form.Group className="mb-3" controlId="formText">
+                        <Form.Label>Nombre completo</Form.Label>
+                        <Form.Control 
+                        type="text" 
+                        placeholder="Ingresa tu nombre" 
+                        required
+                        />
+                        
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Group className="mb-3" controlId="formNumber">
                         <Form.Label>Número de teléfono:</Form.Label>
                         <Form.Select aria-label="Default select example">
-                            <option>+52</option>
-                            <option value="1">One</option>
-                            <option value="2">Two</option>
-                            <option value="3">Three</option>
+                            <option value="1" >+52</option>
+                            <option value="2">+51</option>
+                            <option value="3">+1</option>
+                            <option value="4">+23</option>
                         </Form.Select>
-                        <Form.Control type="text" placeholder="000-000-0000" />
-                        <Form.Text className="text-muted"></Form.Text>
+                        <Form.Control 
+                        type="text" 
+                        placeholder="000-000-0000" 
+                        required
+                        />
+                        
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Group className="mb-3" controlId="formText">
                         <Form.Label>Horario de disponibilidad:</Form.Label>
                         <Form.Select aria-label="Default select example">
                             <option>8:00</option>
@@ -45,7 +53,11 @@ export default function CallForm() {
 
                     <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                         <Form.Label>Descripción de la situación:</Form.Label>
-                        <Form.Control as="textarea" rows={3} />
+                        <Form.Control 
+                        as="textarea" 
+                        rows={5} 
+                        required
+                        />
                     </Form.Group>
 
                     <Button variant="primary" type="submit" style={{ marginLeft: 220 }}>

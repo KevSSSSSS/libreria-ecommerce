@@ -15,19 +15,26 @@ export default function EmailForm() {
             <div style={{ float: "center", marginTop: 50, marginLeft: 600, width: 400,  border: "solid", padding: 10 }}>
                 <h2>Formulario del correo:</h2>
                 <Form>
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
-                        <Form.Label>Nombre del cliente</Form.Label>
-                        <Form.Control type="text" placeholder="Ingresa los datos..." />
-                        <Form.Text className="text-muted"></Form.Text>
+                <Form.Group className="mb-3" controlId="formText">
+                        <Form.Label>Nombre completo</Form.Label>
+                        <Form.Control 
+                        type="text" 
+                        placeholder="Ingresa tu nombre" 
+                        required
+                        />
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Correo electrónico:</Form.Label>
-                        <Form.Control type="text" placeholder="algo@algo.com" />
+                        <Form.Control 
+                        type="emaol" 
+                        placeholder="Ingresa tu correo electrónico" 
+                        required
+                        />
                         <Form.Text className="text-muted"></Form.Text>
                     </Form.Group>
 
-                    <Form.Group className="mb-3" controlId="formBasicEmail">
+                    <Form.Group className="mb-3" controlId="formText">
                         <Form.Label>Horario de disponibilidad:</Form.Label>
                         <Form.Select aria-label="Default select example">
                             <option>8:00</option>
@@ -39,7 +46,11 @@ export default function EmailForm() {
 
                     <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                         <Form.Label>Descripción de la situación:</Form.Label>
-                        <Form.Control as="textarea" rows={3} />
+                        <Form.Control 
+                        as="textarea" 
+                        rows={5} 
+                        required
+                        />
                     </Form.Group>
 
                     <Button variant="primary" type="submit" style={{ marginLeft: 220 }}>
