@@ -9,7 +9,7 @@ export default function PurchaseHome() {
             <MasterPage/>
             <NavTabMenu/>
             <h1 style={{marginLeft:600}}>Bienvenido @user</h1>
-            <div style={{marginTop: 100, marginLeft: 300, marginRight: 150, border: "solid"}}>   
+            <div style={{marginTop: 100, marginLeft: 300, marginRight: 150, border: "solid", padding: 20}}>   
             <h1>Productos: </h1>
                 <div style={{padding: 100}}>
                 <a href="/viewproducts">
