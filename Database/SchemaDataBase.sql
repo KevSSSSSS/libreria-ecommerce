@@ -56,17 +56,29 @@ CREATE TABLE Detalles_Pedidos (
   FOREIGN KEY (id_libro) REFERENCES Libros(id_libro)
 );
 //------------------- Después de hacer la base -----------------------
+CREATE TABLE Empleados (
+  id_empleado INT(11) NOT NULL AUTO_INCREMENT,
+  rol VARCHAR(50) NOT NULL,
+  nombre VARCHAR(50) NOT NULL,
+  apellido_p VARCHAR(50) NOT NULL,
+  apellido_m VARCHAR(50) NOT NULL,
+  email VARCHAR(80) NOT NULL,
+  contrasena VARCHAR(150) NOT NULL,
+  telefono INT(12) NOT NULL,
+  PRIMARY KEY (id_empleado)
+);
+
+
 CREATE TABLE Clientes (
   id_cliente INT(11) NOT NULL AUTO_INCREMENT,
   nombre VARCHAR(50) NOT NULL,
   apellido_p VARCHAR(50) NOT NULL,
   apellido_m VARCHAR(50) NOT NULL,
   email VARCHAR(80) NOT NULL,
-  contraseña VARCHAR(150) NOT NULL,
+  contrasena VARCHAR(150) NOT NULL,
   telefono INT(12) NOT NULL,
-  PRIMARY KEY (id_producto)
+  PRIMARY KEY (id_cliente)
 );
-
 
 CREATE TABLE SolicitudCorreos (
   id_correo INT(11) NOT NULL AUTO_INCREMENT,
