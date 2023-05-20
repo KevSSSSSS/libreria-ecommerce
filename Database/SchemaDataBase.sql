@@ -94,7 +94,7 @@ CREATE TABLE SolicitudCorreos (
 CREATE TABLE CorreosAtendidos (
   id_correoatend INT(11) NOT NULL AUTO_INCREMENT,
   id_correo INT(11) NOT NULL,
-  dateAt DATE, NOT NULL,
+  dateAt DATE NOT NULL,
   PRIMARY KEY (id_correoatend),
   FOREIGN KEY (id_correo) REFERENCES SolicitudCorreos(id_correo)
 );
@@ -112,7 +112,7 @@ CREATE TABLE SolicitudLlamadas (
 CREATE TABLE LlamadasAtendidas (
   id_llamadaatend INT(11) NOT NULL AUTO_INCREMENT,
   id_llamada INT(11) NOT NULL,
-  dateAt DATE, NOT NULL,
+  dateAt DATE NOT NULL,
   PRIMARY KEY (id_llamadaatend),
   FOREIGN KEY (id_llamada) REFERENCES SolicitudLlamadas(id_llamada)
 );
