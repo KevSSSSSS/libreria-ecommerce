@@ -9,7 +9,8 @@ import { UserContext } from "../../../models/UserContext";
 export default function CallForm() {
     
     const {user} = useContext(UserContext);
-
+    console.log(user);
+    const id_u = user.id_usuario;
     const ladasLatam = ["52", "51", "54", "55", "56", "57", "58"
         , "501", "502", "503", "504", "505", "506", "507", "591", "592", "593", "594", "595", "597", "598"];
     
@@ -32,25 +33,30 @@ export default function CallForm() {
         const telefonoFinal = lada + form.telefono;
         const campoActivo = "1";
 
+        form.id_cliente = id_u;
         form.hora = horario;
         form.telefono = telefonoFinal;
         form.activo = campoActivo;
         
         console.log(form);
         //Aqui haces tu fetch
-        fetch(baseUrlAPI + "nombreTabla", {
+        fetch(baseUrlAPI + "solicitudllamadas", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(form)
         })
-        .then((data)=>{
-            console.log(data);
+        .then(response => response.json())
+        .then(data => {
+            if (data.code === 200) {
+
+            }
+            
         })
-        .catch((error)=>{
-            console.log(error);
-        })
+        .catch(error => {
+            console.error(error);
+        });
 
 
     }
@@ -95,9 +101,9 @@ export default function CallForm() {
                     <Form.Group className="mb-3" controlId="formText">
                         <Form.Label>Horario de disponibilidad:</Form.Label>
                         <Form.Select aria-label="Default select example" onChange={(e) => { setHorario(e.target.value) }}>
-                            {horariosTienda.map((horario) => {
+                            {horariosTienda.map((horario, index) => {
                                 return (
-                                    <option value={horario}>{horario}</option>
+                                    <option key={index} value={horario}>{horario}</option>
                                 )
                             })}
                         </Form.Select>
