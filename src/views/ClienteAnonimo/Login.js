@@ -27,6 +27,7 @@ export default function Login() {
         } else {
             setShowErrorMesagge2(false);
             setLoading(true);
+            
             fetch(`${baseUrlAPI}usuarios/?email=${dataUser.email}&contrasena=${dataUser.contrasena}`)
                 .then(response => response.json())
                 .then(data => {

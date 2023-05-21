@@ -43,11 +43,11 @@ export default function CallsView() {
                         <Form.Label>Descripción de la situación:</Form.Label>
                         <Form.Control as="textarea" disabled rows={3} />
                     </Form.Group>
-
+                    
                     <Button variant="primary" type="submit" style={{ marginLeft: 150 }}>
                         Atendido
                     </Button>
-
+                    
                 </Form>
             </div>
                
