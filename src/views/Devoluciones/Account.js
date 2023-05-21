@@ -24,6 +24,9 @@ export default function Account() {
                     <Link to={'/devoluciones'}>
                         <Button>Devoluciones</Button>
                     </Link>
+                    <Link to={'/cshome'}>
+                        <Button>Atención al cliente</Button>
+                    </Link>
                 </div>
             </div>
         </>

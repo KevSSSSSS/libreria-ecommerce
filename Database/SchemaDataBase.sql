@@ -64,7 +64,7 @@ CREATE TABLE Empleados (
   apellido_m VARCHAR(50) NOT NULL,
   email VARCHAR(80) NOT NULL,
   contrasena VARCHAR(150) NOT NULL,
-  telefono INT(12) NOT NULL,
+  telefono INT(18) NOT NULL,
   PRIMARY KEY (id_empleado)
 );
 
@@ -76,7 +76,7 @@ CREATE TABLE Clientes (
   apellido_m VARCHAR(50) NOT NULL,
   email VARCHAR(80) NOT NULL,
   contrasena VARCHAR(150) NOT NULL,
-  telefono INT(12) NOT NULL,
+  telefono INT(18) NOT NULL,
   PRIMARY KEY (id_cliente)
 );
 
@@ -102,7 +102,7 @@ CREATE TABLE SolicitudLlamadas (
   id_llamada INT(11) NOT NULL AUTO_INCREMENT,
   id_cliente INT(11) NOT NULL,
   nombreClient VARCHAR(50) NOT NULL,
-  telefono INT(12) NOT NULL,
+  telefono INT(18) NOT NULL,
   horario INT(11) NOT NULL,
   descripcion VARCHAR(250) NOT NULL,
   activo INT(1) NOT NULL,

@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import MasterPage from "../../../components/MasterPage";
 import NavTabMenu from "../../../components/NavTabMenu";
 import { Button } from "react-bootstrap";
+import { UserContext } from "../../../models/UserContext";
 
 export default function CSHome() {
+    const {user} = useContext(UserContext);
+
     return (
         <>
             <MasterPage />
             <NavTabMenu />
-            <h1 style={{ marginLeft: 600 }}>Bienvenido @user</h1>
+            <h1 style={{ marginLeft: 600 }}>Bienvenido {user.nombre}</h1>
             <div style={{ marginTop: 50, marginLeft: 200, marginRight: 100, border: "solid", padding: 10 }}>
                 <h3>¿Necesitas ayuda con...? </h3>
                 <div style={{ padding: 10 }}>
