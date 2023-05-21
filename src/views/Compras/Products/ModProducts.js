@@ -58,25 +58,19 @@ export default function ModProducts() {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({id_libro: bookData.id_libro,
-                titulo: bookData.titulo,
-                autor: bookData.autor,
-                foto: bookData.foto,
-                editorial: bookData.editorial,
-                descripcion: bookData.descripcion,
-                precio: bookData.precio,
-                descuento: bookData.descuento,
-                stock: bookData.stock,
-                activo: bookData.activo})
+            body: JSON.stringify(bookData)
         })
+            .then(response => response.json())
             .then(data => {
                 if (data.code === 200) {
                     setShowToast(true);
                 } else {
                     console.log("Ocurrio un error");
+                    console.log(data);
                 }
             })
             .catch(error => {
+                console.log("Ocurrio un error 2:");
                 console.error(error);
             });
 
