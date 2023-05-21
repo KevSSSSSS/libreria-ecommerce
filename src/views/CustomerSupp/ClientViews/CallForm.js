@@ -33,16 +33,13 @@ export default function CallForm() {
         const telefonoFinal = lada + form.telefono;
         const campoActivo = "1";
 
-        form.id_cliente = 1;
+        form.id_cliente = id_u;
         form.horario = horario;
         form.telefono = telefonoFinal;
         form.activo = campoActivo;
         
         //console.log(form);
         //Aqui haces tu fetc
-
-        console.log(form);
-        console.log(id_u);
         fetch("https://1o7jpf8t3j.execute-api.us-west-1.amazonaws.com/dev/test/solicitudllamadas", {
             method: 'POST',
             headers: {
