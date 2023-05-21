@@ -53,6 +53,7 @@ export default function ModProducts() {
         //console.log(bookData);
 
         setLoading(true);
+        console.log(bookData);
         fetch(`${baseUrlAPI}libros`, {
             method: 'PUT',
             headers: {
@@ -71,7 +72,7 @@ export default function ModProducts() {
             })
             .catch(error => {
                 console.log("Ocurrio un error 2:");
-                console.error(error);
+                console.error("ERROR:", error);
             });
 
     }
@@ -161,7 +162,7 @@ export default function ModProducts() {
                             <strong className="me-auto">Libro modificado</strong>
                             <small className="text-muted">Justo ahora</small>
                         </Toast.Header>
-                        <Toast.Body>El libro {bookData.titulo} se ha agregado correctamente.</Toast.Body>
+                        <Toast.Body>El libro {bookData.titulo} se ha modificado correctamente.</Toast.Body>
                     </Toast>
                 </ToastContainer>
                 <div style={{ width: "80%", padding: 20, backgroundColor: colors.white, borderRadius: 10, boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.25)' }}>
@@ -265,7 +266,7 @@ export default function ModProducts() {
                             </Col>
                         </Row>
 
-                        <Button style={{ backgroundColor: colors.primary, borderColor: colors.primary, marginTop: 20 }} disabled={loading} type="submit">
+                        <Button style={{ backgroundColor: colors.primary, borderColor: colors.primary, marginTop: 20 }} type="submit">
                             Modificar producto
                         </Button>
                     </Form>

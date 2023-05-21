@@ -9,15 +9,6 @@ export default function TableBooks(props) {
 
     const [datosTabla, setDatosTabla] = useState([]);
 
-    const getBooks = () => {
-        fetch(`${baseUrlAPI}libros`)
-            .then(response => response.json())
-            .then(data => {
-                setDatosTabla(data)
-            });
-
-    }
-
     return (
         <Table>
             <thead>
