@@ -9,7 +9,7 @@ import { UserContext } from "../../../models/UserContext";
 export default function CallForm() {
     
     const {user} = useContext(UserContext);
-    console.log(user);
+    //console.log(user);
     const id_u = user.id_usuario;
     const ladasLatam = ["52", "51", "54", "55", "56", "57", "58"
         , "501", "502", "503", "504", "505", "506", "507", "591", "592", "593", "594", "595", "597", "598"];
@@ -38,7 +38,7 @@ export default function CallForm() {
         form.telefono = telefonoFinal;
         form.activo = campoActivo;
         
-        console.log(form);
+        //console.log(form);
         //Aqui haces tu fetch
         fetch(baseUrlAPI + "solicitudllamadas", {
             method: 'POST',
