@@ -11,7 +11,7 @@ export default function DownProduct() {
         <>
             <MasterPage />
             <NavTabMenu />
-            <h1 style={{ marginLeft: 600 }}>Bienvenido @user</h1>
+            
 
             <div style={{ float: "right", marginTop: 50, marginRight: 500, marginLeft: 500, width: 600, border: "solid", padding: 15}}>
                 <h3>Detalles del producto</h3>

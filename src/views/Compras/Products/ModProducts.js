@@ -1,21 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MasterPage from "../../../components/MasterPage";
 import NavTabMenu from "../../../components/NavTabMenu";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import FloatingLabel from 'react-bootstrap/FloatingLabel'
-
-
-
+import { baseUrlAPI } from '../../../constants/constants';
 
 export default function ModProducts() {
+
+    const [prod, setProd] = useState([]);
+    function est(){
+        fetch(`${baseUrlAPI}productos/id_producto=1`)
+        .then((data) => {
+            setProd(data);
+            //Aqui te trae la informaciön y de la tabla y la muestra en consola
+            console.log(data);
+        })
+        .catch((e) => {
+            // Te imprime eI error en caso de que haya
+            console.log(e);
+        })
+
+    }
+
+    
+
     return (
         <>
             <MasterPage />
             <NavTabMenu />
-            <h1 style={{ marginLeft: 600 }}>Bienvenido @user</h1>
 
-            <div style={{ float: "right", marginTop: 50, marginRight: 500, marginLeft: 500, width: 600, border: "solid", padding: 15 }}>
+            <div style={{ float: "right", marginTop: 50, marginRight: "10%", marginBottom: "2%", width: "40%", border: "solid", padding: 15 }}>
                 <h3>Detalles del producto</h3>
 
                 <Form>
@@ -24,10 +39,12 @@ export default function ModProducts() {
                         <Form.Control
                             required
                             type="text"
-                            placeholder="Texto obtenido de la BD"
+                            defaultValue={prod.algo}
 
                         />
-                        <Form.Text className="text-muted"> Escribe el título del libro</Form.Text>
+                        <Form.Text className="text-muted"> Escribe el título del libro
+                        
+                        </Form.Text>
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formText">
@@ -92,7 +109,7 @@ export default function ModProducts() {
 
 
             </div>
-            <div style={{ float: "left", marginTop: -725, marginLeft: 80, width: 300, border: "solid", padding: 10 }}>
+            <div style={{ float: "left", marginTop: "5%", marginLeft: "5%", width: "30%", border: "solid", padding: 10 }}>
                 <Form>
                     <Form.Group className="mb-3" controlId="formIDSelect">
                         <FloatingLabel controlId="floatingSelect" label="Selecciona la clave del producto">
