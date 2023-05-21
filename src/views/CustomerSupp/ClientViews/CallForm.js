@@ -34,13 +34,13 @@ export default function CallForm() {
         const campoActivo = "1";
 
         form.id_cliente = id_u;
-        form.hora = horario;
+        form.horario = horario;
         form.telefono = telefonoFinal;
         form.activo = campoActivo;
         
         //console.log(form);
         //Aqui haces tu fetch
-        fetch(baseUrlAPI + "solicitudllamadas", {
+        fetch("https://1o7jpf8t3j.execute-api.us-west-1.amazonaws.com/dev/test/solicitudllamadas", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -49,6 +49,7 @@ export default function CallForm() {
         })
         .then(response => response.json())
         .then(data => {
+            console.log(data);
             if (data.code === 200) {
 
             }
@@ -73,7 +74,7 @@ export default function CallForm() {
                             type="text"
                             placeholder="Ingresa tu nombre"
                             required
-                            name="nombre"
+                            name="nombreClient"
                             onChange={handleChange}
                         />
 
