@@ -20,7 +20,7 @@ export default function PurchaseHome() {
                 <a href="/FormBook">
                 <Button variant = "info" size="lg" style={{ padding: 15, marginLeft: 20}}>Dar de alta</Button>  
                 </a>
-                <a href="/downproduct">
+                <a href="/modproducts">
                 <Button variant = "info" size="lg" style={{ padding: 15, marginLeft: 20}}>Dar de baja</Button> 
                 </a>
                 </div>

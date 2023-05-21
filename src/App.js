@@ -22,7 +22,7 @@ import PurchaseHome from './views/Compras/PurchaseHome';
 
 import ModProducts from './views/Compras/Products/ModProducts';
 
-import DownProduct from './views/Compras/Products/DownProduct';
+//import DownProduct from './views/Compras/Products/DownProduct';
 // Emd imports for Compras
 
 // All imports for Customer Support Client
@@ -70,7 +70,6 @@ function App() {
           <Route path='/homeInventary' element={<HomeInventary />} />
           <Route path='/formBook' element={<FormBook />} />
 
-          <Route path='/downproduct' element={<DownProduct />} />
           <Route path='/modproducts' element={<ModProducts />} />
         //End routes for Compras
 
