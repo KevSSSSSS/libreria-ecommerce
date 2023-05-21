@@ -7,6 +7,7 @@ import { baseUrlAPI } from "../../../constants/constants";
 import { UserContext } from "../../../models/UserContext";
 
 export default function CallForm() {
+    
     const {user} = useContext(UserContext);
 
     const ladasLatam = ["52", "51", "54", "55", "56", "57", "58"
@@ -35,6 +36,7 @@ export default function CallForm() {
         form.telefono = telefonoFinal;
         form.activo = campoActivo;
         
+        console.log(form);
         //Aqui haces tu fetch
         fetch(baseUrlAPI + "nombreTabla", {
             method: 'POST',
@@ -56,8 +58,6 @@ export default function CallForm() {
         <>
             <MasterPage />
             <NavTabMenu />
-            <h1 style={{ marginLeft: "40%" }}>Bienvenido @user</h1>
-
             <div style={{ float: "center", marginTop: "5%", marginLeft: "35%", width: 400, border: "solid", padding: 10 }}>
                 <h2>Formulario de la llamada:</h2>
                 <Form onSubmit={handleSubmit}>
