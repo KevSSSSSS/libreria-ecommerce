@@ -12,13 +12,10 @@ export default function PurchaseHome() {
             <div style={{marginTop: 100, marginLeft: 300, marginRight: 150, border: "solid"}}>   
             <h1>Productos: </h1>
                 <div style={{padding: 100}}>
-                <a href="/viewproducts">
-                <Button variant = "info" size="lg" style={{ padding: 15, marginLeft: 20}}>Visualizar producto por ID</Button>
+                <a href="/homeInventary">
+                <Button variant = "info" size="lg" style={{ padding: 15, marginLeft: 20}}>Visualizar productos</Button>
                 </a>
-                <a href="/modproducts">
-                <Button variant = "info" size="lg" style={{ padding: 15, marginLeft: 20}}>Modificar datos</Button>  
-                </a>
-                <a href="/upproduct">
+                <a href="/FormBook">
                 <Button variant = "info" size="lg" style={{ padding: 15, marginLeft: 20}}>Dar de alta</Button>  
                 </a>
                 <a href="/downproduct">
