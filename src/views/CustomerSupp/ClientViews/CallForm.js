@@ -19,7 +19,7 @@ export default function CallForm() {
         , "18:00", "19:30", "20:00"];
 
 
-    const [form, setForm] = useState({ id_cliente: "", nombre: "", telefono: "", hora: "", descripcion: "", activo: ""});
+    const [form, setForm] = useState({ id_cliente: "", nombreClient: "", telefono: "", horario: "", descripcion: "", activo: ""});
     const [lada, setLada] = useState("52");
     const [horario, setHorario] = useState("8:00");
 

@@ -1,6 +1,6 @@
 import React, { useContext, useRef, useState } from "react";
 import { Button, Col, Form, Row, Spinner, Toast, ToastContainer } from "react-bootstrap";
-import { useLocation, useNavigate } from "react-router";
+import { Navigate, useLocation, useNavigate } from "react-router";
 import { baseUrlAPI, colors } from "../../../constants/constants";
 import MasterPage from "../../../components/MasterPage";
 import NavTabMenu from "../../../components/NavTabMenu";
@@ -53,7 +53,7 @@ export default function ModProducts() {
         //console.log(bookData);
 
         setLoading(true);
-        console.log(bookData);
+        //console.log(bookData);
         fetch(`${baseUrlAPI}libros`, {
             method: 'PUT',
             headers: {
@@ -65,14 +65,15 @@ export default function ModProducts() {
             .then(data => {
                 if (data.code === 200) {
                     setShowToast(true);
+                    Navigate("/homeInventary");
                 } else {
-                    console.log("Ocurrio un error");
-                    console.log(data);
+                    //console.log("Ocurrio un error");
+                    //console.log(data);
                 }
             })
             .catch(error => {
-                console.log("Ocurrio un error 2:");
-                console.error("ERROR:", error);
+                //console.log("Ocurrio un error 2:");
+               // console.error("ERROR:", error);
             });
 
     }
