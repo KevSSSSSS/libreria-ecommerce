@@ -44,6 +44,10 @@ import EmailsView from './views/CustomerSupp/AdmonViews/EmailsView';
 import { UserProvider } from './models/UserContext';
 import Devoluciones from './views/Devoluciones/DevolucionesCliente';
 import DevolucionesHome from './views/Devoluciones/DevolucionesHome';
+import Atenderdev from './views/Devoluciones/AtenderDev';
+import Paqueteriadev from './views/Devoluciones/Paqueteriadev';
+import DevProcesadas from './views/Devoluciones/DevProcesadas';
+import HomeAlmacen from './views/Devoluciones/HomeAlmacen';
 
 
 
@@ -64,6 +68,11 @@ function App() {
           <Route path='/account' element={<Account />}/>
           <Route path='/devoluciones' element={<Devoluciones/>}/>
           <Route path='/devolucionesHome' element={<DevolucionesHome/>}/>
+          <Route path='/atenderDev' element={<Atenderdev/>}/>
+          <Route path='/paqueteriaDev' element={<Paqueteriadev/>}/>
+          <Route path='/devprocesadas' element={<DevProcesadas/>}/>
+          <Route path='/homealmacen' element={<HomeAlmacen/>}/>
+
 
       //Routes for Compras 
           <Route path='/purchasehome' element={<PurchaseHome />} />

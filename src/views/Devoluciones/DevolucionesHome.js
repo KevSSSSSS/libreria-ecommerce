@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import MasterPage from "../../components/MasterPage";
 import NavTabMenu from "../../components/NavTabMenu";
+import { Link, useLocation } from "react-router-dom";
 import { Table, Form, Container, Button } from "react-bootstrap";
 
 export default function DevolucionesHome() {
@@ -56,8 +57,9 @@ export default function DevolucionesHome() {
         <>
             <MasterPage />
             <NavTabMenu />
-            <Container style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
-                <h1>Devolución</h1>
+            <Container style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", }}>
+                <h1>Atender Devoluciones</h1>
+                <h5>Porfavor seleccione el status de la devolución</h5>
                 <Table striped bordered hover>
                     <thead>
                         <tr>
@@ -66,7 +68,9 @@ export default function DevolucionesHome() {
                             <th>Cantidad</th>
                             <th>Precio</th>
                             <th>Motivo de devolución</th>
-                            <th>Método de devolución</th>
+                            <th>Metodo de devolución</th>
+                            <th>FechaDevolución</th>
+                            <th>Status de devolución</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -79,6 +83,7 @@ export default function DevolucionesHome() {
                                         onChange={() => handleCheck(libro.id)}
                                     />
                                 </td>
+                                <td>{libro.idLibro}</td>
                                 <td>{libro.nombre}</td>
                                 <td>{libro.cantidad}</td>
                                 <td>{libro.precio}</td>
@@ -103,12 +108,14 @@ export default function DevolucionesHome() {
                     </tbody>
                 </Table>
                 <div style={{ width: "100%", display: "flex", justifyContent: "space-evenly" }}>
-                    <Button onClick={document.location.href='atenderDev.js'}>Atender devolución</Button>
+                <Link to={'/devprocesadas'}>
+                    <Button>Registro de devolución </Button>
+                </Link>
 
-                    <Button>Devolución paqueteria</Button>
-                    <Button>Almacen</Button>
                 </div>
+                
             </Container>
         </>
-    );
+
+           );
 }

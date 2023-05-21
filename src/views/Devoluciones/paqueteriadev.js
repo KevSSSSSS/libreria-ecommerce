@@ -3,7 +3,7 @@ import MasterPage from "../../components/MasterPage";
 import NavTabMenu from "../../components/NavTabMenu";
 import { Table, Form, Container, Button } from "react-bootstrap";
 
-export default function DevolucionesPaq() {
+export default function Paqueteriadev() {
     const [libros, setLibros] = useState([
         {
             id: 1,
@@ -63,7 +63,8 @@ export default function DevolucionesPaq() {
             <MasterPage />
             <NavTabMenu />
             <Container style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
-                <h1>Devolución</h1>
+                <h1>Registro de Devoluciones</h1>
+                <h5>Informe de devoluciones para Paqueteria</h5>
                 <Table striped bordered hover>
                     <thead>
                         <tr>

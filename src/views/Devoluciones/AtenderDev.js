@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import MasterPage from "../../components/MasterPage";
 import NavTabMenu from "../../components/NavTabMenu";
-import { Table, Form, Container, Button } from "react-bootstrap";
 
-export default function DevProcesadas() {
+import { Table, Form, Container, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
+export default function Atenderdev() {
     const [libros, setLibros] = useState([
         {
             id: 1,
@@ -12,10 +14,9 @@ export default function DevProcesadas() {
             precio: 10.99,
             motivo: "",
             metodo: "",
-            No_guia:"",
-            fecha_envio:"",
-            fecha_recibido:"",
-            fecha_atencion:""
+            devuelto: false,
+            fechadev: "",
+            status:"procede"
         },
         {
             id: 2,
@@ -24,10 +25,9 @@ export default function DevProcesadas() {
             precio: 14.99,
             motivo: "",
             metodo: "",
-            No_guia:"",
-            fecha_envio:"",
-            fecha_recibido:"",
-            fecha_atencion:""
+            devuelto: false,
+            fechadev: "",
+            status:"no procede"
         },
         {
             id: 3,
@@ -36,10 +36,9 @@ export default function DevProcesadas() {
             precio: 9.99,
             motivo: "",
             metodo: "",
-            No_guia:"",
-            fecha_envio:"",
-            fecha_recibido:"",
-            fecha_atencion:""
+            devuelto: false,
+            fechadev: "",
+            status:"procede"
         }
     ]);
 
@@ -66,7 +65,8 @@ export default function DevProcesadas() {
             <MasterPage />
             <NavTabMenu />
             <Container style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", }}>
-                <h1>Devolución</h1>
+                <h1>Atender Devoluciones</h1>
+                <h5>Porfavor seleccione el status de la devolución</h5>
                 <Table striped bordered hover>
                     <thead>
                         <tr>
@@ -76,10 +76,8 @@ export default function DevProcesadas() {
                             <th>Precio</th>
                             <th>Motivo de devolución</th>
                             <th>Metodo de devolución</th>
-                            <th>Número de Guía</th>
-                            <th>Fecha de Envio</th>
-                            <th>Fecha de Recibido</th>
-                            <th>Fecha de atención</th>
+                            <th>FechaDevolución</th>
+                            <th>Status de devolución</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -116,10 +114,13 @@ export default function DevProcesadas() {
                         ))}
                     </tbody>
                 </Table>
-                //finalizada /procesada
                 <div style={{ width: "100%", display: "flex", justifyContent: "space-evenly" }}>
-                    <Button>Cerrar</Button>
+                <Link to={'/devprocesadas'}>
+                    <Button>Registro de devolución </Button>
+                </Link>
+
                 </div>
+                
             </Container>
         </>
     );
