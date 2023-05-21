@@ -126,3 +126,23 @@ CREATE TABLE Productos (
   activo INT(1) NOT NULL,
   PRIMARY KEY (id_producto)
 );
+
+//------------------- Después de hacer la base devoluciones -----------------------
+CREATE TABLE Devoluciones (
+  id_devolucion INT(11) NOT NULL AUTO_INCREMENT,
+  id_libro INT(11) NOT NULL ,
+  id_cliente INT(11) NOT NULL,
+  id_empleado INT(11) NOT NULL
+  precio INT(11) NOT NULL,
+  num_guia VARCHAR(50) NOT NULL,
+  fecha_envio VARCHAR(50) NOT NULL,
+  fecha_atencion VARCHAR(50) NOT NULL,
+  fecha_recibido VARCHAR(50) NOT NULL,
+  motivo_dev VARCHAR(50) NOT NULL,
+  metodo_dev VARCHAR(50) NOT NULL,
+  status_dev VARCHAR(50) NOT NULL,
+  PRIMARY KEY (id_devolucion)
+  FOREIGN KEY (id_libro) REFERENCES Libros(id_libro)
+  FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente)
+  FOREIGN KEY (id_empleado) REFERENCES Empleados(id_empleado)
+);
