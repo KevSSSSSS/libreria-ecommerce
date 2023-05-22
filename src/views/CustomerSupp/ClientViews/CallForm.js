@@ -135,7 +135,7 @@ export default function CallForm() {
                     <Button variant="primary" type="submit" style={{ marginLeft: 220 }}>
                         Enviar
                     </Button>
-
+                    <h4>Se le redireccionara a la anterior página cuando su solicitud se haya enviado</h4>
                 </Form>
             </div>
 

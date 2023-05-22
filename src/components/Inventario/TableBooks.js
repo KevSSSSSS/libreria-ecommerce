@@ -37,6 +37,12 @@ export default function TableBooks(props) {
                         <td>{fila.descuento}</td>
                         <td>{fila.stock}</td>
                         <td>
+                            <Link to ={"/viewproducts"} state={{fila:fila}}>
+                            <Button>Visualizar datos</Button>
+                            </Link>
+                        
+                        </td>
+                        <td>
                             <Link to ={"/modproducts"} state={{fila:fila}}>
                             <Button>Modificar datos</Button>
                             </Link>

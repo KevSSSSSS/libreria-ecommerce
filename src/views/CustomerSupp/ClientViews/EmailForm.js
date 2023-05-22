@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import MasterPage from "../../../components/MasterPage";
 import NavTabMenu from "../../../components/NavTabMenu";
+import {Toast, ToastContainer } from "react-bootstrap";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { UserContext } from "../../../models/UserContext";
@@ -11,6 +12,8 @@ import {useNavigate } from "react-router-dom";
 export default function EmailForm() {
 
     const { user } = useContext(UserContext);
+    const [loading, setLoading] = useState(false);
+    const [showToast, setShowToast] = useState(false);
     const id_u = user.id_usuario;
     const namec = user.nombre;
     const navigate = useNavigate();
@@ -52,7 +55,10 @@ export default function EmailForm() {
         .then(data => {
             console.log(data);
             if (data.code === 200) {
-                navigate(-1);
+                
+                setShowToast(true);
+                console.log("pase el toast")
+                navigate("/cshome");
             }else{
                 console.log(data);
             }
@@ -63,11 +69,25 @@ export default function EmailForm() {
         });
        
     }
+    const toggleShow = () => {
+        setShowToast(!showToast);
+    }
+
     return (
         <>
             <MasterPage />
             <NavTabMenu />
             <div style={{ float: "center", marginTop: "5%", marginLeft: "35%", width: 400, border: "solid", padding: 10 }}>
+            <ToastContainer>
+                    <Toast onClose={toggleShow} show={showToast}>
+                        <Toast.Header>
+                            <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
+                            <strong className="me-auto">Solicitud aceptada</strong>
+                            <small className="text-muted">Justo ahora</small>
+                        </Toast.Header>
+                        <Toast.Body>La solicitud se ha enviado correctamente.</Toast.Body>
+                    </Toast>
+                </ToastContainer>
                 <h2>Formulario del correo:</h2>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group className="mb-3" controlId="formText">
@@ -119,7 +139,7 @@ export default function EmailForm() {
                     <Button variant="primary" type="submit" style={{ marginLeft: 220 }}>
                         Enviar
                     </Button>
-
+                    <h4>Se le redireccionara a la anterior página cuando su solicitud se haya enviado</h4>
                 </Form>
             </div>
 
