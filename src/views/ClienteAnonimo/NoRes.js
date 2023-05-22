@@ -12,6 +12,10 @@ export default function NoRes (){
             <MasterPage />
             <NavTabMenu />
             <BannerHome /> 
+            <div style={{ textAlign: "center", margin: "20px" }}>
+                <h3>NO SE ENCONTRÓ REULTADO.</h3>
+                <h3>!</h3>
+            </div>
         </>
 
     )
