@@ -3,7 +3,7 @@ import { Form, Button, Image, Spinner } from "react-bootstrap";
 import { colors } from "../../constants/constants";
 
 //Importaciones de componentes
-import TabMenuPaqueteria from "../../components/Paqueteria/TabMenuPaqueteria";
+import TabMenuPaqueteria from "../../components/Paqueteria/TabMenuOrdenes";
 import BannerHome from "../../components/BannerHome"
 
 export default function Home() {
@@ -18,26 +18,30 @@ export default function Home() {
                     <input type="text" name="texto" placeholder="   ID de pedido" style={{margin: "1%"}}></input>
                 <Button variant="light">Buscar</Button>
                 </form>
-                <h1 style={{textAlign: "center", justifyContent: "center", margin: "4vh 25vh"}}>PEDIDOS ENVIADOS</h1>
+                <h1 style={{textAlign: "center", justifyContent: "center", margin: "4vh 25vh"}}>ORDENES ENVIADAS</h1>
             </div>
             <div style={{ backgroundColor: "#ebebeb", height: "60vh" , display: "flex"}}>
                 <table style={{width: "100%", verticalAlign: "center", border: "1px solid #fba71b", margin: "3vh"}}>
                     <tr style={{textAlign: "center", border: "1px solid #fba71b", height: "8%", background: colors.primary}}>
-                        <th style={{border: "1px solid #fba71b"}}>ID</th>
-                        <th style={{border: "1px solid #fba71b"}}>Paqueteria</th>
-                        <th style={{border: "1px solid #fba71b"}}>No. Guia</th>
-                        <th style={{border: "1px solid #fba71b"}}>Fecha de envío</th>
-                        <th style={{border: "1px solid #fba71b"}}>Fecha de entrega</th>
-                        <th style={{border: "1px solid #fba71b"}}>Entregado</th>
+                        <th style={{border: "1px solid #fba71b", fontSize: "25px", color: "white"}}>ID</th>
+                        <th style={{border: "1px solid #fba71b", fontSize: "25px", color: "white"}}>Paqueteria</th>
+                        <th style={{border: "1px solid #fba71b", fontSize: "25px", color: "white"}}>No. Guia</th>
+                        <th style={{border: "1px solid #fba71b", fontSize: "25px", color: "white"}}>Fecha de envío</th>
+                        <th style={{border: "1px solid #fba71b", fontSize: "25px", color: "white"}}>Fecha de entrega</th>
+                        <th style={{border: "1px solid #fba71b", fontSize: "25px", color: "white"}}>Detalle</th>
+                        <th style={{border: "1px solid #fba71b", fontSize: "25px", color: "white"}}>Entregado</th>
                     </tr>
-                    <tr style={{textAlign: "center", border: "1px solid #e1b683", height: "12%", background: colors.white}}>
+                    <tr style={{fontSize: "20px", textAlign: "center", border: "1px solid #e1b683", height: "12%", background: colors.white}}>
                         <td>1</td>
                         <td>UPS</td>
                         <td>2873625362734909</td>
                         <td>20/04/2023</td>
                         <td>25/04/2023</td>
                         <td>
-                            <Button variant="light">Entregado</Button>
+                            <Button variant="secondary">Ver Detalle</Button>
+                        </td>
+                        <td>
+                            <Button variant="secondary">Entregado</Button>
                         </td>
                     </tr>
                     <tr>
