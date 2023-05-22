@@ -5,12 +5,14 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { useLocation } from "react-router";
 import { baseUrlAPI } from "../../../constants/constants";
+import {useNavigate } from "react-router-dom";
 
 
 export default function EmailsView() {
 
     const location = useLocation();
     const solicitud = location.state.fila;
+    const navigate = useNavigate();
     
     const sendDataUp = (event) => {
         event.preventDefault();
@@ -27,7 +29,7 @@ export default function EmailsView() {
             .then(response => response.json())
             .then(data => {
                 if (data.code === 200) {
-                    
+                    navigate(-1);
                 } else {
                     //console.log("Ocurrio un error");
                     //console.log(data);
