@@ -21,6 +21,7 @@ import Account from './views/Devoluciones/Account';
 import HomePaq from './views/Paqueteria/HomePaqueteria';
 import OrdenesNoEnviadas from './views/Paqueteria/OrdenesNoEnviadas';
 import EnvioOrden from './views/Paqueteria/EnvioOrden';
+import OrdenesEnviadas from './views/Paqueteria/OrdenesEnviadas';
 
 
 import NoRes from './views/ClienteAnonimo/NoRes';
@@ -54,7 +55,7 @@ import { UserProvider } from './models/UserContext';
 import Devoluciones from './views/Devoluciones/DevolucionesCliente';
 import DevolucionesHome from './views/Devoluciones/DevolucionesHome';
 import Atenderdev from './views/Devoluciones/AtenderDev';
-import Paqueteriadev from './views/Devoluciones/Paqueteriadev';
+import Paqueteriadev from './views/Devoluciones/paqueteriadev';
 import DevProcesadas from './views/Devoluciones/DevProcesadas';
 import HomeAlmacen from './views/Devoluciones/HomeAlmacen';
 
@@ -97,6 +98,7 @@ function App() {
         <Route path='/homepaq' element={<HomePaq />} />
         <Route path='/ordenesnoenv' element={<OrdenesNoEnviadas />} />
         <Route path='/envioorden' element={<EnvioOrden />} />
+        <Route path='/ordenesenv' element={<OrdenesEnviadas />} />
 
         //Routes for Customer Support Client
           <Route path='/cshome' element={<CustomerSuppHome />} />
