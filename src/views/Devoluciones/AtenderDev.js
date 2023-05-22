@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import MasterPage from "../../components/MasterPage";
 import NavTabMenu from "../../components/NavTabMenu";
-import { Link, useLocation } from "react-router-dom";
-import { Table, Form, Container, Button } from "react-bootstrap";
 
-export default function DevolucionesHome() {
+import { Table, Form, Container, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
+
+export default function Atenderdev() {
     const [libros, setLibros] = useState([
         {
             id: 1,
@@ -13,7 +14,9 @@ export default function DevolucionesHome() {
             precio: 10.99,
             motivo: "",
             metodo: "",
-            devuelto: false
+            devuelto: false,
+            fechadev: "",
+            status:"procede"
         },
         {
             id: 2,
@@ -22,7 +25,9 @@ export default function DevolucionesHome() {
             precio: 14.99,
             motivo: "",
             metodo: "",
-            devuelto: false
+            devuelto: false,
+            fechadev: "",
+            status:"no procede"
         },
         {
             id: 3,
@@ -31,7 +36,9 @@ export default function DevolucionesHome() {
             precio: 9.99,
             motivo: "",
             metodo: "",
-            devuelto: false
+            devuelto: false,
+            fechadev: "",
+            status:"procede"
         }
     ]);
 
@@ -116,6 +123,5 @@ export default function DevolucionesHome() {
                 
             </Container>
         </>
-
-           );
+    );
 }

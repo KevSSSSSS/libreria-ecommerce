@@ -20,12 +20,14 @@ export default function FormBook() {
             descripcion: "",
             precio: "",
             descuento: "",
-            stock: ""
+            stock: "",
+            activo: ""
         }
     );
 
     const postBook = (event) => {
         event.preventDefault();
+        bookData.activo = 1;
         setLoading(true);
         fetch(`${baseUrlAPI}libros`, {
             method: 'POST',

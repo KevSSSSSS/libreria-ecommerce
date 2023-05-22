@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import MasterPage from "../../components/MasterPage";
 import NavTabMenu from "../../components/NavTabMenu";
-import { Link, useLocation } from "react-router-dom";
 import { Table, Form, Container, Button } from "react-bootstrap";
 
-export default function DevolucionesHome() {
+export default function DevProcesadas() {
     const [libros, setLibros] = useState([
         {
             id: 1,
@@ -13,7 +12,10 @@ export default function DevolucionesHome() {
             precio: 10.99,
             motivo: "",
             metodo: "",
-            devuelto: false
+            No_guia:"",
+            fecha_envio:"",
+            fecha_recibido:"",
+            fecha_atencion:""
         },
         {
             id: 2,
@@ -22,7 +24,10 @@ export default function DevolucionesHome() {
             precio: 14.99,
             motivo: "",
             metodo: "",
-            devuelto: false
+            No_guia:"",
+            fecha_envio:"",
+            fecha_recibido:"",
+            fecha_atencion:""
         },
         {
             id: 3,
@@ -31,7 +36,10 @@ export default function DevolucionesHome() {
             precio: 9.99,
             motivo: "",
             metodo: "",
-            devuelto: false
+            No_guia:"",
+            fecha_envio:"",
+            fecha_recibido:"",
+            fecha_atencion:""
         }
     ]);
 
@@ -58,8 +66,7 @@ export default function DevolucionesHome() {
             <MasterPage />
             <NavTabMenu />
             <Container style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", }}>
-                <h1>Atender Devoluciones</h1>
-                <h5>Porfavor seleccione el status de la devolución</h5>
+                <h1>Devolución</h1>
                 <Table striped bordered hover>
                     <thead>
                         <tr>
@@ -69,8 +76,10 @@ export default function DevolucionesHome() {
                             <th>Precio</th>
                             <th>Motivo de devolución</th>
                             <th>Metodo de devolución</th>
-                            <th>FechaDevolución</th>
-                            <th>Status de devolución</th>
+                            <th>Número de Guía</th>
+                            <th>Fecha de Envio</th>
+                            <th>Fecha de Recibido</th>
+                            <th>Fecha de atención</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -107,15 +116,11 @@ export default function DevolucionesHome() {
                         ))}
                     </tbody>
                 </Table>
+                //finalizada /procesada
                 <div style={{ width: "100%", display: "flex", justifyContent: "space-evenly" }}>
-                <Link to={'/devprocesadas'}>
-                    <Button>Registro de devolución </Button>
-                </Link>
-
+                    <Button>Cerrar</Button>
                 </div>
-                
             </Container>
         </>
-
-           );
+    );
 }
