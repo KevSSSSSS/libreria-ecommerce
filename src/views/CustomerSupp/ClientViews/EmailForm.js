@@ -5,18 +5,21 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { UserContext } from "../../../models/UserContext";
 import { baseUrlAPI } from "../../../constants/constants";
+import {useNavigate } from "react-router-dom";
 
 
 export default function EmailForm() {
 
     const { user } = useContext(UserContext);
     const id_u = user.id_usuario;
+    const namec = user.nombre;
+    const navigate = useNavigate();
 
     const horariosTienda = ["8:00", "8:30", "9:00", "9:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30"
         , "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30"
         , "18:00", "19:30", "20:00"];
 
-    const [form, setForm] = useState({ id_cliente: "", nombre: "", correo: "", hora: "", descripcion: "", activo: "" });
+    const [form, setForm] = useState({ id_cliente: "", nombreClient: "", correo: "", horario: "", descripcion: "", activo: "" });
     const [horario, setHorario] = useState("8:00");
 
 
@@ -30,30 +33,35 @@ export default function EmailForm() {
         const campoActivo = "1";
         
         form.id_cliente = id_u;
-        form.hora = horario;
+        form.horario = horario;
         form.activo = campoActivo;
+        form.nombreClient = namec;
+
 
         console.log(form);
         //Aqui haces tu fetch
-        fetch(baseUrlAPI + "solicitudcorreos", {
+       
+        fetch(`${baseUrlAPI}solicitudcorreos`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(form)
         })
-            .then(response => response.json())
-            .then(data => {
-                if (data.code === 200) {
-
-                }
-
-            })
-            .catch(error => {
-                console.error(error);
-            });
-
-
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            if (data.code === 200) {
+                navigate(-1);
+            }else{
+                console.log(data);
+            }
+            
+        })
+        .catch(error => {
+            console.error(error);
+        });
+       
     }
     return (
         <>
@@ -67,8 +75,9 @@ export default function EmailForm() {
                         <Form.Control
                             type="text"
                             placeholder="Ingresa tu nombre"
-                            required
-                            name="nombre"
+                            defaultValue={user.nombre}
+                            disabled
+                            name="nombreClient"
                             onChange={handleChange}
                         />
                     </Form.Group>
@@ -88,9 +97,9 @@ export default function EmailForm() {
                     <Form.Group className="mb-3" controlId="formText">
                         <Form.Label>Horario de disponibilidad:</Form.Label>
                         <Form.Select aria-label="Default select example" onChange={(e) => { setHorario(e.target.value) }}>
-                            {horariosTienda.map((horario) => {
+                            {horariosTienda.map((horario, index) => {
                                 return (
-                                    <option value={horario}>{horario}</option>
+                                    <option key={index} value={horario}>{horario}</option>
                                 )
                             })}
                         </Form.Select>
