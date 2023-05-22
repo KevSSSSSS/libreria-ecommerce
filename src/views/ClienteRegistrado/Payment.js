@@ -19,15 +19,16 @@ export default function Payment() {
     const [metodoDePago, setMetodoDePago] = useState({});
 
     const postMetodoPago = () => {
-        let metodo = {id_usuario: user.id_usuario, tarjeta: "87887782782782782782", fecha_expiracion: "20-03-2023", titular: user.nombre + user.apellido_p + user.apellido_m, cvv: "757"};
+        let metodo = {id_usuario: user.id_usuario, tarjeta: "87887782", fecha_expiracion: "10-03-2023", titular: user.nombre + user.apellido_p + user.apellido_m, cvv: "757"};
         console.log(metodo);
-        fetch(baseUrlAPI + "metodospago", {
+        fetch("http://localhost:4000/test/" + "metodospago", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(metodo)
         })
+        .then(response => response.json())
         .then(data => {
             console.log(data);
         })
