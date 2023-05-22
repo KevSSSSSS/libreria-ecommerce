@@ -179,6 +179,10 @@ export default function ViewProducts() {
                                     <Form.Label>Descripción: <br /> {libro.descripcion} </Form.Label>
                                 </Form.Group>
                             </Col>
+                            <Form.Group>
+                                    <Form.Label>Foto: <br /> <img src={libro.foto} alt={libro.titulo} width={"10%%"} /></Form.Label>                    
+                                </Form.Group>
+                            
                             <Col>
                                 <Form.Group>
                                     <Form.Label>Autor: <br /> {libro.autor} </Form.Label>
