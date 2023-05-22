@@ -1,8 +1,13 @@
-import React from "react";
-import { Table } from "react-bootstrap";
+import React, { useState } from "react";
+import { Button, Table } from "react-bootstrap";
+import { Navigate } from "react-router";
+import { Link } from "react-router-dom";
 
 export default function TableBooks(props) {
+
     const { libros } = props;
+
+    const [datosTabla, setDatosTabla] = useState([]);
 
     return (
         <Table>
@@ -31,6 +36,18 @@ export default function TableBooks(props) {
                         <td>{fila.precio}</td>
                         <td>{fila.descuento}</td>
                         <td>{fila.stock}</td>
+                        <td>
+                            <Link to ={"/viewproducts"} state={{fila:fila}}>
+                            <Button>Visualizar datos</Button>
+                            </Link>
+                        
+                        </td>
+                        <td>
+                            <Link to ={"/modproducts"} state={{fila:fila}}>
+                            <Button>Modificar datos</Button>
+                            </Link>
+                        
+                        </td>
                     </tr>
                 ))}
             </tbody>

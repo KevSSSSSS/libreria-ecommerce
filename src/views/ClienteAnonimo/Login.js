@@ -55,7 +55,11 @@ export default function Login() {
             if (rol === 'Administrador de devoluciones') {
                 navigate("/devolucionesHome")
             } else {
-                navigate("/");
+                if (rol === 'Administrador de clientes') {
+                    navigate("/csadmonhome")
+                } else {
+                    navigate("/");
+                }
             }
         }
     }

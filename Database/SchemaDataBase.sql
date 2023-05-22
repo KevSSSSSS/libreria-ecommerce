@@ -36,6 +36,7 @@ CREATE TABLE Usuarios (
   PRIMARY KEY (id_usuario)
 );
 
+
 CREATE TABLE Pedidos (
   id_pedido INT(11) NOT NULL AUTO_INCREMENT,
   id_usuario INT(11) NOT NULL,
@@ -67,6 +68,8 @@ CREATE TABLE Detalles_Pedidos (
   FOREIGN KEY (id_libro) REFERENCES Libros(id_libro),
   FOREIGN KEY (id_paqueteria) REFERENCES Paqueterias(id_paqueteria)
 );
+
+
 //------------------- Después de hacer la base -----------------------
 CREATE TABLE Empleados (
   id_empleado INT(11) NOT NULL AUTO_INCREMENT,
@@ -101,7 +104,7 @@ CREATE TABLE SolicitudCorreos (
   descripcion VARCHAR(250) NOT NULL,
   activo INT(1) NOT NULL,
   PRIMARY KEY (id_correo),
-  FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente)
+  FOREIGN KEY (id_cliente) REFERENCES Usuarios(id_usuario)
 );
 CREATE TABLE CorreosAtendidos (
   id_correoatend INT(11) NOT NULL AUTO_INCREMENT,
@@ -119,7 +122,7 @@ CREATE TABLE SolicitudLlamadas (
   descripcion VARCHAR(250) NOT NULL,
   activo INT(1) NOT NULL,
   PRIMARY KEY (id_llamada),
-  FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente)
+  FOREIGN KEY (id_cliente) REFERENCES Usuarios(id_usuario)
 );
 CREATE TABLE LlamadasAtendidas (
   id_llamadaatend INT(11) NOT NULL AUTO_INCREMENT,
@@ -138,3 +141,58 @@ CREATE TABLE Productos (
   activo INT(1) NOT NULL,
   PRIMARY KEY (id_producto)
 );
+
+//------------------- Después de hacer la base devoluciones -----------------------
+CREATE TABLE Devoluciones (
+  id_devolucion INT(11) NOT NULL AUTO_INCREMENT,
+  id_libro INT(11) NOT NULL ,
+  id_cliente INT(11) NOT NULL,
+  id_empleado INT(11) NOT NULL
+  precio INT(11) NOT NULL,
+  num_guia VARCHAR(50) NOT NULL,
+  fecha_envio VARCHAR(50) NOT NULL,
+  fecha_atencion VARCHAR(50) NOT NULL,
+  fecha_recibido VARCHAR(50) NOT NULL,
+  motivo_dev VARCHAR(50) NOT NULL,
+  metodo_dev VARCHAR(50) NOT NULL,
+  status_dev VARCHAR(50) NOT NULL,
+  PRIMARY KEY (id_devolucion)
+  FOREIGN KEY (id_libro) REFERENCES Libros(id_libro)
+  FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente)
+  FOREIGN KEY (id_empleado) REFERENCES Empleados(id_empleado)
+);
+
+------------- Kevin (Usuario Anonimo) ---------------
+CREATE TABLE Pedidos (
+  id_pedido INT(11) NOT NULL AUTO_INCREMENT,
+  id_usuario INT(11) NOT NULL,
+  fecha DATE NOT NULL,
+  direccion VARCHAR(50) NOT NULL,
+  estatus VARCHAR(50) NOT NULL,
+  total DECIMAL(10,2) NOT NULL,
+  PRIMARY KEY (id_pedido),
+  FOREIGN KEY (id_usuario) REFERENCES Usuarios(id_usuario)
+);
+
+CREATE TABLE Detalles_Pedidos (
+  id_detalle INT(11) NOT NULL AUTO_INCREMENT,
+  id_pedido INT(11) NOT NULL,
+  id_libro INT(11) NOT NULL,
+  cantidad INT(11) NOT NULL,
+  precio DECIMAL(10,2) NOT NULL,
+  PRIMARY KEY (id_detalle),
+  FOREIGN KEY (id_pedido) REFERENCES Pedidos(id_pedido),
+  FOREIGN KEY (id_libro) REFERENCES Libros(id_libro)
+);
+
+CREATE TABLE Metodos_pago (
+  id_metodo_pago INT(11) NOT NULL AUTO_INCREMENT,
+  id_usuario INT(11) NOT NULL,
+  tarjeta INT(11) NOT NULL,
+  fecha_expiracion INT(11) NOT NULL,
+  cvv INT(3) NOT NULL,
+  titular INT(11) NOT NULL,
+  PRIMARY KEY (id_metodo_pago),
+  FOREIGN KEY (id_usuario) REFERENCES Usuarios(id_usuario)
+);
+

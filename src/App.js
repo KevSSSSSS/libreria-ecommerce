@@ -16,18 +16,22 @@ import Cart from './views/Devoluciones/Cart';
 import Payment from './views/ClienteRegistrado/Payment';
 import Account from './views/Devoluciones/Account';
 
+
 //Importaciones de Paqueterias
 import HomePaq from './views/Paqueteria/HomePaqueteria';
 import OrdenesNoEnviadas from './views/Paqueteria/OrdenesNoEnviadas';
 import EnvioOrden from './views/Paqueteria/EnvioOrden';
 
 
+import NoRes from './views/ClienteAnonimo/NoRes';
+
+
 // All imports for Compras
 import PurchaseHome from './views/Compras/PurchaseHome';
-import ViewProducts from './views/Compras/Products/ViewProducts';
+
 import ModProducts from './views/Compras/Products/ModProducts';
-import UpProduct from './views/Compras/Products/UpProduct';
-import DownProduct from './views/Compras/Products/DownProduct';
+
+import ViewProduct from './views/Compras/Products/ViewProduct';
 // Emd imports for Compras
 
 // All imports for Customer Support Client
@@ -49,6 +53,10 @@ import EmailsView from './views/CustomerSupp/AdmonViews/EmailsView';
 import { UserProvider } from './models/UserContext';
 import Devoluciones from './views/Devoluciones/DevolucionesCliente';
 import DevolucionesHome from './views/Devoluciones/DevolucionesHome';
+import Atenderdev from './views/Devoluciones/AtenderDev';
+import Paqueteriadev from './views/Devoluciones/Paqueteriadev';
+import DevProcesadas from './views/Devoluciones/DevProcesadas';
+import HomeAlmacen from './views/Devoluciones/HomeAlmacen';
 
 
 
@@ -62,20 +70,27 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path='/book/:book' element={<Book />} />
           <Route path='/books' element={<BooksList />} />
-          <Route path='/homeInventary' element={<HomeInventary />} />
-          <Route path='/formBook' element={<FormBook />} />
+
           <Route path='/cart' element={<Cart />}></Route>
           <Route path='/payment' element={<Payment />} />
           <Route path='/account' element={<Account />}/>
           <Route path='/devoluciones' element={<Devoluciones/>}/>
           <Route path='/devolucionesHome' element={<DevolucionesHome/>}/>
+          <Route path='/atenderDev' element={<Atenderdev/>}/>
+          <Route path='/paqueteriaDev' element={<Paqueteriadev/>}/>
+          <Route path='/devprocesadas' element={<DevProcesadas/>}/>
+          <Route path='/homealmacen' element={<HomeAlmacen/>}/>
+          <Route path= '/NoRes' element={<NoRes/>}/>
+
 
       //Routes for Compras 
           <Route path='/purchasehome' element={<PurchaseHome />} />
-          <Route path='/upproduct' element={<UpProduct />} />
-          <Route path='/downproduct' element={<DownProduct />} />
-          <Route path='/viewproducts' element={<ViewProducts />} />
+
+          <Route path='/homeInventary' element={<HomeInventary />} />
+          <Route path='/formBook' element={<FormBook />} />
+
           <Route path='/modproducts' element={<ModProducts />} />
+          <Route path='/viewproducts' element={<ViewProduct />} />
         //End routes for Compras
 
         //Rutas para Paqueteria
