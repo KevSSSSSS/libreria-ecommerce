@@ -69,8 +69,8 @@ export default function DevolucionesHome() {
                             <th>Precio</th>
                             <th>Motivo de devolución</th>
                             <th>Metodo de devolución</th>
-                            <th>FechaDevolución</th>
                             <th>Status de devolución</th>
+                            <th>FechaDevolución</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -108,8 +108,13 @@ export default function DevolucionesHome() {
                     </tbody>
                 </Table>
                 <div style={{ width: "100%", display: "flex", justifyContent: "space-evenly" }}>
-                <Link to={'/devprocesadas'}>
-                    <Button>Registro de devolución </Button>
+
+                <Link to={'/devprocadmin'}>
+                    <Button>Solicitudes procesadas </Button>
+                </Link>
+
+                <Link to={'/paqueteriadev'}>
+                    <Button>Registro de paqueteria</Button>
                 </Link>
 
                 </div>
