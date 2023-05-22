@@ -16,6 +16,9 @@ import Cart from './views/Devoluciones/Cart';
 import Payment from './views/ClienteRegistrado/Payment';
 import Account from './views/Devoluciones/Account';
 
+//Importaciones de Paqueterias
+import HomePaq from './views/Paqueteria/HomePaqueteria';
+
 
 // All imports for Compras
 import PurchaseHome from './views/Compras/PurchaseHome';
@@ -72,6 +75,9 @@ function App() {
           <Route path='/viewproducts' element={<ViewProducts />} />
           <Route path='/modproducts' element={<ModProducts />} />
         //End routes for Compras
+
+        //Rutas para Paqueteria
+        <Route path='/homepaq' element={<HomePaq />} />
 
         //Routes for Customer Support Client
           <Route path='/cshome' element={<CustomerSuppHome />} />
