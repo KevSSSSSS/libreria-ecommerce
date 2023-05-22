@@ -45,15 +45,27 @@ CREATE TABLE Pedidos (
   FOREIGN KEY (id_usuario) REFERENCES Usuarios(id_usuario)
 );
 
+CREATE TABLE Paqueterias (
+  id_paqueteria INT(11) NOT NULL AUTO_INCREMENT,
+  nombre VARCHAR(50) NOT NULL,
+  encargado VARCHAR(50) NOT NULL,
+  direccion VARCHAR(100) NOT NULL
+  PRIMARY KEY (id_paqueteria)
+)
+
 CREATE TABLE Detalles_Pedidos (
   id_detalle INT(11) NOT NULL AUTO_INCREMENT,
   id_pedido INT(11) NOT NULL,
   id_libro INT(11) NOT NULL,
+  id_paqueteria INT(11) NOT NULL,
   cantidad INT(11) NOT NULL,
   precio_unitario DECIMAL(10,2) NOT NULL,
+  fecha_envio DATE NOT NULL,
+  fecha_entrega DATE NOT NULL,
   PRIMARY KEY (id_detalle),
   FOREIGN KEY (id_pedido) REFERENCES Pedidos(id_pedido),
-  FOREIGN KEY (id_libro) REFERENCES Libros(id_libro)
+  FOREIGN KEY (id_libro) REFERENCES Libros(id_libro),
+  FOREIGN KEY (id_paqueteria) REFERENCES Paqueterias(id_paqueteria)
 );
 //------------------- Después de hacer la base -----------------------
 CREATE TABLE Empleados (
