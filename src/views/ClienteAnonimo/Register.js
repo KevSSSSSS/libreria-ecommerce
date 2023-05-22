@@ -10,7 +10,7 @@ export default function Register() {
     const { user, login, logout } = useContext(UserContext);
     const navigate = useNavigate();
     
-    const [dataUser, setDataUser] = useState({ nombre: "", rol: "Cliente", apellido_p: "", apellido_m: "", email: "", contrasena: "" });
+    const [dataUser, setDataUser] = useState({id_usuario: "", nombre: "", rol: "Cliente", apellido_p: "", apellido_m: "", email: "", contrasena: "" });
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -29,7 +29,7 @@ export default function Register() {
             .then(response => response.json())
             .then(data => {
                 if (data.code === 200) {
-                    login(dataUser);
+                    login({...dataUser, id_usuario: data.body.insertId});
                     navigate("/");
                 }
             })

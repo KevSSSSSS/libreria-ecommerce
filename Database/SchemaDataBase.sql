@@ -89,7 +89,7 @@ CREATE TABLE SolicitudCorreos (
   descripcion VARCHAR(250) NOT NULL,
   activo INT(1) NOT NULL,
   PRIMARY KEY (id_correo),
-  FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente)
+  FOREIGN KEY (id_cliente) REFERENCES Usuarios(id_usuario)
 );
 CREATE TABLE CorreosAtendidos (
   id_correoatend INT(11) NOT NULL AUTO_INCREMENT,
@@ -107,7 +107,7 @@ CREATE TABLE SolicitudLlamadas (
   descripcion VARCHAR(250) NOT NULL,
   activo INT(1) NOT NULL,
   PRIMARY KEY (id_llamada),
-  FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente)
+  FOREIGN KEY (id_cliente) REFERENCES Usuarios(id_usuario)
 );
 CREATE TABLE LlamadasAtendidas (
   id_llamadaatend INT(11) NOT NULL AUTO_INCREMENT,

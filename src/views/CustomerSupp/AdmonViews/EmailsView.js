@@ -5,7 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
 
-export default function CallsView() {
+export default function EmailsView() {
     return (
         <>
             <MasterPage />
@@ -41,7 +41,9 @@ export default function CallsView() {
 
                     <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
                         <Form.Label>Descripción de la situación:</Form.Label>
-                        <Form.Control as="textarea" disabled rows={3} />
+                        <Form.Control 
+                        as="textarea" 
+                        disabled rows={3} />
                     </Form.Group>
                     
                     <Button variant="primary" type="submit" style={{ marginLeft: 150 }}>

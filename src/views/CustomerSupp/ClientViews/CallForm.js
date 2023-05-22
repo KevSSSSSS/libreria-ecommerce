@@ -5,12 +5,16 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { baseUrlAPI } from "../../../constants/constants";
 import { UserContext } from "../../../models/UserContext";
+import {useNavigate } from "react-router-dom";
 
 export default function CallForm() {
     
     const {user} = useContext(UserContext);
     //console.log(user);
     const id_u = user.id_usuario;
+    const namec = user.nombre;
+    const navigate = useNavigate();
+
     const ladasLatam = ["52", "51", "54", "55", "56", "57", "58"
         , "501", "502", "503", "504", "505", "506", "507", "591", "592", "593", "594", "595", "597", "598"];
     
@@ -26,6 +30,8 @@ export default function CallForm() {
     const handleChange = (event) => {
         const { name, value } = event.target;
         setForm({ ...form, [name]: value });
+        //console.log(form);
+        form.nombreClient = namec;
     }
 
     const handleSubmit = (event) => {
@@ -37,10 +43,12 @@ export default function CallForm() {
         form.horario = horario;
         form.telefono = telefonoFinal;
         form.activo = campoActivo;
+        form.nombreClient = namec;
         
+        console.log(form);
         //console.log(form);
-        //Aqui haces tu fetch
-        fetch("https://1o7jpf8t3j.execute-api.us-west-1.amazonaws.com/dev/test/solicitudllamadas", {
+        //Aqui haces tu fetc
+        fetch(`${baseUrlAPI}solicitudllamadas`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -51,7 +59,9 @@ export default function CallForm() {
         .then(data => {
             console.log(data);
             if (data.code === 200) {
-
+                navigate(-1);
+            }else{
+                console.log(data);
             }
             
         })
@@ -69,11 +79,12 @@ export default function CallForm() {
                 <h2>Formulario de la llamada:</h2>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group className="mb-3" controlId="formText">
-                        <Form.Label>Nombre completo:</Form.Label>
+                        <Form.Label>Nombre:</Form.Label>
                         <Form.Control
                             type="text"
                             placeholder="Ingresa tu nombre"
-                            required
+                            defaultValue={user.nombre}
+                            disabled
                             name="nombreClient"
                             onChange={handleChange}
                         />
