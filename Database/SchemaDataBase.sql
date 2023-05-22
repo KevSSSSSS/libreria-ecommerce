@@ -49,9 +49,9 @@ CREATE TABLE Paqueterias (
   id_paqueteria INT(11) NOT NULL AUTO_INCREMENT,
   nombre VARCHAR(50) NOT NULL,
   encargado VARCHAR(50) NOT NULL,
-  direccion VARCHAR(100) NOT NULL
+  direccion VARCHAR(100) NOT NULL,
   PRIMARY KEY (id_paqueteria)
-)
+);
 
 CREATE TABLE Detalles_Pedidos (
   id_detalle INT(11) NOT NULL AUTO_INCREMENT,
