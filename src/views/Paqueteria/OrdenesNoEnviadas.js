@@ -3,7 +3,7 @@ import { Form, Button, Image, Spinner } from "react-bootstrap";
 import { colors } from "../../constants/constants";
 
 //Importaciones de componentes
-import TabMenuPaqueteria from "../../components/Paqueteria/TabMenuPaqueteria";
+import TabMenuOrdenes from "../../components/Paqueteria/TabMenuOrdenes";
 import BannerHome from "../../components/BannerHome"
 
 export default function Home() {
@@ -11,7 +11,7 @@ export default function Home() {
     return (
         <>
             <BannerHome />
-            <TabMenuPaqueteria />
+            <TabMenuOrdenes />
             <div style={{ backgroundColor: "#ebebeb", height: "15vh" , display: "flex"}}>
                 <form style={{ width: "20%" , height: "35%", margin: "1%", display: "flex", marginTop: "5vh"}}>
                     <label for="texto" style={{width: "50%", margin: "2%"}}>Buscar:</label>

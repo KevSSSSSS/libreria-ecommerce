@@ -13,16 +13,28 @@ export default function NavTabMenu() {
 
     return (
         <div style={{ width: "100%", height: "5vh", backgroundColor: colors.primary, alignItems: "center", justifyContent: "center", display: "flex", padding: 20 }}>
-            <Link to={"/ordenesnoenv"} style={{ marginRight: "15vh",textDecoration: "none" }}>
+            <Link to={"/homepaq"} style={{textDecoration: "none" }}>
                 <Button style={{fontSize: "19px", backgroundColor: colors.primary, borderColor: colors.primary, marginRight: 16, alignItems: "center", display: "flex" }} type="submit">
-                    <RiOrderPlayFill size={20} style={{ marginRight: 8 }} />
-                    Ordenes
+                    <BiHomeAlt2 size={20} style={{ marginRight: 8 }} />
+                    Home
                 </Button>
             </Link>
-            <Link to={"/paqueterias"} style={{ textDecoration: "none" }}>
+            <Link to={"/ordenesnoenv"} style={{ textDecoration: "none" }}>
                 <Button style={{fontSize: "19px", backgroundColor: colors.primary, borderColor: colors.primary, marginRight: 16, alignItems: "center", display: "flex" }} type="submit">
                     <BsBoxSeam size={24} style={{ marginRight: 8 }} />
-                    Paqueterias
+                    Ordenes No Enviadas
+                </Button>
+            </Link>
+            <Link to={"/ordenesenv"} style={{ textDecoration: "none" }}>
+                <Button style={{fontSize: "19px", backgroundColor: colors.primary, borderColor: colors.primary, marginRight: 16, alignItems: "center", display: "flex" }} type="submit">
+                    <BsBoxSeam size={24} style={{ marginRight: 8 }} />
+                    Ordenes Enviadas
+                </Button>
+            </Link>
+            <Link to={"/ordenesent"} style={{ textDecoration: "none" }}>
+                <Button style={{fontSize: "19px", backgroundColor: colors.primary, borderColor: colors.primary, marginRight: 16, alignItems: "center", display: "flex" }} type="submit">
+                    <BsBoxSeam size={24} style={{ marginRight: 8 }} />
+                    Ordenes Entregadas
                 </Button>
             </Link>
         </div >

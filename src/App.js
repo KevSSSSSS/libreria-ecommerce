@@ -18,6 +18,7 @@ import Account from './views/Devoluciones/Account';
 
 //Importaciones de Paqueterias
 import HomePaq from './views/Paqueteria/HomePaqueteria';
+import OrdenesNoEnviadas from './views/Paqueteria/OrdenesNoEnviadas';
 
 
 // All imports for Compras
@@ -78,6 +79,7 @@ function App() {
 
         //Rutas para Paqueteria
         <Route path='/homepaq' element={<HomePaq />} />
+        <Route path='/ordenesnoenv' element={<OrdenesNoEnviadas />} />
 
         //Routes for Customer Support Client
           <Route path='/cshome' element={<CustomerSuppHome />} />
