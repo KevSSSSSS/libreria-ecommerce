@@ -15,7 +15,7 @@ import FormBook from './views/Inventario/FormBook';
 import Cart from './views/Devoluciones/Cart';
 import Payment from './views/ClienteRegistrado/Payment';
 import Account from './views/Devoluciones/Account';
-
+import NoRes from './views/ClienteAnonimo/NoRes';
 
 // All imports for Compras
 import PurchaseHome from './views/Compras/PurchaseHome';
@@ -71,6 +71,7 @@ function App() {
           <Route path='/paqueteriaDev' element={<Paqueteriadev/>}/>
           <Route path='/devprocesadas' element={<DevProcesadas/>}/>
           <Route path='/homealmacen' element={<HomeAlmacen/>}/>
+          <Route path= '/NoRes' element={<NoRes/>}/>
 
 
       //Routes for Compras 
