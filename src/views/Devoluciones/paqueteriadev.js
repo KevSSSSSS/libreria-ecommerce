@@ -3,7 +3,7 @@ import MasterPage from "../../components/MasterPage";
 import NavTabMenu from "../../components/NavTabMenu";
 import { Table, Form, Container, Button } from "react-bootstrap";
 
-export default function PaqueteriaDev() {
+export default function Paqueteriadev() {
     const [libros, setLibros] = useState([
         {
             id: 1,

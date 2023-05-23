@@ -145,7 +145,7 @@ import DevolucionesHome from './views/Devoluciones/DevolucionesHome';
 
 import Atenderdev from './views/Devoluciones/AtenderDev';
 
-import PaqueteriaDev from './views/Devoluciones/PaqueteriaDev';
+import Paqueteriadev from './views/Devoluciones/Paqueteriadev';
 
 import DevProcesadas from './views/Devoluciones/DevProcesadas';
 
@@ -273,7 +273,7 @@ function App() {
 
           <Route path='/atenderDev' element={<Atenderdev/>}/>
 
-          <Route path='/paqueteriadev' element={<PaqueteriaDev/>}/>
+          <Route path='/paqueteriadev' element={<Paqueteriadev/>}/>
 
           <Route path='/devprocesadas' element={<DevProcesadas/>}/>
 
