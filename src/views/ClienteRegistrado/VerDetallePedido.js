@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Container, Image, Table } from "react-bootstrap";
+import { Button, Container, Image, Table } from "react-bootstrap";
 import NavTabMenu from "../../components/NavTabMenu";
 import MasterPage from "../../components/MasterPage";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { baseUrlAPI } from "../../constants/constants";
 
 export default function VerDetallePedido() {
@@ -19,7 +19,7 @@ export default function VerDetallePedido() {
     }, [])
 
     const getOrdenes = () => {
-        fetch( baseUrlAPI+"detallespedidos?id_pedido=" + orden.id_pedido)
+        fetch(baseUrlAPI + "detallespedidos?id_pedido=" + orden.id_pedido)
             .then(response => response.json())
             .then((data) => {
                 setLibros(data);
@@ -35,6 +35,9 @@ export default function VerDetallePedido() {
             <NavTabMenu />
             <Container>
                 <h2>Detalle del pedido</h2>
+                <Link to={"/devoluciones"} state={{libros: libros }}>
+                    <Button>Realizar devolución</Button>
+                </Link>
                 <Table>
                     <thead>
                         <tr>
@@ -51,7 +54,7 @@ export default function VerDetallePedido() {
                                 <tr key={l.id_libro}>
                                     <td>{l.id_libro}</td>
                                     <td>{l.titulo}</td>
-                                    <td style={{width: "50%"}}> <Image style={{ width: "20%" }} src={l.foto}></Image></td>
+                                    <td style={{ width: "50%" }}> <Image style={{ width: "20%" }} src={l.foto}></Image></td>
                                     <td>{l.precio}</td>
                                 </tr>
                             )
