@@ -52,7 +52,7 @@ export default function Book() {
                         <h5>Precio: ${precio}</h5>
                         <Button style={{ backgroundColor: colors.primary, borderColor: colors.primary, marginTop: 40 }} onClick={()=>{addCart(book); setShowToast(true);}}>
                             <BsCartPlus size={24} style={{ marginRight: 12 }}></BsCartPlus>
-                            Comprar
+                            Añadir al carrito
                         </Button>
                         <br />
                         <span>Sipnosis: </span>
