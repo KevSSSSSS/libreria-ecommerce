@@ -33,6 +33,7 @@ import HomeAdmin from './views/Administrador/HomeAdmin';
 import ViewEmp from './views/Administrador/ViewEmployees';
 import UpEmp from './views/Administrador/UpEmployees';
 import ModEmp from './views/Administrador/ModEmployees';
+import AccountAdminEmp from './views/Administrador/AccountAdminEmp';
 
 import NoRes from './views/ClienteAnonimo/NoRes';
 
@@ -120,6 +121,7 @@ function App() {
         <Route path='/viewemp' element={<ViewEmp />} />
         <Route path='/upemp' element={<UpEmp />} />
         <Route path='/modemp' element={<ModEmp />} />
+        <Route path='/accountadminemp' element={<AccountAdminEmp />} />
 
 
         //Routes for Customer Support Client

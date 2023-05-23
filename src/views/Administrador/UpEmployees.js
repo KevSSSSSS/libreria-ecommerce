@@ -37,7 +37,7 @@ export default function UpEmployyes() {
                         <Button size="lg" style={{ backgroundColor: colors.primary, borderColor: colors.primary, marginTop: 80, marginRight: 80 }}  type="submit">
                             Crear
                         </Button>
-                        <Link to={"/viewpaq"}>
+                        <Link to={"/viewemp"}>
                         <Button size="lg" style={{ backgroundColor: colors.primary, borderColor: colors.primary, marginTop: 80 }} >
                             Cancelar
                         </Button>

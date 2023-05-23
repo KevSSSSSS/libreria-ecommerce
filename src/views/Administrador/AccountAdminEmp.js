@@ -1,10 +1,10 @@
 import React from "react";
-import NavTabMenu from "../../components/Paqueteria/TabMenuHomePaqueteria";
+import NavTabMenu from "../../components/Admin/TabMenuHomeAdmin";
 import MasterPage from "../../components/Paqueteria/BannerPaqueteria";
 import { Link, useLocation } from "react-router-dom";
 import { Button, Image } from "react-bootstrap";
 
-export default function AccountAdminPaq() {
+export default function AccountAdminEmp() {
     const { state } = useLocation();
     const user = state?.user;
     return (

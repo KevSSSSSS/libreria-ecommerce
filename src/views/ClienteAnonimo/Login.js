@@ -61,7 +61,7 @@ export default function Login() {
                     if (rol == 'Administrador de paqueteria') {
                         navigate("/homepaq")
                     } else {
-                        if (rol == 'administrador de empleados') {
+                        if (rol == 'Administrador de empleados') {
                             navigate("/homeadmin")
                         } else {
                             navigate("/");
