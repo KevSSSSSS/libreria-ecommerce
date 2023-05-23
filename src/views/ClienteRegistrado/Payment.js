@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 
 import MasterPage from "../../components/MasterPage";
 import NavTabMenu from "../../components/NavTabMenu";
-import { Button, Col, Form, InputGroup, Row } from "react-bootstrap";
+import { Button, Col, Form, InputGroup, Row, Toast, ToastContainer } from "react-bootstrap";
 import { useLocation } from "react-router-dom";
 import { baseUrlAPI } from "../../constants/constants";
 import { UserContext } from "../../models/UserContext";
@@ -13,16 +13,18 @@ export default function Payment() {
 
     const location = useLocation();
 
+    const [showToast, setShowToast] = useState(false);
+
     const importe = location.state.total;
     const fecha = location.state.fecha;
     const cart = location.state.cart;
 
-    const [metodoDePago, setMetodoDePago] = useState({});
 
+    const [metodoDePago, setMetodoDePago] = useState({});
     const postMetodoPago = () => {
-        let metodo = { id_usuario: user.id_usuario, tarjeta: "87887782", fecha_expiracion: "10-03-2023", titular: user.nombre + user.apellido_p + user.apellido_m, cvv: "757" };
+        let metodo = { id_usuario: user.id_usuario, tarjeta: metodoDePago.tarjeta, fecha_expiracion: metodoDePago.mes + "/" + metodoDePago.anio, titular: user.nombre + " " + user.apellido_p + " " + user.apellido_m, cvv: metodoDePago.cvv };
         console.log(metodo);
-        fetch("http://localhost:4000/test/" + "metodospago", {
+        fetch(baseUrlAPI + "metodospago", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -39,8 +41,8 @@ export default function Payment() {
     }
 
     const postPedido = () => {
-        let pedido = { id_usuario: user.id_usuario, fecha: "10-03-2023", total: importe, direccion: "Calle la paz sin numero", estatus: "Sin enviar" };
-        fetch("http://localhost:4000/test/" + "pedidos", {
+        let pedido = { id_usuario: user.id_usuario, fecha: new Date().toISOString().slice(0, 10), total: importe, direccion: metodoDePago.direccion, estatus: "Sin enviar", id_paqueteria: "1", fecha_envio: "", fecha_entrega: "" };
+        fetch(baseUrlAPI + "pedidos", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -59,8 +61,8 @@ export default function Payment() {
     const postDetallePedido = (id_pedido) => {
         cart.map((libro) => {
             console.log(libro);
-            let detalle = {id_pedido: id_pedido, id_libro: libro.id_libro, cantidad: libro.cantidad, precio_unitario: libro.precio};
-            fetch("http://localhost:4000/test/" + "detallespedidos", {
+            let detalle = { id_pedido: id_pedido, id_libro: libro.id_libro, cantidad: libro.cantidad, precio_unitario: libro.precio };
+            fetch(baseUrlAPI + "detallespedidos", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -71,7 +73,7 @@ export default function Payment() {
                 .then(data => {
                     console.log(data);
                     if (data.code === 200) {
-                        //Hacer algo
+                        setShowToast(true);
                     }
                 })
                 .catch(error => {
@@ -79,10 +81,30 @@ export default function Payment() {
                 });
         })
     }
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setMetodoDePago({ ...metodoDePago, [name]: value });
+    }
+
+    const toggleShow = () => {
+        setShowToast(!showToast);
+    }
+
     return (
         <>
             <MasterPage />
             <NavTabMenu />
+            <ToastContainer style={{display: "flex", marginLeft: 500, marginTop: 300}}>
+                <Toast onClose={toggleShow} show={showToast}>
+                    <Toast.Header>
+                        <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
+                        <strong className="me-auto">Compra realizada</strong>
+                        <small className="text-muted">Justo ahora</small>
+                    </Toast.Header>
+                    <Toast.Body>Felicidades, has realizado tu compra correctamente</Toast.Body>
+                </Toast>
+            </ToastContainer>
             <div style={{ width: "100%", display: "flex" }}>
                 <div style={{ width: "50%", display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
                     <h2>Datos de la operación</h2>
@@ -101,21 +123,22 @@ export default function Payment() {
                         </Form.Group>
                     </Form>
                 </div>
-                <div style={{ width: "50%", marginTop: 100, display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+                <div style={{ width: "50%", marginTop: 20, display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
                     <h2>Datos de pago</h2>
                     <Form style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
                         <Form.Group>
                             <Form.Label>No. Tarjeta </Form.Label>
-                            <Form.Control type="number"></Form.Control>
+                            <Form.Control type="number" name="tarjeta" onChange={handleChange}></Form.Control>
                             <div style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: 20 }}>
                                 <Form.Label size="sm">Mes: </Form.Label>
-                                <Form.Control type="number" size="sm" style={{ width: "30%" }}></Form.Control>
+                                <Form.Control type="number" size="sm" style={{ width: "30%" }} name="mes" onChange={handleChange}></Form.Control>
                                 <Form.Label size="sm" style={{ marginLeft: 40 }}>Año: </Form.Label>
-                                <Form.Control type="number" size="sm" style={{ width: "30%" }}></Form.Control>
+                                <Form.Control type="number" size="sm" style={{ width: "30%" }} name="anio" onChange={handleChange}></Form.Control>
                             </div>
                             <Form.Label>CVV: </Form.Label>
-                            <Form.Control type="number"></Form.Control>
-                            <Button style={{ marginTop: 50, marginRight: 20 }}>Cancelar</Button>
+                            <Form.Control style={{ width: "20%" }} type="number" name="cvv" onChange={handleChange}></Form.Control>
+                            <Form.Label>Dirección </Form.Label>
+                            <Form.Control type="text" name="direccion" onChange={handleChange}></Form.Control>
                             <Button style={{ marginTop: 50, marginRight: 20 }} onClick={() => { postMetodoPago(); postPedido(); }}>Pagar</Button>
                         </Form.Group>
                     </Form>
