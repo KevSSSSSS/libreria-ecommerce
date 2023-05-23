@@ -6,7 +6,7 @@ import { Table, Form, Container, Button } from "react-bootstrap";
 import { UserContext } from "../../models/UserContext";
 import { baseUrlAPI } from "../../constants/constants";
 
-export default function DevolucionesHome() {
+export default function DevolucionesAtendidos() {
 
     const { user } = useContext(UserContext);
 
@@ -85,28 +85,18 @@ export default function DevolucionesHome() {
                     </thead>
                     <tbody>
                         {devoluciones.map((devolucion) => {
-                            if (devolucion.estatus_dev === "Solicitado") {
+                            if (devolucion.estatus_dev === "Atendido") {
                                 return (
                                     <tr key={devolucion.id_devolucion}>
                                         <td>{devolucion.id_libro}</td>
                                         <td>${devolucion.precio}.00</td>
                                         <td>{devolucion.metodo_dev}</td>
                                         <td>{devolucion.motivo_dev}</td>
-                                        <td><Form.Control
-                                            type="text"
-                                            value={devolucion.motivo}
-                                            name="num_guia"
-                                            onChange={handleChange}
-                                        /></td>
+                                        <td>{devolucion.num_guia}</td>
                                         <td>{devolucion.fecha_recibido}</td>
-                                        <td><Form.Control
-                                            type="text"
-                                            value={devolucion.motivo}
-                                            name="fecha_envio"
-                                            onChange={handleChange}
-                                        /></td>
+                                        <td>{devolucion.fecha_envio}</td>
+                                        
                                         <td>{devolucion.estatus_dev}</td>
-                                        <td><Button onClick={() => { atenderSolicitud(devolucion) }}>Atender</Button></td>
                                     </tr>
                                 )
                             }
@@ -114,8 +104,8 @@ export default function DevolucionesHome() {
                         )}
                     </tbody>
                 </Table>
-                <Link to={"/devolucionesAtendidos"}>
-                    <Button>Ver devoluciones atendidos</Button>
+                <Link to={"/devolucionesHome"}>
+                    <Button>Ver devoluciones solicitados</Button>
                 </Link>
                 <div style={{ width: "100%", display: "flex", justifyContent: "space-evenly" }}>
 

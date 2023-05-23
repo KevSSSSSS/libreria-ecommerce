@@ -73,6 +73,7 @@ import DevProcAdmin from './views/Devoluciones/DevProcAdmin';
 import EditarPerfil from './views/ClienteRegistrado/EditarPerfil';
 import FormasPago from './views/ClienteRegistrado/FormasPago';
 import EditarMetodoPago from './views/ClienteRegistrado/EditarMetodoPago';
+import DevolucionesAtendidos from './views/Devoluciones/DevolucionesAtendidos';
 
 
 
@@ -99,6 +100,7 @@ function App() {
           <Route path='/editarPerfil'element={<EditarPerfil/>}/>
           <Route path='/formasDePago' element={<FormasPago/>}/>
           <Route path='/editarMetodoPago' element={<EditarMetodoPago/>}/>
+          <Route path='/devolucionesAtendidos' element={<DevolucionesAtendidos/>}/>
 
           <Route path='/devprocadmin' element={<DevProcAdmin/>}/>
 
