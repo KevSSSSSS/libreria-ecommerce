@@ -4,13 +4,13 @@ import { colors } from "../../constants/constants";
 
 //Importaciones de componentes
 import TabMenuOrdenes from "../../components/Paqueteria/TabMenuOrdenes";
-import BannerHome from "../../components/BannerHome"
+import BannerPaqueteria from "../../components/Paqueteria/BannerPaqueteria";
 
-export default function Home() {
+export default function OrdenesNoEnviadas() {
 
     return (
         <>
-            <BannerHome />
+            <BannerPaqueteria />
             <TabMenuOrdenes />
             <div style={{ backgroundColor: "#ebebeb", height: "15vh" , display: "flex"}}>
                 <form style={{ width: "20%" , height: "35%", margin: "1%", display: "flex", marginTop: "5vh"}}>

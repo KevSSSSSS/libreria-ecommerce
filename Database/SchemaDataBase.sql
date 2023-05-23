@@ -63,6 +63,7 @@ CREATE TABLE Detalles_Pedidos (
   precio_unitario DECIMAL(10,2) NOT NULL,
   fecha_envio DATE NOT NULL,
   fecha_entrega DATE NOT NULL,
+  estatus INT(1) NOT NULL,
   PRIMARY KEY (id_detalle),
   FOREIGN KEY (id_pedido) REFERENCES Pedidos(id_pedido),
   FOREIGN KEY (id_libro) REFERENCES Libros(id_libro),
