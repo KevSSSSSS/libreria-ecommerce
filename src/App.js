@@ -21,6 +21,7 @@ import Account from './views/Devoluciones/Account';
 import HomePaq from './views/Paqueteria/HomePaqueteria';
 import OrdenesNoEnviadas from './views/Paqueteria/OrdenesNoEnviadas';
 import EnvioOrden from './views/Paqueteria/EnvioOrden';
+import EntregaOrden from './views/Paqueteria/EntregaOrden';
 import OrdenesEnviadas from './views/Paqueteria/OrdenesEnviadas';
 
 
@@ -99,6 +100,7 @@ function App() {
         <Route path='/ordenesnoenv' element={<OrdenesNoEnviadas />} />
         <Route path='/envioorden' element={<EnvioOrden />} />
         <Route path='/ordenesenv' element={<OrdenesEnviadas />} />
+        <Route path='/entregaorden' element={<EntregaOrden />} />
 
         //Routes for Customer Support Client
           <Route path='/cshome' element={<CustomerSuppHome />} />
