@@ -61,8 +61,8 @@ export default function DevProcesadas() {
                     </tbody>
                 </Table>
                 <div style={{ width: "100%", display: "flex", justifyContent: "space-evenly" }}>
-                    <Button>Realizar Devolución</Button>
-                    <Button>Cerrar</Button>
+                  
+                    
                 </div>
             </Container>
         </>
