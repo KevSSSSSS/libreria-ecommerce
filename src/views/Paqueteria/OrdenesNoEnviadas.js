@@ -1,12 +1,43 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState} from "react";
 import { Form, Button, Image, Spinner } from "react-bootstrap";
-import { colors } from "../../constants/constants";
+import { baseUrlAPI, colors } from "../../constants/constants";
+import { useNavigate } from "react-router-dom";
+import TableOrdNE from "../../components/Paqueteria/TableOrdNE";
+import { UserContext } from "../../models/UserContext";
+import { AiOutlinePoweroff } from "react-icons/ai";
 
 //Importaciones de componentes
 import TabMenuOrdenes from "../../components/Paqueteria/TabMenuOrdenes";
 import BannerPaqueteria from "../../components/Paqueteria/BannerPaqueteria";
 
 export default function OrdenesNoEnviadas() {
+
+    const { user, login, logout } = useContext(UserContext);
+
+    const navigate = useNavigate();
+
+    const [datosTabla, setDatosTabla] = useState([]);
+    const [loading, setLoading] = useState(false);
+
+    const filterordne = datosTabla.filter(datosTabla => datosTabla.activo != 0);
+
+    useEffect(() => {
+        getOrdNE();
+        if (!user) {
+            navigate('/');
+        }
+    }, [])
+
+    const getOrdNE = () => {
+        setLoading(true);
+        fetch(`${baseUrlAPI}pedidos`)
+            .then(response => response.json())
+            .then(data => {
+                setDatosTabla(data)
+                setLoading(false)
+            });
+
+    }
 
     return (
         <>
@@ -21,31 +52,7 @@ export default function OrdenesNoEnviadas() {
                 <h1 style={{textAlign: "center", justifyContent: "center", margin: "4vh 25vh"}}>ORDENES NO ENVIADAS</h1>
             </div>
             <div style={{ backgroundColor: "#ebebeb", height: "60vh" , display: "flex"}}>
-                <table style={{width: "100%", verticalAlign: "center", border: "1px solid #fba71b", margin: "3vh"}}>
-                    <tr style={{textAlign: "center", border: "1px solid #fba71b", height: "8%", background: colors.primary}}>
-                        <th style={{border: "1px solid #fba71b", fontSize: "25px", color: "white"}}>ID</th>
-                        <th style={{border: "1px solid #fba71b", fontSize: "25px", color: "white"}}>Direccion</th>
-                        <th style={{border: "1px solid #fba71b", fontSize: "25px", color: "white"}}>Detalle de Orden</th>
-                        <th style={{border: "1px solid #fba71b", fontSize: "25px", color: "white"}}>Enviar Orden</th>
-                        <th style={{border: "1px solid #fba71b", fontSize: "25px", color: "white"}}>Cancelar Orden</th>
-                    </tr>
-                    <tr style={{fontSize: "20px", textAlign: "center", border: "1px solid #e1b683", height: "12%", background: colors.white}}>
-                        <td>1</td>
-                        <td>Tec toluca</td>
-                        <td>
-                        <Button variant="secondary" >ver detalle</Button>
-                        </td>
-                        <td>
-                            <Button variant="secondary" >Enviar</Button>
-                        </td>
-                        <td>
-                            <Button variant="outline-danger" >X</Button>
-                        </td>
-                    </tr>
-                    <tr>
-
-                    </tr>
-                </table>
+            <TableOrdNE ordenesNE={filterordne} />
             </div>
         </>
     )
