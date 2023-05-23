@@ -30,30 +30,34 @@ export default function Home() {
         onSearch(search)
         }
 
-    const onSearch = (search) => {
-  console.log('aki si entra');
-        if (search !== "") {
-
-            let tempData = books.filter((item) => {
-
-                return (
-
-                    item.autor.toLowerCase().indexOf(search.toLowerCase()) > -1
-
-
-                );
-
-            });
-
-       setBooks(tempData);
-
-        } else {
-
-            
-
-        }
-
-    };
+        const onSearch = (search) => {
+            console.log('aki si entra');
+           if (search !== "") {
+          
+           let tempData = books.filter((item) => {
+          
+          return (
+          
+           item.titulo.toLowerCase().indexOf(search.toLowerCase()) > -1 || item.autor.toLowerCase().indexOf(search.toLowerCase()) > -1
+                             );
+          
+                             });
+          
+                    setBooks(tempData);
+          
+                 } else {
+                    fetch(`${baseUrlAPI}libros`)
+                    .then((response) => response.json())
+                    .then((data) => {
+                      setBooks(data);
+                    })
+                    .catch((error) => {
+                      console.log(error);
+                    });
+             
+             }
+          
+          };
 
     useEffect(() => {
         setLoading(true);
