@@ -25,7 +25,7 @@ export default function MasterPage({Busqueda}) {
                 <Form.Control
                     type="search"
                     name= "Barra"
-                    placeholder="Buscar por autor"
+                    placeholder="Buscar por autor o titulo"
                     className="me-2"
                     aria-label="Search"
                     onChange={handleChange}
