@@ -29,7 +29,7 @@ export default function TabMenuOrdenes() {
             </Link>
             <Link to={"/ordenesenv"} style={{ textDecoration: "none" }}>
                 <Button style={{fontSize: "19px", backgroundColor: colors.primary, borderColor: colors.primary, marginRight: 16, alignItems: "center", display: "flex" }} type="submit">
-                    <TbCubeSend size={30} style={{ marginRight: 8 }} />
+                    <TbCubeSend size={25} style={{ marginRight: 8 }} />
                     Ordenes Enviadas
                 </Button>
             </Link>

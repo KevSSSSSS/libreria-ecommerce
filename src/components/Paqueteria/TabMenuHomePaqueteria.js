@@ -5,7 +5,6 @@ import { colors } from "../../constants/constants";
 //Iconos
 import { BsBoxSeam } from "react-icons/bs";
 import {RiOrderPlayFill} from "react-icons/ri";
-import {BiHomeAlt2} from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { Button, Dropdown } from "react-bootstrap";
 

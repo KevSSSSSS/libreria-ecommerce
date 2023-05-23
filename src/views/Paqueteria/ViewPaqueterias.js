@@ -3,25 +3,26 @@ import { Form, Button, Image, Spinner } from "react-bootstrap";
 import { colors } from "../../constants/constants";
 
 //Importaciones de componentes
-import TabMenuOrdenes from "../../components/Paqueteria/TabMenuOrdenes";
+import TabMenuPaqueterias from "../../components/Paqueteria/TabMenuPaqueterias";
 import BannerPaqueteria from "../../components/Paqueteria/BannerPaqueteria";
 
-export default function OrdenesNoEnviadas() {
+export default function ViewPaqueterias() {
 
     return (
         <>
             <BannerPaqueteria />
-            <TabMenuOrdenes />
-            <div style={{ backgroundColor: "#ebebeb", height: "15vh" , display: "flex"}}>
+            <TabMenuPaqueterias />
+            <div style={{backgroundImage: 'url(https://img.interempresas.net/fotos/3253005.jpeg)', overflow: "hidden", height: "auto", maxWidth: "100%", backgroundSize: "cover", backgroundPosition:"center", backgroundRepeat: "no-repeat", backgroundColor: `rgb(80,80,80)`, backgroundBlendMode: "soft-light"}}>
+            <div style={{ height: "15vh" , display: "flex"}}>
                 <form style={{ width: "20%" , height: "35%", margin: "1%", display: "flex", marginTop: "5vh"}}>
-                    <label for="texto" style={{width: "50%", margin: "2%"}}>Buscar:</label>
-                    <input type="text" name="texto" placeholder="   ID de pedido" style={{margin: "1%"}}></input>
+                    <label for="texto" style={{width: "50%", margin: "2%", color: "white", fontSize: "25px"}}>Buscar:</label>
+                    <input type="text" name="texto" placeholder="   ID de paqueteria" style={{margin: "1%"}}></input>
                 <Button variant="light">Buscar</Button>
                 </form>
-                <h1 style={{textAlign: "center", justifyContent: "center", margin: "4vh 25vh"}}>ORDENES NO ENVIADAS</h1>
+                <h1 style={{textAlign: "center", justifyContent: "center", margin: "4vh 35vh", color: "white"}}>PAQUETERIAS</h1>
             </div>
-            <div style={{ backgroundColor: "#ebebeb", height: "60vh" , display: "flex"}}>
-                <table style={{width: "100%", verticalAlign: "center", border: "1px solid #fba71b", margin: "3vh"}}>
+            <div style={{height: "60vh" , display: "flex"}}>
+                <table style={{backgroundColor: colors.blackSwift, width: "100%", verticalAlign: "center", border: "1px solid #fba71b", margin: "3vh"}}>
                     <tr style={{textAlign: "center", border: "1px solid #fba71b", height: "8%", background: colors.primary}}>
                         <th style={{border: "1px solid #fba71b", fontSize: "25px", color: "white"}}>ID</th>
                         <th style={{border: "1px solid #fba71b", fontSize: "25px", color: "white"}}>Direccion</th>
@@ -47,6 +48,8 @@ export default function OrdenesNoEnviadas() {
                     </tr>
                 </table>
             </div>
+            </div>
+            
         </>
     )
 }

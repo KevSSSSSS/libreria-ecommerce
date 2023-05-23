@@ -23,7 +23,7 @@ import OrdenesNoEnviadas from './views/Paqueteria/OrdenesNoEnviadas';
 import EnvioOrden from './views/Paqueteria/EnvioOrden';
 import EntregaOrden from './views/Paqueteria/EntregaOrden';
 import OrdenesEnviadas from './views/Paqueteria/OrdenesEnviadas';
-import viewPaq from './views/Paqueteria/CrudsPaqueterias/viewPaqueteria';
+import ViewPaq from './views/Paqueteria/ViewPaqueterias';
 
 
 
@@ -103,7 +103,7 @@ function App() {
         <Route path='/envioorden' element={<EnvioOrden />} />
         <Route path='/ordenesenv' element={<OrdenesEnviadas />} />
         <Route path='/entregaorden' element={<EntregaOrden />} />
-        <Route path='/viewpaq' element={<viewPaq />} />
+        <Route path='/viewpaq' element={<ViewPaq />} />
 
 
         //Routes for Customer Support Client
