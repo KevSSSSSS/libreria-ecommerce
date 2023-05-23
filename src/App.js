@@ -60,7 +60,7 @@ import { UserProvider } from './models/UserContext';
 import Devoluciones from './views/Devoluciones/DevolucionesCliente';
 import DevolucionesHome from './views/Devoluciones/DevolucionesHome';
 import Atenderdev from './views/Devoluciones/AtenderDev';
-import Paqueteriadev from './views/Devoluciones/paqueteriadev';
+import Paqueteriadev from './views/Devoluciones/Paqueteriadev';
 import DevProcesadas from './views/Devoluciones/DevProcesadas';
 import HomeAlmacen from './views/Devoluciones/HomeAlmacen';
 
