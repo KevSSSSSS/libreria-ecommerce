@@ -9,16 +9,27 @@ import { useNavigate } from "react-router";
 export default function Register() {
     const { user, login, logout } = useContext(UserContext);
     const navigate = useNavigate();
-    
-    const [dataUser, setDataUser] = useState({ nombre: "", rol: "Cliente", apellido_p: "", apellido_m: "", email: "", contrasena: "" });
+
+    const [dataUser, setDataUser] = useState({
+        id_usuario: "",
+        nombre: "",
+        rol: "Cliente",
+        apellido_p: "",
+        apellido_m: "",
+        email: "",
+        contrasena: ""
+    });
 
     const handleChange = (event) => {
         const { name, value } = event.target;
         setDataUser({ ...dataUser, [name]: value });
-    }
+    };
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        
+        // Agrega aquí la lógica de registro en la base de datos
+
         fetch(`${baseUrlAPI}usuarios`, {
             method: 'POST',
             headers: {
@@ -29,14 +40,14 @@ export default function Register() {
             .then(response => response.json())
             .then(data => {
                 if (data.code === 200) {
-                    login(dataUser);
+                    login({ ...dataUser, id_usuario: data.body.insertId });
                     navigate("/");
                 }
             })
             .catch(error => {
                 console.error(error);
             });
-    }
+    };
 
     return (
         <div style={{ textAlign: "center", display: "flex", alignItems: "center", height: "100vh", justifyContent: "center", backgroundImage: `url(${fondo})`, backgroundSize: "cover" }}>
@@ -46,21 +57,21 @@ export default function Register() {
                     <Form style={{ marginTop: 30, width: "100%" }} onSubmit={handleSubmit}>
                         <div style={{ display: "flex", alignContent: "center", justifyContent: "space-evenly" }}>
                             <div>
-                                <Form.Group >
+                                <Form.Group>
                                     <Form.Label>Nombre</Form.Label>
-                                    <Form.Control name="nombre" type="text" placeholder="Introduzca su email" onChange={handleChange}></Form.Control>
+                                    <Form.Control name="nombre" type="text" placeholder="Introduzca su nombre" onChange={handleChange}></Form.Control>
                                 </Form.Group>
                                 <Form.Group>
                                     <Form.Label>Apellido Paterno</Form.Label>
-                                    <Form.Control name="apellido_p" type="text" placeholder="Introduzca su contraseña" onChange={handleChange}></Form.Control>
+                                    <Form.Control name="apellido_p" type="text" placeholder="Introduzca su apellido paterno" onChange={handleChange}></Form.Control>
                                 </Form.Group>
                                 <Form.Group>
                                     <Form.Label>Apellido Materno</Form.Label>
-                                    <Form.Control name="apellido_m" type="text" placeholder="Introduzca su contraseña" onChange={handleChange}></Form.Control>
+                                    <Form.Control name="apellido_m" type="text" placeholder="Introduzca su apellido materno" onChange={handleChange}></Form.Control>
                                 </Form.Group>
                                 <Form.Group>
                                     <Form.Label>Email</Form.Label>
-                                    <Form.Control name="email" type="email" placeholder="Introduzca su contraseña" onChange={handleChange}></Form.Control>
+                                    <Form.Control name="email" type="email" placeholder="Introduzca su email" onChange={handleChange}></Form.Control>
                                 </Form.Group>
                                 <Form.Group>
                                     <Form.Label>Contraseña</Form.Label>
@@ -76,6 +87,6 @@ export default function Register() {
                 </div>
 
             </div>
-        </div >
+        </div>
     )
 }

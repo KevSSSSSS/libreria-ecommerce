@@ -5,12 +5,16 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { baseUrlAPI } from "../../../constants/constants";
 import { UserContext } from "../../../models/UserContext";
+import {useNavigate } from "react-router-dom";
 
 export default function CallForm() {
     
     const {user} = useContext(UserContext);
     //console.log(user);
     const id_u = user.id_usuario;
+    const namec = user.nombre;
+    const navigate = useNavigate();
+
     const ladasLatam = ["52", "51", "54", "55", "56", "57", "58"
         , "501", "502", "503", "504", "505", "506", "507", "591", "592", "593", "594", "595", "597", "598"];
     
@@ -19,13 +23,15 @@ export default function CallForm() {
         , "18:00", "19:30", "20:00"];
 
 
-    const [form, setForm] = useState({ id_cliente: "", nombre: "", telefono: "", hora: "", descripcion: "", activo: ""});
+    const [form, setForm] = useState({ id_cliente: "", nombreClient: "", telefono: "", horario: "", descripcion: "", activo: ""});
     const [lada, setLada] = useState("52");
     const [horario, setHorario] = useState("8:00");
 
     const handleChange = (event) => {
         const { name, value } = event.target;
         setForm({ ...form, [name]: value });
+        //console.log(form);
+        form.nombreClient = namec;
     }
 
     const handleSubmit = (event) => {
@@ -34,13 +40,15 @@ export default function CallForm() {
         const campoActivo = "1";
 
         form.id_cliente = id_u;
-        form.hora = horario;
+        form.horario = horario;
         form.telefono = telefonoFinal;
         form.activo = campoActivo;
+        form.nombreClient = namec;
         
+        console.log(form);
         //console.log(form);
-        //Aqui haces tu fetch
-        fetch(baseUrlAPI + "solicitudllamadas", {
+        //Aqui haces tu fetc
+        fetch(`${baseUrlAPI}solicitudllamadas`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -49,8 +57,11 @@ export default function CallForm() {
         })
         .then(response => response.json())
         .then(data => {
+            console.log(data);
             if (data.code === 200) {
-
+                navigate(-1);
+            }else{
+                console.log(data);
             }
             
         })
@@ -68,12 +79,13 @@ export default function CallForm() {
                 <h2>Formulario de la llamada:</h2>
                 <Form onSubmit={handleSubmit}>
                     <Form.Group className="mb-3" controlId="formText">
-                        <Form.Label>Nombre completo:</Form.Label>
+                        <Form.Label>Nombre:</Form.Label>
                         <Form.Control
                             type="text"
                             placeholder="Ingresa tu nombre"
-                            required
-                            name="nombre"
+                            defaultValue={user.nombre}
+                            disabled
+                            name="nombreClient"
                             onChange={handleChange}
                         />
 
@@ -123,7 +135,7 @@ export default function CallForm() {
                     <Button variant="primary" type="submit" style={{ marginLeft: 220 }}>
                         Enviar
                     </Button>
-
+                    <h4>Se le redireccionara a la anterior página cuando su solicitud se haya enviado</h4>
                 </Form>
             </div>
 

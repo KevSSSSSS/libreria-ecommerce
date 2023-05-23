@@ -19,12 +19,25 @@ import VerDetallePedido from './views/ClienteRegistrado/VerDetallePedido';
 import Ordenes from './views/ClienteRegistrado/Ordenes';
 
 
+//Importaciones de Paqueteria
+import HomePaq from './views/Paqueteria/HomePaqueteria';
+import OrdenesNoEnviadas from './views/Paqueteria/OrdenesNoEnviadas';
+import EnvioOrden from './views/Paqueteria/EnvioOrden';
+import EntregaOrden from './views/Paqueteria/EntregaOrden';
+import OrdenesEnviadas from './views/Paqueteria/OrdenesEnviadas';
+import ViewPaq from './views/Paqueteria/ViewPaqueterias';
+
+
+
+import NoRes from './views/ClienteAnonimo/NoRes';
+
+
 // All imports for Compras
 import PurchaseHome from './views/Compras/PurchaseHome';
 
 import ModProducts from './views/Compras/Products/ModProducts';
 
-//import DownProduct from './views/Compras/Products/DownProduct';
+import ViewProduct from './views/Compras/Products/ViewProduct';
 // Emd imports for Compras
 
 // All imports for Customer Support Client
@@ -47,7 +60,7 @@ import { UserProvider } from './models/UserContext';
 import Devoluciones from './views/Devoluciones/DevolucionesCliente';
 import DevolucionesHome from './views/Devoluciones/DevolucionesHome';
 import Atenderdev from './views/Devoluciones/AtenderDev';
-import Paqueteriadev from './views/Devoluciones/Paqueteriadev';
+import Paqueteriadev from './views/Devoluciones/paqueteriadev';
 import DevProcesadas from './views/Devoluciones/DevProcesadas';
 import HomeAlmacen from './views/Devoluciones/HomeAlmacen';
 
@@ -75,6 +88,7 @@ function App() {
           <Route path='/homealmacen' element={<HomeAlmacen/>}/>
           <Route path='/verDetallePedido' element={<VerDetallePedido />} />
           <Route path='/ordenes' element={<Ordenes />}></Route>
+          <Route path= '/NoRes' element={<NoRes/>}/>
 
 
       //Routes for Compras 
@@ -84,7 +98,17 @@ function App() {
           <Route path='/formBook' element={<FormBook />} />
 
           <Route path='/modproducts' element={<ModProducts />} />
+          <Route path='/viewproducts' element={<ViewProduct />} />
         //End routes for Compras
+
+        //Rutas para paqueteria
+        <Route path='/homepaq' element={<HomePaq />} />
+        <Route path='/ordenesnoenv' element={<OrdenesNoEnviadas />} />
+        <Route path='/envioorden' element={<EnvioOrden />} />
+        <Route path='/ordenesenv' element={<OrdenesEnviadas />} />
+        <Route path='/entregaorden' element={<EntregaOrden />} />
+        <Route path='/viewpaq' element={<ViewPaq />} />
+
 
         //Routes for Customer Support Client
           <Route path='/cshome' element={<CustomerSuppHome />} />

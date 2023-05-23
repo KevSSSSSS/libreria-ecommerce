@@ -5,8 +5,9 @@ import { baseUrlAPI, colors } from "../../../constants/constants";
 import MasterPage from "../../../components/MasterPage";
 import NavTabMenu from "../../../components/NavTabMenu";
 import { UserContext } from "../../../models/UserContext";
+import { Link } from "react-router-dom";
 
-export default function ModProducts() {
+export default function ViewProducts() {
 
     const location = useLocation();
     const libro = location.state.fila;
@@ -167,109 +168,46 @@ export default function ModProducts() {
                     </Toast>
                 </ToastContainer>
                 <div style={{ width: "80%", padding: 20, backgroundColor: colors.white, borderRadius: 10, boxShadow: '4px 4px 8px rgba(0, 0, 0, 0.25)' }}>
-                    <h1>Modificar datos del libro</h1>
+                    <h1>Datos del libro</h1>
                     <Form style={{ marginTop: 30 }} onSubmit={postBook}>
                         <Row>
                             <Col>
                                 <Form.Group>
                                     <Form.Label>Titulo: <br /> {libro.titulo} </Form.Label>
-                                    <Form.Control
-                                        type="text"
-                                        name="titulo"
-                                        placeholder="Introduzca el nuevo titulo"
-                                        onChange={handleChange}                                      
-                                    >
-                                    </Form.Control>
-                                </Form.Group>
-                                <Form.Group>
-                                    <Form.Label>URL de la foto: <br /> </Form.Label>
-                                    <Form.Control
-                                        type="text"
-                                        name="foto"
-                                        placeholder="Introduzca la nueva url de la foto"
-                                        onChange={handleChange}                                                                        
-                                    >
-                                    </Form.Control>
                                 </Form.Group>
                                 <Form.Group>
                                     <Form.Label>Descripción: <br /> {libro.descripcion} </Form.Label>
-                                    <Form.Control
-                                        as="textarea"
-                                        rows={6}
-                                        name="descripcion"
-                                        placeholder="Introduzca la nueva descripcion"
-                                        onChange={handleChange}                                   
-                                    >
-                                    </Form.Control>
                                 </Form.Group>
                             </Col>
+                            <Form.Group>
+                                    <Form.Label>Foto: <br /> <img src={libro.foto} alt={libro.titulo} width={"10%%"} /></Form.Label>                    
+                                </Form.Group>
+                            
                             <Col>
                                 <Form.Group>
                                     <Form.Label>Autor: <br /> {libro.autor} </Form.Label>
-                                    <Form.Control
-                                        type="text"
-                                        name="autor"
-                                        placeholder="Introduzca el nuevo autor"
-                                        onChange={handleChange}                                       
-                                    >
-                                    </Form.Control>
                                 </Form.Group>
                                 <Form.Group>
                                     <Form.Label>Editorial: <br /> {libro.editorial} </Form.Label>
-                                    <Form.Control
-                                        type="text"
-                                        name="editorial"
-                                        placeholder="Introduzca el editorial"
-                                        onChange={handleChange}                               
-                                    >
-                                    </Form.Control>
                                 </Form.Group>
                                 <Form.Group>
                                     <Form.Label>Precio: <br /> {libro.precio} </Form.Label>
-                                    <Form.Control
-                                        type="number"
-                                        name="precio"
-                                        placeholder="Introduzca el precio"
-                                        onChange={handleChange}                                  
-                                    >
-                                    </Form.Control>
                                 </Form.Group>
                                 <Form.Group>
                                     <Form.Label>Descuento en %: <br /> {libro.descuento} </Form.Label>
-                                    <Form.Control
-                                        type="number"
-                                        name="descuento"
-                                        placeholder="Introduzca el descuento"
-                                        onChange={handleChange}                          
-                                    >
-                                    </Form.Control>
                                 </Form.Group>
                                 <Form.Group>
                                     <Form.Label>Stock: <br /> {libro.stock} </Form.Label>
-                                    <Form.Control
-                                        type="number"
-                                        name="stock"
-                                        placeholder="Introduzca el stock"
-                                        onChange={handleChange}                                 
-                                    >
-                                    </Form.Control>
                                 </Form.Group>
                                 <Form.Group>
                                     <Form.Label>Producto activo en la base de datos: <br /> {libro.activo} </Form.Label>
-                                    <Form.Control
-                                        type="number"
-                                        name="activo"
-                                        placeholder="Introduzca si esta activo (1) o no (0)"
-                                        onChange={handleChange}                                      
-                                    >
-                                    </Form.Control>
                                 </Form.Group>
                             </Col>
                         </Row>
 
-                        <Button style={{ backgroundColor: colors.primary, borderColor: colors.primary, marginTop: 20 }} type="submit">
-                            Modificar producto
-                        </Button>
+                        <Link to ={-1}>
+                            <Button>Regresar</Button>
+                            </Link>
                     </Form>
                 </div>
             </div>
