@@ -1,10 +1,33 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import MasterPage from "../../components/MasterPage";
 import NavTabMenu from "../../components/NavTabMenu";
 import { Link, useLocation } from "react-router-dom";
 import { Table, Form, Container, Button } from "react-bootstrap";
+import { UserContext } from "../../models/UserContext";
+import { baseUrlAPI } from "../../constants/constants";
 
 export default function DevolucionesHome() {
+
+    const {user} = useContext(UserContext);
+
+    const [ordenes, setOrdenes] = useState([]);
+
+    useEffect(()=>{
+        getOrdenes();
+    },[])
+
+    const getOrdenes = () => {
+        fetch(baseUrlAPI + "pedidos?id_usuario=" + user.id_usuario)
+            .then(response => response.json())
+            .then((data) => {
+                console.log(data);
+                setOrdenes(data);
+            })
+            .catch((e) => {
+
+            })
+    }
+
     const [libros, setLibros] = useState([
         {
             id: 1,
@@ -109,18 +132,18 @@ export default function DevolucionesHome() {
                 </Table>
                 <div style={{ width: "100%", display: "flex", justifyContent: "space-evenly" }}>
 
-                <Link to={'/devprocadmin'}>
-                    <Button>Solicitudes procesadas </Button>
-                </Link>
+                    <Link to={'/devprocadmin'}>
+                        <Button>Solicitudes procesadas </Button>
+                    </Link>
 
-                <Link to={'/paqueteriadev'}>
-                    <Button>Registro de paqueteria</Button>
-                </Link>
+                    <Link to={'/paqueteriadev'}>
+                        <Button>Registro de paqueteria</Button>
+                    </Link>
 
                 </div>
-                
+
             </Container>
         </>
 
-           );
+    );
 }

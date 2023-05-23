@@ -1,52 +1,62 @@
-import React, { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import MasterPage from "../../components/MasterPage";
 import NavTabMenu from "../../components/NavTabMenu";
 import { Table, Form, Container, Button } from "react-bootstrap";
+import { UserContext } from "../../models/UserContext";
+import { baseUrlAPI } from "../../constants/constants";
 
 export default function Devoluciones() {
-    const [libros, setLibros] = useState([
-        {
-            id: 1,
-            nombre: "Libro 1",
-            cantidad: 2,
-            precio: 10.99,
-            motivo: "",
-            metodo: "",
-            devuelto: false
-        },
-        {
-            id: 2,
-            nombre: "Libro 2",
-            cantidad: 1,
-            precio: 14.99,
-            motivo: "",
-            metodo: "",
-            devuelto: false
-        },
-        {
-            id: 3,
-            nombre: "Libro 3",
-            cantidad: 3,
-            precio: 9.99,
-            motivo: "",
-            metodo: "",
-            devuelto: false
-        }
-    ]);
 
-    const handleCheck = (id) => {
-        setLibros((prevState) =>
-            prevState.map((libro) =>
-                libro.id === id ? { ...libro, devuelto: !libro.devuelto } : libro
+    const { user } = useContext(UserContext);
+
+    const [ordenes, setOrdenes] = useState([]);
+
+
+    useEffect(() => {
+        getOrdenes();
+    }, [])
+
+    const getOrdenes = () => {
+        fetch(baseUrlAPI + "pedidos?id_usuario=" + user.id_usuario)
+            .then(response => response.json())
+            .then((data) => {
+                ordenarOrden(data);
+            })
+            .catch((e) => {
+
+            })
+    }
+
+    const ordenarOrden = (data) => {
+        const aux = [];
+        data.map((orden) => {
+            aux.push({
+                id_pedido: orden.id_pedido,
+                direccion: orden.direccion,
+                total: orden.total,
+                motivo: "",
+                metodo: "",
+                devuelto: false
+            })
+        })
+        setOrdenes(aux);
+        console.log(aux);
+    }
+
+    const handleCheck = (id_orden) => {
+        console.log(id_orden);
+        setOrdenes((prevState) =>
+            prevState.map((orden) =>
+                orden.id_pedido === id_orden ? { ...orden, devuelto: !orden.devuelto } : orden
             )
         );
     };
 
-    const handleChange = (e, id, key) => {
-        setLibros((prevState) =>
-            prevState.map((libro) =>
-                libro.id === id ? { ...libro, [key]: e.target.value } : libro
+    const handleChange = (e, id_orden, key) => {
+        setOrdenes((prevState) =>
+            prevState.map((orden) =>
+                orden.id_pedido === id_orden ? { ...orden, [key]: e.target.value } : orden
             )
         );
     };
@@ -60,41 +70,41 @@ export default function Devoluciones() {
                 <Table striped bordered hover>
                     <thead>
                         <tr>
-                            <th>Check</th>
-                            <th>Libro</th>
-                            <th>Cantidad</th>
-                            <th>Precio</th>
+                            <th>Seleccionar</th>
+                            <th>Pedido</th>
+                            <th>Dirección</th>
+                            <th>Total</th>
                             <th>Motivo de devolución</th>
                             <th>Método de devolución</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {libros.map((libro) => (
-                            <tr key={libro.id}>
+                        {ordenes.map((orden) => (
+                            <tr key={orden.id_pedido}>
                                 <td>
                                     <Form.Check
                                         type="checkbox"
-                                        checked={libro.devuelto}
-                                        onChange={() => handleCheck(libro.id)}
+                                        checked={orden.devuelto}
+                                        onChange={() => handleCheck(orden.id_pedido)}
                                     />
                                 </td>
-                                <td>{libro.nombre}</td>
-                                <td>{libro.cantidad}</td>
-                                <td>{libro.precio}</td>
+                                <td>{orden.id_pedido}</td>
+                                <td>{orden.direccion}</td>
+                                <td>${orden.total}.00</td>
                                 <td>
                                     <Form.Control
                                         type="text"
-                                        value={libro.motivo}
-                                        onChange={(e) => handleChange(e, libro.id, "motivo")}
-                                        disabled={!libro.devuelto}
+                                        value={orden.motivo}
+                                        onChange={(e) => handleChange(e, orden.id_pedido, "motivo")}
+                                        disabled={!orden.devuelto}
                                     />
                                 </td>
                                 <td>
                                     <Form.Control
                                         as="select"
-                                        value={libro.metodo}
-                                        onChange={(e) => handleChange(e, libro.id, "metodo")}
-                                        disabled={!libro.devuelto}
+                                        value={orden.metodo}
+                                        onChange={(e) => handleChange(e, orden.id_pedido, "metodo")}
+                                        disabled={!orden.devuelto}
                                     >
                                         <option value="">Seleccionar método</option>
                                         <option value="correo">Correo</option>
