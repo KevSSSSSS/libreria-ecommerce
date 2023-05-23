@@ -26,8 +26,14 @@ import EnvioOrden from './views/Paqueteria/EnvioOrden';
 import EntregaOrden from './views/Paqueteria/EntregaOrden';
 import OrdenesEnviadas from './views/Paqueteria/OrdenesEnviadas';
 import ViewPaq from './views/Paqueteria/ViewPaqueterias';
+import UpPaq from './views/Paqueteria/UpPaqueterias';
+import ModPaq from './views/Paqueteria/ModPaqueterias';
 
-
+//Importaciones de Administrador de Empleados
+import HomeAdmin from './views/Administrador/HomeAdmin';
+import ViewEmp from './views/Administrador/ViewEmployees';
+import UpEmp from './views/Administrador/UpEmployees';
+import ModEmp from './views/Administrador/ModEmployees';
 
 import NoRes from './views/ClienteAnonimo/NoRes';
 
@@ -108,6 +114,14 @@ function App() {
         <Route path='/ordenesenv' element={<OrdenesEnviadas />} />
         <Route path='/entregaorden' element={<EntregaOrden />} />
         <Route path='/viewpaq' element={<ViewPaq />} />
+        <Route path='/uppaq' element={<UpPaq />} />
+        <Route path='/modpaq' element={<ModPaq />} />
+
+        //Rutas para Administrador de Empleados
+        <Route path='/homeadmin' element={<HomeAdmin />} />
+        <Route path='/viewemp' element={<ViewEmp />} />
+        <Route path='/upemp' element={<UpEmp />} />
+        <Route path='/modemp' element={<ModEmp />} />
 
 
         //Routes for Customer Support Client
