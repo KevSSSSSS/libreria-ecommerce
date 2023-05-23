@@ -9,7 +9,7 @@ import {BiHomeAlt2} from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { Button, Dropdown } from "react-bootstrap";
 
-export default function NavTabMenu() {
+export default function TabMenuHomePaqueteria() {
 
     return (
         <div style={{ width: "100%", height: "5vh", backgroundColor: colors.primary, alignItems: "center", justifyContent: "center", display: "flex", padding: 20 }}>
@@ -19,7 +19,7 @@ export default function NavTabMenu() {
                     Ordenes
                 </Button>
             </Link>
-            <Link to={"/paqueterias"} style={{ textDecoration: "none" }}>
+            <Link to={"/viewpaq"} style={{ textDecoration: "none" }}>
                 <Button style={{fontSize: "19px", backgroundColor: colors.primary, borderColor: colors.primary, marginRight: 16, alignItems: "center", display: "flex" }} type="submit">
                     <BsBoxSeam size={24} style={{ marginRight: 8 }} />
                     Paqueterias

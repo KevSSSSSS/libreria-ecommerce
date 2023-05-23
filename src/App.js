@@ -17,12 +17,18 @@ import Payment from './views/ClienteRegistrado/Payment';
 import Account from './views/Devoluciones/Account';
 
 
-//Importaciones de Paqueterias
+//Importaciones de Ordenes
 import HomePaq from './views/Paqueteria/HomePaqueteria';
 import OrdenesNoEnviadas from './views/Paqueteria/OrdenesNoEnviadas';
 import EnvioOrden from './views/Paqueteria/EnvioOrden';
 import EntregaOrden from './views/Paqueteria/EntregaOrden';
 import OrdenesEnviadas from './views/Paqueteria/OrdenesEnviadas';
+
+//Importaciones de Paqueterias
+import viewPaqueteria from './views/Paqueteria/Paqueterias/viewPaqueteria';
+import upPaqueteria from './views/Paqueteria/Paqueterias/upPaqueteria';
+import modPaqueteria from './views/Paqueteria/Paqueterias/modPaqueteria';
+import delPaqueteria from './views/Paqueteria/Paqueterias/delPaqueteria';
 
 
 import NoRes from './views/ClienteAnonimo/NoRes';
@@ -95,12 +101,15 @@ function App() {
           <Route path='/viewproducts' element={<ViewProduct />} />
         //End routes for Compras
 
-        //Rutas para Paqueteria
+        //Rutas para Ordenes
         <Route path='/homepaq' element={<HomePaq />} />
         <Route path='/ordenesnoenv' element={<OrdenesNoEnviadas />} />
         <Route path='/envioorden' element={<EnvioOrden />} />
         <Route path='/ordenesenv' element={<OrdenesEnviadas />} />
         <Route path='/entregaorden' element={<EntregaOrden />} />
+
+        <Route path='/viewpaq' element={<viewPaqueteria/>}/>
+
 
         //Routes for Customer Support Client
           <Route path='/cshome' element={<CustomerSuppHome />} />
