@@ -15,11 +15,12 @@ export default function Payment() {
 
     const importe = location.state.total;
     const fecha = location.state.fecha;
+    const cart = location.state.cart;
 
     const [metodoDePago, setMetodoDePago] = useState({});
 
     const postMetodoPago = () => {
-        let metodo = {id_usuario: user.id_usuario, tarjeta: "87887782", fecha_expiracion: "10-03-2023", titular: user.nombre + user.apellido_p + user.apellido_m, cvv: "757"};
+        let metodo = { id_usuario: user.id_usuario, tarjeta: "87887782", fecha_expiracion: "10-03-2023", titular: user.nombre + user.apellido_p + user.apellido_m, cvv: "757" };
         console.log(metodo);
         fetch("http://localhost:4000/test/" + "metodospago", {
             method: 'POST',
@@ -28,15 +29,56 @@ export default function Payment() {
             },
             body: JSON.stringify(metodo)
         })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-        })
-        .catch(error => {
-            console.error(error);
-        });
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => {
+                console.error(error);
+            });
     }
 
+    const postPedido = () => {
+        let pedido = { id_usuario: user.id_usuario, fecha: "10-03-2023", total: importe, direccion: "Calle la paz sin numero", estatus: "Sin enviar" };
+        fetch("http://localhost:4000/test/" + "pedidos", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(pedido)
+        })
+            .then(response => response.json())
+            .then(data => {
+                postDetallePedido(data.body.insertId);
+            })
+            .catch(error => {
+                console.error(error);
+            });
+    }
+
+    const postDetallePedido = (id_pedido) => {
+        cart.map((libro) => {
+            console.log(libro);
+            let detalle = {id_pedido: id_pedido, id_libro: libro.id_libro, cantidad: libro.cantidad, precio_unitario: libro.precio};
+            fetch("http://localhost:4000/test/" + "detallespedidos", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(detalle)
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.code === 200) {
+                        //Hacer algo
+                    }
+                })
+                .catch(error => {
+                    console.error(error);
+                });
+        })
+    }
     return (
         <>
             <MasterPage />
@@ -65,16 +107,16 @@ export default function Payment() {
                         <Form.Group>
                             <Form.Label>No. Tarjeta </Form.Label>
                             <Form.Control type="number"></Form.Control>
-                            <div style={{display: "flex", justifyContent: "center", alignItems: "center", marginTop: 20}}>
+                            <div style={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: 20 }}>
                                 <Form.Label size="sm">Mes: </Form.Label>
-                                <Form.Control type="number" size="sm" style={{width: "30%"}}></Form.Control>
-                                <Form.Label size="sm" style={{marginLeft: 40}}>Año: </Form.Label>
-                                <Form.Control type="number" size="sm" style={{width: "30%"}}></Form.Control>
+                                <Form.Control type="number" size="sm" style={{ width: "30%" }}></Form.Control>
+                                <Form.Label size="sm" style={{ marginLeft: 40 }}>Año: </Form.Label>
+                                <Form.Control type="number" size="sm" style={{ width: "30%" }}></Form.Control>
                             </div>
                             <Form.Label>CVV: </Form.Label>
                             <Form.Control type="number"></Form.Control>
                             <Button style={{ marginTop: 50, marginRight: 20 }}>Cancelar</Button>
-                            <Button style={{ marginTop: 50, marginRight: 20 }} onClick={postMetodoPago}>Pagar</Button>
+                            <Button style={{ marginTop: 50, marginRight: 20 }} onClick={() => { postMetodoPago(); postPedido(); }}>Pagar</Button>
                         </Form.Group>
                     </Form>
                 </div>

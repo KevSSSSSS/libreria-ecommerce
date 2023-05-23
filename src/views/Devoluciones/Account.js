@@ -27,6 +27,9 @@ export default function Account() {
                     <Link to={'/cshome'}>
                         <Button>Atención al cliente</Button>
                     </Link>
+                    <Link to={'/ordenes'}>
+                        <Button>Ver ordenes de compra</Button>
+                    </Link>
                 </div>
             </div>
         </>

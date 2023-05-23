@@ -48,6 +48,7 @@ import Atenderdev from './views/Devoluciones/AtenderDev';
 import Paqueteriadev from './views/Devoluciones/Paqueteriadev';
 import DevProcesadas from './views/Devoluciones/DevProcesadas';
 import HomeAlmacen from './views/Devoluciones/HomeAlmacen';
+import Ordenes from './views/ClienteRegistrado/Ordenes';
 
 
 
@@ -64,16 +65,16 @@ function App() {
 
           <Route path='/cart' element={<Cart />}></Route>
           <Route path='/payment' element={<Payment />} />
-          <Route path='/account' element={<Account />}/>
-          <Route path='/devoluciones' element={<Devoluciones/>}/>
-          <Route path='/devolucionesHome' element={<DevolucionesHome/>}/>
-          <Route path='/atenderDev' element={<Atenderdev/>}/>
-          <Route path='/paqueteriaDev' element={<Paqueteriadev/>}/>
-          <Route path='/devprocesadas' element={<DevProcesadas/>}/>
-          <Route path='/homealmacen' element={<HomeAlmacen/>}/>
+          <Route path='/account' element={<Account />} />
+          <Route path='/devoluciones' element={<Devoluciones />} />
+          <Route path='/devolucionesHome' element={<DevolucionesHome />} />
+          <Route path='/atenderDev' element={<Atenderdev />} />
+          <Route path='/paqueteriaDev' element={<Paqueteriadev />} />
+          <Route path='/devprocesadas' element={<DevProcesadas />} />
+          <Route path='/homealmacen' element={<HomeAlmacen />} />
 
 
-      //Routes for Compras 
+      //Routes for Compras
           <Route path='/purchasehome' element={<PurchaseHome />} />
 
           <Route path='/homeInventary' element={<HomeInventary />} />
@@ -82,7 +83,7 @@ function App() {
           <Route path='/modproducts' element={<ModProducts />} />
         //End routes for Compras
 
-        //Routes for Customer Support Client
+          //Routes for Customer Support Client
           <Route path='/cshome' element={<CustomerSuppHome />} />
           <Route path='/callform' element={<CallForm />} />
           <Route path='/emailform' element={<EmailForm />} />
@@ -90,15 +91,19 @@ function App() {
           <Route path='/privacity' element={<Privacity />} />
         //End routes for Customer Support Client
 
+          // Routes for Customer Support Admon
+          <Route path='/csadmonhome' element={<CSAdmonHome />} />
+          <Route path='/allcalls' element={<AllCalls />} />
+          <Route path='/allmails' element={<AllMails />} />
+          <Route path='/callsview' element={<CallsView />} />
+          <Route path='/emailsview' element={<EmailsView />} />
         // Routes for Customer Support Admon
-        <Route path='/csadmonhome' element={<CSAdmonHome />} />
-        <Route path='/allcalls' element={<AllCalls />} />
-        <Route path='/allmails' element={<AllMails />} />
-        <Route path='/callsview' element={<CallsView />} />
-        <Route path='/emailsview' element={<EmailsView />} />
-        // Routes for Customer Support Admon 
 
+          //Ordenes
+          <Route path='ordenes' element={<Ordenes />}></Route>
         </Routes>
+
+
       </Router>
     </UserProvider>
   );

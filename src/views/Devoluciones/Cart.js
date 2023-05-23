@@ -47,7 +47,7 @@ export default function Cart() {
                         </div>
                     )
                 })}
-                {cart.length > 0 ? (<Link to={"/payment"} state={{total: total, fecha: fecha}}>
+                {cart.length > 0 ? (<Link to={"/payment"} state={{total: total, fecha: fecha, cart: cart}}>
                     <Button>Comprar</Button>
                 </Link>) : (<h1>No tienes productos añadidos en el carrito</h1>)}
 
