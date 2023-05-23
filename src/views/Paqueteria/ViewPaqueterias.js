@@ -33,7 +33,7 @@ export default function ViewPaqueterias() {
                         <td>1</td>
                         <td>UPS</td>
                         <td>
-                        <Button variant="secondary" >ver detalle</Button>
+                        <Button variant="secondary" >Editar</Button>
                         </td>
                         <td>
                             <Button variant="outline-danger" >X</Button>

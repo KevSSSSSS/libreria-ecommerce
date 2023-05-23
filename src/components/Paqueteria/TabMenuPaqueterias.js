@@ -18,7 +18,7 @@ export default function TabMenuPaqueterias() {
                     Home
                 </Button>
             </Link>
-            <Link to={"/upPaqueteria"} style={{textDecoration: "none", marginLeft: "33%"}}>
+            <Link to={"/uppaq"} style={{textDecoration: "none", marginLeft: "33%"}}>
                 <Button style={{fontSize: "19px", backgroundColor: colors.primary, borderColor: colors.primary, alignItems: "center", JustifyContent: "center"}} type="submit">
                     <MdLibraryAdd size={20} style={{ marginRight: 8 }} />
                     Nueva Paqueteria

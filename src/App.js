@@ -24,6 +24,7 @@ import EnvioOrden from './views/Paqueteria/EnvioOrden';
 import EntregaOrden from './views/Paqueteria/EntregaOrden';
 import OrdenesEnviadas from './views/Paqueteria/OrdenesEnviadas';
 import ViewPaq from './views/Paqueteria/ViewPaqueterias';
+import UpPaq from './views/Paqueteria/UpPaqueterias';
 
 
 
@@ -104,6 +105,7 @@ function App() {
         <Route path='/ordenesenv' element={<OrdenesEnviadas />} />
         <Route path='/entregaorden' element={<EntregaOrden />} />
         <Route path='/viewpaq' element={<ViewPaq />} />
+        <Route path='/uppaq' element={<UpPaq />} />
 
 
         //Routes for Customer Support Client
