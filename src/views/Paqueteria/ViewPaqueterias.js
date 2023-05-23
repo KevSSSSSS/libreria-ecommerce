@@ -1,12 +1,43 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Form, Button, Image, Spinner } from "react-bootstrap";
-import { colors } from "../../constants/constants";
+import { baseUrlAPI, colors } from "../../constants/constants";
+import { useNavigate } from "react-router-dom";
+import TablePaqs from "../../components/Paqueteria/TablaPaq";
+import { UserContext } from "../../models/UserContext";
+import { AiOutlinePoweroff } from "react-icons/ai";
 
 //Importaciones de componentes
 import TabMenuPaqueterias from "../../components/Paqueteria/TabMenuPaqueterias";
 import BannerPaqueteria from "../../components/Paqueteria/BannerPaqueteria";
 
 export default function ViewPaqueterias() {
+
+    const { user, login, logout } = useContext(UserContext);
+
+    const navigate = useNavigate();
+
+    const [datosTabla, setDatosTabla] = useState([]);
+    const [loading, setLoading] = useState(false);
+
+    const filterpaqs = datosTabla.filter(datosTabla => datosTabla.activo != 0);
+
+    useEffect(() => {
+        getPaqs();
+        if (!user) {
+            navigate('/');
+        }
+    }, [])
+
+    const getPaqs = () => {
+        setLoading(true);
+        fetch(`${baseUrlAPI}paqueterias`)
+            .then(response => response.json())
+            .then(data => {
+                setDatosTabla(data)
+                setLoading(false)
+            });
+
+    }
 
     return (
         <>
@@ -22,27 +53,7 @@ export default function ViewPaqueterias() {
                 <h1 style={{textAlign: "center", justifyContent: "center", margin: "4vh 35vh", color: "white"}}>PAQUETERIAS</h1>
             </div>
             <div style={{height: "60vh" , display: "flex"}}>
-                <table style={{backgroundColor: colors.blackSwift, width: "100%", verticalAlign: "center", border: "1px solid #fba71b", margin: "3vh"}}>
-                    <tr style={{textAlign: "center", border: "1px solid #fba71b", height: "8%", background: colors.primary}}>
-                        <th style={{border: "1px solid #fba71b", fontSize: "25px", color: "white"}}>ID</th>
-                        <th style={{border: "1px solid #fba71b", fontSize: "25px", color: "white"}}>Nombre</th>
-                        <th style={{border: "1px solid #fba71b", fontSize: "25px", color: "white"}}>Editar</th>
-                        <th style={{border: "1px solid #fba71b", fontSize: "25px", color: "white"}}>Eliminar</th>
-                    </tr>
-                    <tr style={{fontSize: "20px", textAlign: "center", border: "1px solid #e1b683", height: "12%", background: colors.white}}>
-                        <td>1</td>
-                        <td>UPS</td>
-                        <td>
-                        <Button variant="secondary" >Editar</Button>
-                        </td>
-                        <td>
-                            <Button variant="outline-danger" >X</Button>
-                        </td>
-                    </tr>
-                    <tr>
-
-                    </tr>
-                </table>
+            <TablePaqs paqueterias={filterpaqs} />
             </div>
             </div>
             

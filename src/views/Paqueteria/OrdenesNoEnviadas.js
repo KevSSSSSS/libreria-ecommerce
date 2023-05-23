@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { Form, Button, Image, Spinner } from "react-bootstrap";
+import React, { useContext, useEffect, useState} from "react";
+import { Button, Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { colors } from "../../constants/constants";
 
 //Importaciones de componentes
@@ -21,31 +22,39 @@ export default function OrdenesNoEnviadas() {
                 <h1 style={{textAlign: "center", justifyContent: "center", margin: "4vh 25vh"}}>ORDENES NO ENVIADAS</h1>
             </div>
             <div style={{ backgroundColor: "#ebebeb", height: "60vh" , display: "flex"}}>
-                <table style={{width: "100%", verticalAlign: "center", border: "1px solid #fba71b", margin: "3vh"}}>
-                    <tr style={{textAlign: "center", border: "1px solid #fba71b", height: "8%", background: colors.primary}}>
-                        <th style={{border: "1px solid #fba71b", fontSize: "25px", color: "white"}}>ID</th>
-                        <th style={{border: "1px solid #fba71b", fontSize: "25px", color: "white"}}>Direccion</th>
-                        <th style={{border: "1px solid #fba71b", fontSize: "25px", color: "white"}}>Detalle de Orden</th>
-                        <th style={{border: "1px solid #fba71b", fontSize: "25px", color: "white"}}>Enviar Orden</th>
-                        <th style={{border: "1px solid #fba71b", fontSize: "25px", color: "white"}}>Cancelar Orden</th>
-                    </tr>
+            <Table style={{backgroundColor: colors.blackSwift, width: "100%", verticalAlign: "center", border: "1px solid #fba71b", margin: "3vh"}}>
+            <thead>
+                <tr style={{fontSize: "25px", color: "white", textAlign: "center", border: "1px solid #fba71b", height: "8%", background: colors.primary}}>
+                    <th>Id</th>
+                    <th>Direccion</th>
+                    <th>Detalle de Orden</th>
+                    <th>Enviar Orden</th>
+                    <th>Cancelar Orden</th>
+                </tr>
+            </thead>
+            <tbody>
                     <tr style={{fontSize: "20px", textAlign: "center", border: "1px solid #e1b683", height: "12%", background: colors.white}}>
                         <td>1</td>
-                        <td>Tec toluca</td>
+                        <td>toluca</td>
                         <td>
-                        <Button variant="secondary" >ver detalle</Button>
+                            <Link to ={"/detorden"}>
+                            <Button variant="secondary">ver detalle</Button>
+                            </Link>
+                        
                         </td>
                         <td>
-                            <Button variant="secondary" >Enviar</Button>
+                            <Link to ={"/envioorden"}>
+                            <Button variant="secondary">Enviar</Button>
+                            </Link>                       
                         </td>
                         <td>
-                            <Button variant="outline-danger" >X</Button>
+                            <Link to ={"/ordenesnoenv"}>
+                            <Button variant="outline-danger">X</Button>
+                            </Link>                       
                         </td>
                     </tr>
-                    <tr>
-
-                    </tr>
-                </table>
+            </tbody>
+        </Table>
             </div>
         </>
     )
