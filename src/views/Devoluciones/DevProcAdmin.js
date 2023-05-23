@@ -3,7 +3,7 @@ import MasterPage from "../../components/MasterPage";
 import NavTabMenu from "../../components/NavTabMenu";
 import { Table, Form, Container, Button } from "react-bootstrap";
 
-export default function PaqueteriaDev() {
+export default function DevProcAdmin() {
     const [libros, setLibros] = useState([
         {
             id: 1,
@@ -12,9 +12,10 @@ export default function PaqueteriaDev() {
             precio: 10.99,
             motivo: "",
             metodo: "",
-            devuelto: false,
-            Número_guía: "MX63783HJ",
-            Fecha_envio: ""
+            No_guia:"",
+            fecha_envio:"",
+            fecha_recibido:"",
+            fecha_atencion:""
         },
         {
             id: 2,
@@ -23,9 +24,10 @@ export default function PaqueteriaDev() {
             precio: 14.99,
             motivo: "",
             metodo: "",
-            devuelto: false,
-            Número_guía: "MX63783HJ",
-            Fecha_envio: ""
+            No_guia:"",
+            fecha_envio:"",
+            fecha_recibido:"",
+            fecha_atencion:""
         },
         {
             id: 3,
@@ -34,9 +36,10 @@ export default function PaqueteriaDev() {
             precio: 9.99,
             motivo: "",
             metodo: "",
-            devuelto: false,
-            Número_guía: "MX63783HJ",
-            Fecha_envio: ""
+            No_guia:"",
+            fecha_envio:"",
+            fecha_recibido:"",
+            fecha_atencion:""
         }
     ]);
 
@@ -62,9 +65,8 @@ export default function PaqueteriaDev() {
         <>
             <MasterPage />
             <NavTabMenu />
-            <Container style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
-                <h1>Registro de Devoluciones</h1>
-                <h5>Informe de devoluciones para Paqueteria</h5>
+            <Container style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column", }}>
+                <h1>Devolución</h1>
                 <Table striped bordered hover>
                     <thead>
                         <tr>
@@ -72,10 +74,11 @@ export default function PaqueteriaDev() {
                             <th>Libro</th>
                             <th>Cantidad</th>
                             <th>Precio</th>
-                            <th>Método de devolución</th>
-                            <th>Número de guía</th>
-                            <th>Fecha de envio</th>
-                            <th>Fecha de recibido por Paq</th>
+                            <th>Motivo de devolución</th>
+                            <th>Metodo de devolución</th>
+                            <th>Número de Guía</th>
+                            <th>Fecha de Envio</th>
+
                         </tr>
                     </thead>
                     <tbody>
@@ -88,6 +91,7 @@ export default function PaqueteriaDev() {
                                         onChange={() => handleCheck(libro.id)}
                                     />
                                 </td>
+                                <td>{libro.idLibro}</td>
                                 <td>{libro.nombre}</td>
                                 <td>{libro.cantidad}</td>
                                 <td>{libro.precio}</td>
@@ -111,7 +115,9 @@ export default function PaqueteriaDev() {
                         ))}
                     </tbody>
                 </Table>
+                //finalizada /procesada
                 <div style={{ width: "100%", display: "flex", justifyContent: "space-evenly" }}>
+                    <Button>Realizar Devolución</Button>
                     <Button>Cerrar</Button>
                 </div>
             </Container>
