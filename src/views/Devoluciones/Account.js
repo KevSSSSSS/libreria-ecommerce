@@ -17,6 +17,12 @@ export default function Account() {
                     <div>Apellido de usuario: {user.apellido_p} {user.apellido_m}</div>
                     <div>Correo: {user.email}</div>
                     <div>Contraseña: ********</div>
+                    <Link to={"/editarPerfil"} state={{user: user}}>
+                        <Button>Editar datos</Button>
+                    </Link>
+                    <Link to={"/formasDePago"} state={{user: user}}>
+                        <Button>Ver metodos de pago</Button>
+                    </Link>
                 </div>
                 <div style={{ width: "50%", display: "flex", flexDirection: "column", justifyContent: "space-evenly", alignItems: "center" }}>
                     <div>Foto de perfil</div>
