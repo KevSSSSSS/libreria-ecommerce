@@ -1,15 +1,17 @@
 import React, { useContext, useEffect, useState } from "react";
 import MasterPage from "../../components/MasterPage";
 import NavTabMenu from "../../components/NavTabMenu";
-import { Container, Table } from "react-bootstrap";
+import { Button, Container, Table } from "react-bootstrap";
 import { baseUrlAPI } from "../../constants/constants";
 import { UserContext } from "../../models/UserContext";
+import { Link } from "react-router-dom";
 
 export default function FormasPago() {
 
     const { user } = useContext(UserContext);
 
     const [metodos, setMetodos] = useState([]);
+    const [metodoDePago, setMetodoDePago] = useState({});
 
     useEffect(() => {
         getMetodos();
@@ -21,6 +23,49 @@ export default function FormasPago() {
             .then(response => response.json())
             .then(data => {
                 setMetodos(data);
+            });
+    }
+
+    const deleteFormapago = (id_metodo_pago) => {
+        console.log(id_metodo_pago);
+        fetch(`${baseUrlAPI}metodospago?id_metodo_pago=${id_metodo_pago}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.code === 200) {
+                    console.log(data);
+                    getMetodos();
+                } else {
+                    //console.log("Ocurrio un error");
+                    //console.log(data);
+                }
+            })
+            .catch(error => {
+                //console.log("Ocurrio un error 2:");
+                // console.error("ERROR:", error);
+            });
+    }
+
+    const postMetodoPago = () => {
+        let metodo = { id_usuario: user.id_usuario, tarjeta: metodoDePago.tarjeta, fecha_expiracion: metodoDePago.mes + "/" + metodoDePago.anio, titular: user.nombre + " " + user.apellido_p + " " + user.apellido_m, cvv: metodoDePago.cvv };
+        console.log(metodo);
+        fetch(baseUrlAPI + "metodospago", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(metodo)
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            })
+            .catch(error => {
+                console.error(error);
             });
     }
 
@@ -48,9 +93,14 @@ export default function FormasPago() {
                                     <td>{m.tarjeta}</td>
                                     <td>{m.fecha_expiracion}</td>
                                     <td>{m.cvv}</td>
+                                    <td><Button>Editar</Button></td>
+                                    <td><Button onClick={() => { deleteFormapago(m.id_metodo_pago) }}>Eliminar</Button></td>
                                 </tr>
                             )
                         })}
+                        <Link to={"/editarMetodoPago"}>
+                            <Button style={{backgroundColor: "blue"}}>Añadir forma de pago nueva</Button>
+                        </Link>
 
                     </tbody>
                 </Table>
