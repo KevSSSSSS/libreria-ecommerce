@@ -70,6 +70,8 @@ import PaqueteriaDev from './views/Devoluciones/PaqueteriaDev';
 import DevProcesadas from './views/Devoluciones/DevProcesadas';
 import HomeAlmacen from './views/Devoluciones/HomeAlmacen';
 import DevProcAdmin from './views/Devoluciones/DevProcAdmin';
+import EditarPerfil from './views/ClienteRegistrado/EditarPerfil';
+import FormasPago from './views/ClienteRegistrado/FormasPago';
 
 
 
@@ -93,6 +95,8 @@ function App() {
           <Route path='/paqueteriadev' element={<PaqueteriaDev/>}/>
           <Route path='/devprocesadas' element={<DevProcesadas/>}/>
           <Route path='/homealmacen' element={<HomeAlmacen/>}/>
+          <Route path='/editarPerfil'element={<EditarPerfil/>}/>
+          <Route path='/formasDePago' element={<FormasPago/>}/>
 
           <Route path='/devprocadmin' element={<DevProcAdmin/>}/>
 
