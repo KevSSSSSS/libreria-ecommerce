@@ -3,7 +3,7 @@ import MasterPage from "../../components/MasterPage";
 import NavTabMenu from "../../components/NavTabMenu";
 import { Table, Form, Container, Button } from "react-bootstrap";
 
-export default function Paqueteriadev() {
+export default function PaqueteriaDev() {
     const [libros, setLibros] = useState([
         {
             id: 1,
@@ -72,10 +72,10 @@ export default function Paqueteriadev() {
                             <th>Libro</th>
                             <th>Cantidad</th>
                             <th>Precio</th>
-                            <th>Motivo de devolución</th>
                             <th>Método de devolución</th>
                             <th>Número de guía</th>
                             <th>Fecha de envio</th>
+                            <th>Fecha de recibido por Paq</th>
                         </tr>
                     </thead>
                     <tbody>

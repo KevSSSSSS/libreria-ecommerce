@@ -36,7 +36,6 @@ CREATE TABLE Usuarios (
   PRIMARY KEY (id_usuario)
 );
 
-
 CREATE TABLE Pedidos (
   id_pedido INT(11) NOT NULL AUTO_INCREMENT,
   id_usuario INT(11) NOT NULL,
@@ -45,6 +44,7 @@ CREATE TABLE Pedidos (
   PRIMARY KEY (id_pedido),
   FOREIGN KEY (id_usuario) REFERENCES Usuarios(id_usuario)
 );
+
 
 CREATE TABLE Paqueterias (
   id_paqueteria INT(11) NOT NULL AUTO_INCREMENT,
@@ -162,7 +162,6 @@ CREATE TABLE Devoluciones (
   FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente)
   FOREIGN KEY (id_empleado) REFERENCES Empleados(id_empleado)
 );
-
 ------------- Kevin (Usuario Anonimo) ---------------
 CREATE TABLE Pedidos (
   id_pedido INT(11) NOT NULL AUTO_INCREMENT,
@@ -196,4 +195,3 @@ CREATE TABLE Metodos_pago (
   PRIMARY KEY (id_metodo_pago),
   FOREIGN KEY (id_usuario) REFERENCES Usuarios(id_usuario)
 );
-

@@ -66,9 +66,10 @@ import { UserProvider } from './models/UserContext';
 import Devoluciones from './views/Devoluciones/DevolucionesCliente';
 import DevolucionesHome from './views/Devoluciones/DevolucionesHome';
 import Atenderdev from './views/Devoluciones/AtenderDev';
-import Paqueteriadev from './views/Devoluciones/Paqueteriadev';
+import PaqueteriaDev from './views/Devoluciones/PaqueteriaDev';
 import DevProcesadas from './views/Devoluciones/DevProcesadas';
 import HomeAlmacen from './views/Devoluciones/HomeAlmacen';
+import DevProcAdmin from './views/Devoluciones/DevProcAdmin';
 
 
 
@@ -89,12 +90,16 @@ function App() {
           <Route path='/devoluciones' element={<Devoluciones/>}/>
           <Route path='/devolucionesHome' element={<DevolucionesHome/>}/>
           <Route path='/atenderDev' element={<Atenderdev/>}/>
-          <Route path='/paqueteriaDev' element={<Paqueteriadev/>}/>
+          <Route path='/paqueteriadev' element={<PaqueteriaDev/>}/>
           <Route path='/devprocesadas' element={<DevProcesadas/>}/>
           <Route path='/homealmacen' element={<HomeAlmacen/>}/>
+
+          <Route path='/devprocadmin' element={<DevProcAdmin/>}/>
+
           <Route path='/verDetallePedido' element={<VerDetallePedido />} />
           <Route path='/ordenes' element={<Ordenes />}></Route>
           <Route path= '/NoRes' element={<NoRes/>}/>
+
 
 
       //Routes for Compras 
