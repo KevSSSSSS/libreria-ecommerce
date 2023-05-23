@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from "react";
 import MasterPage from "../../components/MasterPage";
 import NavTabMenu from "../../components/NavTabMenu";
-import { Container, Table } from "react-bootstrap";
+import { Button, Container, Table } from "react-bootstrap";
 import { baseUrlAPI } from "../../constants/constants";
 import { UserContext } from "../../models/UserContext";
+import { Link } from "react-router-dom";
 
 export default function Ordenes() {
 
@@ -17,19 +18,7 @@ export default function Ordenes() {
     }, [])
 
     const getOrdenes = () => {
-        fetch("http://localhost:4000/test/pedidos?id_usuario=" + user.id_usuario)
-            .then(response => response.json())
-            .then((data) => {
-                console.log(data);
-                setOrdenes(data);
-            })
-            .catch((e) => {
-
-            })
-    }
-
-    const getDetalleOrden = () => {
-        fetch("http://localhost:4000/test/pedidos?id_usuario=" + user.id_usuario)
+        fetch(baseUrlAPI+ "pedidos?id_usuario=" + user.id_usuario)
             .then(response => response.json())
             .then((data) => {
                 console.log(data);
@@ -50,13 +39,14 @@ export default function Ordenes() {
                     <thead>
                         <tr>
                             <th>ID de pedido</th>
-                            <th>Libros</th>
+                            <th>ID de paqueteria</th>
                             <th>Dirección</th>
                             <th>Fecha de pedido</th>
                             <th>Fecha de envio</th>
                             <th>Fecha de entrega</th>
                             <th>Estatus</th>
                             <th>Subtotal</th>
+                            <th></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -71,6 +61,11 @@ export default function Ordenes() {
                                     <td>{orden.fecha_entrega}</td>
                                     <td>{orden.estatus}</td>
                                     <td>$ {orden.total}.00</td>
+                                    <td>
+                                        <Link to={"/verDetallePedido"} state={{orden: orden}}>
+                                            <Button>Ver detalle del pedido</Button>
+                                        </Link>
+                                    </td>
                                 </tr>
                             )
                         })}

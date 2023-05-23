@@ -15,6 +15,7 @@ import FormBook from './views/Inventario/FormBook';
 import Cart from './views/Devoluciones/Cart';
 import Payment from './views/ClienteRegistrado/Payment';
 import Account from './views/Devoluciones/Account';
+import VerDetallePedido from './views/ClienteRegistrado/VerDetallePedido';
 
 
 // All imports for Compras
@@ -72,7 +73,7 @@ function App() {
           <Route path='/paqueteriaDev' element={<Paqueteriadev />} />
           <Route path='/devprocesadas' element={<DevProcesadas />} />
           <Route path='/homealmacen' element={<HomeAlmacen />} />
-
+          <Route path='/verDetallePedido' element={<VerDetallePedido />} />
 
       //Routes for Compras
           <Route path='/purchasehome' element={<PurchaseHome />} />
