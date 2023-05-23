@@ -1,1 +1,1 @@
-export const categories = ["Terror", "Suspensp", "Romance", "Comedia"]
+export const categories = ["Terror", "Suspenso", "Romance", "Comedia"]

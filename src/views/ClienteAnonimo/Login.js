@@ -27,6 +27,7 @@ export default function Login() {
         } else {
             setShowErrorMesagge2(false);
             setLoading(true);
+            
             fetch(`${baseUrlAPI}usuarios/?email=${dataUser.email}&contrasena=${dataUser.contrasena}`)
                 .then(response => response.json())
                 .then(data => {
@@ -54,7 +55,11 @@ export default function Login() {
             if (rol === 'Administrador de devoluciones') {
                 navigate("/devolucionesHome")
             } else {
-                navigate("/");
+                if (rol === 'Administrador de clientes') {
+                    navigate("/csadmonhome")
+                } else {
+                    navigate("/");
+                }
             }
         }
     }

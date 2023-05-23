@@ -15,14 +15,35 @@ import FormBook from './views/Inventario/FormBook';
 import Cart from './views/Devoluciones/Cart';
 import Payment from './views/ClienteRegistrado/Payment';
 import Account from './views/Devoluciones/Account';
+import VerDetallePedido from './views/ClienteRegistrado/VerDetallePedido';
+import Ordenes from './views/ClienteRegistrado/Ordenes';
+
+
+//Importaciones de Paqueteria
+import HomePaq from './views/Paqueteria/HomePaqueteria';
+import OrdenesNoEnviadas from './views/Paqueteria/OrdenesNoEnviadas';
+import EnvioOrden from './views/Paqueteria/EnvioOrden';
+import EntregaOrden from './views/Paqueteria/EntregaOrden';
+import OrdenesEnviadas from './views/Paqueteria/OrdenesEnviadas';
+import ViewPaq from './views/Paqueteria/ViewPaqueterias';
+import UpPaq from './views/Paqueteria/UpPaqueterias';
+import ModPaq from './views/Paqueteria/ModPaqueterias';
+
+//Importaciones de Administrador de Empleados
+import HomeAdmin from './views/Administrador/HomeAdmin';
+import ViewEmp from './views/Administrador/ViewEmployees';
+import UpEmp from './views/Administrador/UpEmployees';
+import ModEmp from './views/Administrador/ModEmployees';
+
+import NoRes from './views/ClienteAnonimo/NoRes';
 
 
 // All imports for Compras
 import PurchaseHome from './views/Compras/PurchaseHome';
-import ViewProducts from './views/Compras/Products/ViewProducts';
+
 import ModProducts from './views/Compras/Products/ModProducts';
-import UpProduct from './views/Compras/Products/UpProduct';
-import DownProduct from './views/Compras/Products/DownProduct';
+
+import ViewProduct from './views/Compras/Products/ViewProduct';
 // Emd imports for Compras
 
 // All imports for Customer Support Client
@@ -62,8 +83,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path='/book/:book' element={<Book />} />
           <Route path='/books' element={<BooksList />} />
-          <Route path='/homeInventary' element={<HomeInventary />} />
-          <Route path='/formBook' element={<FormBook />} />
+
           <Route path='/cart' element={<Cart />}></Route>
           <Route path='/payment' element={<Payment />} />
           <Route path='/account' element={<Account />}/>
@@ -73,17 +93,41 @@ function App() {
           <Route path='/paqueteriadev' element={<PaqueteriaDev/>}/>
           <Route path='/devprocesadas' element={<DevProcesadas/>}/>
           <Route path='/homealmacen' element={<HomeAlmacen/>}/>
+
           <Route path='/devprocadmin' element={<DevProcAdmin/>}/>
-          
+
+          <Route path='/verDetallePedido' element={<VerDetallePedido />} />
+          <Route path='/ordenes' element={<Ordenes />}></Route>
+          <Route path= '/NoRes' element={<NoRes/>}/>
+
 
 
       //Routes for Compras 
           <Route path='/purchasehome' element={<PurchaseHome />} />
-          <Route path='/upproduct' element={<UpProduct />} />
-          <Route path='/downproduct' element={<DownProduct />} />
-          <Route path='/viewproducts' element={<ViewProducts />} />
+
+          <Route path='/homeInventary' element={<HomeInventary />} />
+          <Route path='/formBook' element={<FormBook />} />
+
           <Route path='/modproducts' element={<ModProducts />} />
+          <Route path='/viewproducts' element={<ViewProduct />} />
         //End routes for Compras
+
+        //Rutas para paqueteria
+        <Route path='/homepaq' element={<HomePaq />} />
+        <Route path='/ordenesnoenv' element={<OrdenesNoEnviadas />} />
+        <Route path='/envioorden' element={<EnvioOrden />} />
+        <Route path='/ordenesenv' element={<OrdenesEnviadas />} />
+        <Route path='/entregaorden' element={<EntregaOrden />} />
+        <Route path='/viewpaq' element={<ViewPaq />} />
+        <Route path='/uppaq' element={<UpPaq />} />
+        <Route path='/modpaq' element={<ModPaq />} />
+
+        //Rutas para Administrador de Empleados
+        <Route path='/homeadmin' element={<HomeAdmin />} />
+        <Route path='/viewemp' element={<ViewEmp />} />
+        <Route path='/upemp' element={<UpEmp />} />
+        <Route path='/modemp' element={<ModEmp />} />
+
 
         //Routes for Customer Support Client
           <Route path='/cshome' element={<CustomerSuppHome />} />
