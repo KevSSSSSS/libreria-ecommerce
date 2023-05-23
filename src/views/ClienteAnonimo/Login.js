@@ -58,7 +58,15 @@ export default function Login() {
                 if (rol === 'Administrador de clientes') {
                     navigate("/csadmonhome")
                 } else {
-                    navigate("/");
+                    if (rol == 'Administrador de paqueteria') {
+                        navigate("/homepaq")
+                    } else {
+                        if (rol == 'administrador de empleados') {
+                            navigate("/homeadmin")
+                        } else {
+                            navigate("/");
+                        }
+                    }
                 }
             }
         }

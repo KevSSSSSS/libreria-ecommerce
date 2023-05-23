@@ -26,6 +26,7 @@ import OrdenesEnviadas from './views/Paqueteria/OrdenesEnviadas';
 import ViewPaq from './views/Paqueteria/ViewPaqueterias';
 import UpPaq from './views/Paqueteria/UpPaqueterias';
 import ModPaq from './views/Paqueteria/ModPaqueterias';
+import AccountPaq from './views/Paqueteria/AccountAdminPaq';
 
 //Importaciones de Administrador de Empleados
 import HomeAdmin from './views/Administrador/HomeAdmin';
@@ -112,6 +113,7 @@ function App() {
         <Route path='/viewpaq' element={<ViewPaq />} />
         <Route path='/uppaq' element={<UpPaq />} />
         <Route path='/modpaq' element={<ModPaq />} />
+        <Route path='/accountpaq' element={<AccountPaq />} />
 
         //Rutas para Administrador de Empleados
         <Route path='/homeadmin' element={<HomeAdmin />} />
