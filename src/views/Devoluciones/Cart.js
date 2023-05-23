@@ -28,6 +28,7 @@ export default function Cart() {
                             <div>{b.stock} unidades</div>
                             <div>$ {b.precio}</div>
                             <Button>Eliminar</Button>
+                            <Button>Agregar</Button>
                         </div>
                     )
                 })}
