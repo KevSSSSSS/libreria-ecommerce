@@ -15,6 +15,8 @@ import FormBook from './views/Inventario/FormBook';
 import Cart from './views/Devoluciones/Cart';
 import Payment from './views/ClienteRegistrado/Payment';
 import Account from './views/Devoluciones/Account';
+import VerDetallePedido from './views/ClienteRegistrado/VerDetallePedido';
+import Ordenes from './views/ClienteRegistrado/Ordenes';
 
 
 //Importaciones de Paqueteria
@@ -84,6 +86,8 @@ function App() {
           <Route path='/paqueteriaDev' element={<Paqueteriadev/>}/>
           <Route path='/devprocesadas' element={<DevProcesadas/>}/>
           <Route path='/homealmacen' element={<HomeAlmacen/>}/>
+          <Route path='/verDetallePedido' element={<VerDetallePedido />} />
+          <Route path='/ordenes' element={<Ordenes />}></Route>
           <Route path= '/NoRes' element={<NoRes/>}/>
 
 
