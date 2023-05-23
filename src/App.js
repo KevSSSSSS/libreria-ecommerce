@@ -29,6 +29,7 @@ import ModPaq from './views/Paqueteria/ModPaqueterias';
 
 //Importaciones de Administrador de Empleados
 import HomeAdmin from './views/Administrador/HomeAdmin';
+import ViewEmp from './views/Administrador/ViewEmployees';
 
 import NoRes from './views/ClienteAnonimo/NoRes';
 
@@ -112,6 +113,7 @@ function App() {
 
         //Rutas para Administrador de Empleados
         <Route path='/homeadmin' element={<HomeAdmin />} />
+        <Route path='/viewemp' element={<ViewEmp />} />
 
 
         //Routes for Customer Support Client
