@@ -15,7 +15,7 @@ export default function DevProcesadas() {
     }, [])
 
     const getDev = () => {
-        fetch(`http://localhost:4000/test/devoluciones?id_usuario=` + user.id_usuario)
+        fetch(baseUrlAPI +"devoluciones?id_usuario=" + user.id_usuario)
             .then(response => response.json())
             .then((data) => {
                 setDevoluciones(data);

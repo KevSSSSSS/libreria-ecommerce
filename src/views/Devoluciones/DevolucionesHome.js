@@ -8,72 +8,58 @@ import { baseUrlAPI } from "../../constants/constants";
 
 export default function DevolucionesHome() {
 
-    const {user} = useContext(UserContext);
+    const { user } = useContext(UserContext);
 
-    const [ordenes, setOrdenes] = useState([]);
+    const [devoluciones, setDevoluciones] = useState([]);
 
-    useEffect(()=>{
+    const [datos, setDatos] = useState({fecha_envio: "", num_guia: "", fecha_atencion: ""});
+
+    console.log(datos);
+
+    useEffect(() => {
         getOrdenes();
-    },[])
+    }, [])
 
     const getOrdenes = () => {
-        fetch(baseUrlAPI + "pedidos?id_usuario=" + user.id_usuario)
+        fetch(baseUrlAPI + "devoluciones")
             .then(response => response.json())
             .then((data) => {
                 console.log(data);
-                setOrdenes(data);
+                setDevoluciones(data);
             })
             .catch((e) => {
 
             })
     }
 
-    const [libros, setLibros] = useState([
-        {
-            id: 1,
-            nombre: "Libro 1",
-            cantidad: 2,
-            precio: 10.99,
-            motivo: "",
-            metodo: "",
-            devuelto: false
-        },
-        {
-            id: 2,
-            nombre: "Libro 2",
-            cantidad: 1,
-            precio: 14.99,
-            motivo: "",
-            metodo: "",
-            devuelto: false
-        },
-        {
-            id: 3,
-            nombre: "Libro 3",
-            cantidad: 3,
-            precio: 9.99,
-            motivo: "",
-            metodo: "",
-            devuelto: false
-        }
-    ]);
+    const atenderSolicitud = (devolucion) => {
+        fetch(`${baseUrlAPI}devoluciones`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ ...devolucion, estatus_dev: "Atendido", fecha_envio: datos.fecha_envio, num_guia: datos.num_guia, fecha_atencion: new Date().toISOString().slice(0, 10) })
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                if (data.code === 200) {
+                    getOrdenes();
+                } else {
+                    //console.log("Ocurrio un error");
+                    //console.log(data);
+                }
+            })
+            .catch(error => {
+                //console.log("Ocurrio un error 2:");
+                // console.error("ERROR:", error);
+            });
+    }
 
 
-    //Controladores
-    const handleCheck = (id) => {
-        setLibros((prevState) =>
-            prevState.map((libro) =>
-                libro.id === id ? { ...libro, devuelto: !libro.devuelto } : libro
-            )
-        );
-    };
-
-    const handleChange = (e, id, key) => {
-        setLibros((prevState) =>
-            prevState.map((libro) =>
-                libro.id === id ? { ...libro, [key]: e.target.value } : libro
-            )
-        );
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setDatos({ ...datos, [name]: value })
     };
 
     return (
@@ -86,59 +72,49 @@ export default function DevolucionesHome() {
                 <Table striped bordered hover>
                     <thead>
                         <tr>
-                            <th>Check</th>
-                            <th>Libro</th>
-                            <th>Cantidad</th>
+                            <th>ID del libro</th>
                             <th>Precio</th>
+                            <th>Metodo de devolucion</th>
                             <th>Motivo de devolución</th>
-                            <th>Metodo de devolución</th>
-                            <th>Status de devolución</th>
-                            <th>FechaDevolución</th>
+                            <th>Número de guia</th>
+                            <th>Fecha de recibido</th>
+                            <th>Fecha de envio</th>
+                            <th>Estado</th>
+
                         </tr>
                     </thead>
                     <tbody>
-                        {libros.map((libro) => (
-                            <tr key={libro.id}>
-                                <td>
-                                    <Form.Check
-                                        type="checkbox"
-                                        checked={libro.devuelto}
-                                        onChange={() => handleCheck(libro.id)}
-                                    />
-                                </td>
-                                <td>{libro.idLibro}</td>
-                                <td>{libro.nombre}</td>
-                                <td>{libro.cantidad}</td>
-                                <td>{libro.precio}</td>
-                                <td>
-                                    <Form.Control
-                                        type="text"
-                                        value={libro.motivo}
-                                        onChange={(e) => handleChange(e, libro.id, "motivo")}
-                                        disabled={!libro.devuelto}
-                                    />
-                                </td>
-                                <td>
-                                    <Form.Control
-                                        type="text"
-                                        value={libro.motivo}
-                                        onChange={(e) => handleChange(e, libro.id, "motivo")}
-                                        disabled={!libro.devuelto}
-                                    />
-                                </td>
-                            </tr>
-                        ))}
+                        {devoluciones.map((devolucion) => {
+                            if (devolucion.estatus_dev === "Solicitado") {
+                                return (
+                                    <tr key={devolucion.id_devolucion}>
+                                        <td>{devolucion.id_libro}</td>
+                                        <td>${devolucion.precio}.00</td>
+                                        <td>{devolucion.metodo_dev}</td>
+                                        <td>{devolucion.motivo_dev}</td>
+                                        <td><Form.Control
+                                            type="text"
+                                            value={devolucion.motivo}
+                                            name="num_guia"
+                                            onChange={handleChange}
+                                        /></td>
+                                        <td>{devolucion.fecha_recibido}</td>
+                                        <td><Form.Control
+                                            type="text"
+                                            value={devolucion.motivo}
+                                            name="fecha_envio"
+                                            onChange={handleChange}
+                                        /></td>
+                                        <td>{devolucion.estatus_dev}</td>
+                                        <td><Button onClick={() => { atenderSolicitud(devolucion) }}>Atender</Button></td>
+                                    </tr>
+                                )
+                            }
+                        }
+                        )}
                     </tbody>
                 </Table>
                 <div style={{ width: "100%", display: "flex", justifyContent: "space-evenly" }}>
-
-                    <Link to={'/devprocadmin'}>
-                        <Button>Solicitudes procesadas </Button>
-                    </Link>
-
-                    <Link to={'/paqueteriadev'}>
-                        <Button>Registro de paqueteria</Button>
-                    </Link>
 
                 </div>
 

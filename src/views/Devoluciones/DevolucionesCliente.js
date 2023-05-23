@@ -63,7 +63,7 @@ export default function Devoluciones() {
             if (libro.devuelto) {
                 const devolucion = { id_libro: libro.id, id_usuario: user.id_usuario, precio: libro.precio, num_guia: "", fecha_envio: "", fecha_atencion: "", fecha_recibido: "", motivo_dev: libro.motivo, metodo_dev: libro.metodo, estatus_dev: "Solicitado" }
                 console.log(devolucion);
-                fetch("http://localhost:4000/test/" + "devoluciones", {
+                fetch(baseUrlAPI + "devoluciones", {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
