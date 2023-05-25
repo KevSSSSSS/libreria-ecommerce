@@ -1,12 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { Form, Button, Image, Spinner } from "react-bootstrap";
-import { colors } from "../../constants/constants";
+import { baseUrlAPI, colors } from "../../constants/constants";
 
 //Importaciones de componentes
 import TabMenuEmp from "../../components/Admin/TabMenuEmpleados";
 import BannerPaqueteria from "../../components/Paqueteria/BannerPaqueteria";
 
 export default function ViewEmployees() {
+
+    const [empleados, setEmpleados] = useState([]);
+
+    const filteremp = empleados.filter(empleados => empleados.rol != "Cliente");
+
+        useEffect(() => {
+            fetch(`${baseUrlAPI}usuarios`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                setEmpleados(data)
+            });
+        }, [])
 
     return (
         <>
@@ -32,19 +45,21 @@ export default function ViewEmployees() {
                         <th style={{border: "1px solid #fba71b", fontSize: "25px", color: "white"}}>Editar</th>
                         <th style={{border: "1px solid #fba71b", fontSize: "25px", color: "white"}}>Eliminar</th>
                     </tr>
+                    {filteremp.map((fila, indice) => (
                     <tr style={{fontSize: "20px", textAlign: "center", border: "1px solid #e1b683", height: "12%", background: colors.white}}>
-                        <td>1</td>
-                        <td>Ruben</td>
-                        <td>Guadarrama</td>
-                        <td>23</td>
-                        <td>$1500</td>
+                        <td>{fila.id_usuario}</td>
+                        <td>{fila.nombre}</td>
+                        <td>{fila.apellidos}</td>
+                        <td>{fila.edad}</td>
+                        <td>${fila.sueldo}</td>
                         <td>
-                        <Button variant="secondary" >Editar</Button>
+                        <Button variant="secondary" state={{fila: fila}}>Editar</Button>
                         </td>
                         <td>
-                            <Button variant="outline-danger" >X</Button>
+                            <Button variant="outline-danger">X</Button>
                         </td>
                     </tr>
+                    ))}
                     <tr>
 
                     </tr>

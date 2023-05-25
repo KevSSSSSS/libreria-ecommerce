@@ -1,12 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { Form, Button, Image, Spinner } from "react-bootstrap";
-import { colors } from "../../constants/constants";
+import { baseUrlAPI, colors } from "../../constants/constants";
 
 //Importaciones de componentes
 import TabMenuPaqueteria from "../../components/Paqueteria/TabMenuOrdenes";
 import BannerPaqueteria from "../../components/Paqueteria/BannerPaqueteria";
 
-export default function Home() {
+export default function OrdenesEnviadas() {
+
+    const [pedidos, setPedidos] = useState([]);
+
+    const filterpedido = pedidos.filter(pedidos => pedidos.status = "Enviado");
+    const ordenapedidos = filterpedido.reverse();
+
+        useEffect(() => {
+            fetch(`${baseUrlAPI}pedidos`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                setPedidos(data)
+            });
+        }, [])
 
     return (
         <>
@@ -31,22 +45,21 @@ export default function Home() {
                         <th style={{border: "1px solid #fba71b", fontSize: "25px", color: "white"}}>Detalle</th>
                         <th style={{border: "1px solid #fba71b", fontSize: "25px", color: "white"}}>Entregado</th>
                     </tr>
+                    {ordenapedidos.map((fila, indice) => (
                     <tr style={{fontSize: "20px", textAlign: "center", border: "1px solid #e1b683", height: "12%", background: colors.white}}>
-                        <td>1</td>
-                        <td>UPS</td>
-                        <td>2873625362734909</td>
-                        <td>20/04/2023</td>
-                        <td>25/04/2023</td>
+                        <td>{fila.id_pedido}</td>
+                        <td>{fila.id_paqueteria}</td>
+                        <td>{fila.guia}</td>
+                        <td>{fila.fecha_envio}</td>
+                        <td>{fila.fecha_entrega}</td>
                         <td>
-                            <Button variant="secondary">Ver Detalle</Button>
+                            <Button variant="secondary" state={{fila: fila}}>Ver Detalle</Button>
                         </td>
                         <td>
-                            <Button variant="secondary">Actualizar Entrega</Button>
+                            <Button variant="secondary" state={{fila: fila}}>Actualizar Entrega</Button>
                         </td>
                     </tr>
-                    <tr>
-
-                    </tr>
+                    ))}
                 </table>
             </div>
         </>

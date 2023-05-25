@@ -4,8 +4,6 @@ import { Button, Form, Image, Spinner } from "react-bootstrap";
 import { baseUrlAPI, colors, fontFamily } from "../../constants/constants";
 import { Link, useNavigate } from "react-router-dom";
 
-
-
 export default function UpPaqueterias() {
 
     return (

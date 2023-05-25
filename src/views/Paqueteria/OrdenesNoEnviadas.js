@@ -58,7 +58,7 @@ export default function OrdenesNoEnviadas() {
                 
                 </td>
                 <td>
-                    <Link to ={"/envioorden"}>
+                    <Link to ={"/envioorden"} state={{fila: fila}}>
                     <Button variant="secondary">Enviar</Button>
                     </Link>                       
                 </td>

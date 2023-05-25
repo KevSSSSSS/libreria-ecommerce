@@ -15,7 +15,6 @@ export default function ViewPaqueterias() {
             fetch(`${baseUrlAPI}paqueterias`)
             .then(response => response.json())
             .then(data => {
-                console.clear();
                 console.log(data);
                 setPaq(data)
             });

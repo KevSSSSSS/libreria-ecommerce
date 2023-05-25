@@ -9,21 +9,19 @@ export default function UpPaqueterias() {
 
     const [form, setForm] = useState({ nombre: "", direccion: "", encargado: ""});
     const navigate = useNavigate();
-    const [loading, setLoading] = useState(false);
+       const [loading, setLoading] = useState(false);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
         setForm({ ...form, [name]: value });
-        //console.log(form);
+        console.log(form);
     }
 
     const handleSubmit = (event) => {
         event.preventDefault();
-
         console.log(form);
-        //console.log(form);
-        //Aqui haces tu fetc
-        fetch(`${baseUrlAPI}solicitudllamadas`, {
+        
+        fetch(`${baseUrlAPI}paqueterias`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -33,6 +31,7 @@ export default function UpPaqueterias() {
         .then(response => response.json())
         .then(data => {
             console.log(data);
+            setLoading(false);
             if (data.code === 200) {
                 navigate(-1);
             }else{
@@ -53,7 +52,7 @@ export default function UpPaqueterias() {
             <div style={{ width: "50%", height: "80vh", backgroundColor: colors.white, borderRadius: 20, alignItems: "center", justifyContent: "center", display: "flex" }}>
                 <div style={{ color: colors.terceary }}>
                     <h4 style={{ fontFamily: fontFamily.primary, fontSize: "35px", marginTop: "5px"}}>Nueva Paqueteria</h4>
-                    <Form style={{ marginTop: 30 }} onSubmit={handleSubmit}>
+                    <Form style={{ marginTop: 30 }} >
                         <Form.Group style={{ marginBottom: 20 }}>
                             <Form.Label>Nombre: </Form.Label>
                             <Form.Control type="text" name="nombre" placeholder="Introduzca el nombre de la paqueteria" onChange={handleChange}></Form.Control>
@@ -68,7 +67,7 @@ export default function UpPaqueterias() {
                         </Form.Group>
                         <div style={{ width: "100%", display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center"}}></div>
                         {loading && <div style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}><Spinner animation="grow" variant="warning" /></div>}
-                        <Button size="lg" style={{ backgroundColor: colors.primary, borderColor: colors.primary, marginTop: 80, marginRight: 80 }} disabled={loading} type="submit">
+                        <Button size="lg" onSubmit={handleSubmit} style={{ backgroundColor: colors.primary, borderColor: colors.primary, marginTop: 80, marginRight: 80 }} disabled={loading} type="submit">
                             Crear
                         </Button>
                         <Link to={"/viewpaq"}>
