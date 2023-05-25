@@ -1,13 +1,27 @@
-import React, { useContext, useEffect, useState} from "react";
+import React, { useEffect, useState} from "react";
 import { Button, Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { colors } from "../../constants/constants";
+import { baseUrlAPI, colors } from "../../constants/constants";
 
 //Importaciones de componentes
 import TabMenuOrdenes from "../../components/Paqueteria/TabMenuOrdenes";
 import BannerPaqueteria from "../../components/Paqueteria/BannerPaqueteria";
 
 export default function OrdenesNoEnviadas() {
+
+    const [pedidos, setPedidos] = useState([]);
+
+    const filterpedido = pedidos.filter(pedidos => pedidos.status = "Sin enviar");
+    const ordenapedidos = filterpedido.reverse();
+
+        useEffect(() => {
+            fetch(`${baseUrlAPI}pedidos`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                setPedidos(data)
+            });
+        }, [])
 
     return (
         <>
@@ -33,26 +47,28 @@ export default function OrdenesNoEnviadas() {
                 </tr>
             </thead>
             <tbody>
-                    <tr style={{fontSize: "20px", textAlign: "center", border: "1px solid #e1b683", height: "12%", background: colors.white}}>
-                        <td>1</td>
-                        <td>toluca</td>
-                        <td>
-                            <Link to ={"/detorden"}>
-                            <Button variant="secondary">ver detalle</Button>
-                            </Link>
-                        
-                        </td>
-                        <td>
-                            <Link to ={"/envioorden"}>
-                            <Button variant="secondary">Enviar</Button>
-                            </Link>                       
-                        </td>
-                        <td>
-                            <Link to ={"/ordenesnoenv"}>
-                            <Button variant="outline-danger">X</Button>
-                            </Link>                       
-                        </td>
-                    </tr>
+            {ordenapedidos.map((fila, indice) => (
+                <tr style={{fontSize: "20px", textAlign: "center", border: "1px solid #e1b683", height: "12%", background: colors.white}}>
+                <td>{fila.id_pedido}</td>
+                <td>{fila.direccion}</td>
+                <td>
+                    <Link to ={"/detorden"} state={{fila: fila}}>
+                    <Button variant="secondary">ver detalle</Button>
+                    </Link>
+                
+                </td>
+                <td>
+                    <Link to ={"/envioorden"}>
+                    <Button variant="secondary">Enviar</Button>
+                    </Link>                       
+                </td>
+                <td>
+                    <Link to ={"/ordenesnoenv"}>
+                    <Button variant="outline-danger">X</Button>
+                    </Link>                       
+                </td>
+            </tr>
+            ))}
             </tbody>
         </Table>
             </div>

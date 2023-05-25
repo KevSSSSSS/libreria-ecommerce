@@ -7,52 +7,44 @@ import { Link, useNavigate } from "react-router-dom";
 
 export default function UpPaqueterias() {
 
+    const [form, setForm] = useState({ nombre: "", direccion: "", encargado: ""});
     const navigate = useNavigate();
-
     const [loading, setLoading] = useState(false);
-    const [showToast, setShowToast] = useState(false);
-    const [paqData, setPaqData] = useState(
-        {
-            nombre: "",
-            direccion: "",
-            encargado: ""
-        }
-    );
 
-    const postPaq = (event) => {
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setForm({ ...form, [name]: value });
+        //console.log(form);
+    }
+
+    const handleSubmit = (event) => {
         event.preventDefault();
-        paqData.activo = 1;
-        setLoading(true);
-        fetch(`${baseUrlAPI}paqueterias`, {
+
+        console.log(form);
+        //console.log(form);
+        //Aqui haces tu fetc
+        fetch(`${baseUrlAPI}solicitudllamadas`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(paqData)
+            body: JSON.stringify(form)
         })
-            .then(response => response.json())
-            .then(data => {
-                setLoading(false);
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            if (data.code === 200) {
+                navigate(-1);
+            }else{
                 console.log(data);
-                if (data.code === 200) {
-                    setShowToast(true);
-                } else {
-                    console.log("Ocurrio un error");
-                }
-            })
-            .catch(error => {
-                setLoading(false);
-                console.error(error);
-            });
-    }
+            }
+            
+        })
+        .catch(error => {
+            console.error(error);
+        });
 
-    const handleChange = (event) => {
-        const { name, value } = event.target;
-        setPaqData({ ...paqData, [name]: value })
-    }
 
-    const toggleShow = () => {
-        setShowToast(!showToast);
     }
 
     return (
@@ -61,7 +53,7 @@ export default function UpPaqueterias() {
             <div style={{ width: "50%", height: "80vh", backgroundColor: colors.white, borderRadius: 20, alignItems: "center", justifyContent: "center", display: "flex" }}>
                 <div style={{ color: colors.terceary }}>
                     <h4 style={{ fontFamily: fontFamily.primary, fontSize: "35px", marginTop: "5px"}}>Nueva Paqueteria</h4>
-                    <Form style={{ marginTop: 30 }} onSubmit={postPaq} >
+                    <Form style={{ marginTop: 30 }} onSubmit={handleSubmit}>
                         <Form.Group style={{ marginBottom: 20 }}>
                             <Form.Label>Nombre: </Form.Label>
                             <Form.Control type="text" name="nombre" placeholder="Introduzca el nombre de la paqueteria" onChange={handleChange}></Form.Control>

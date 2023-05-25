@@ -59,7 +59,10 @@ import ViewPaq from './views/Paqueteria/ViewPaqueterias';
 import UpPaq from './views/Paqueteria/UpPaqueterias';
 
 import ModPaq from './views/Paqueteria/ModPaqueterias';
+
 import AccountPaq from './views/Paqueteria/AccountAdminPaq';
+
+import DetOrden from './views/Paqueteria/DetOrden';
 
 
 
@@ -209,6 +212,7 @@ function App() {
         <Route path='/uppaq' element={<UpPaq />} />
         <Route path='/modpaq' element={<ModPaq />} />
         <Route path='/accountpaq' element={<AccountPaq />} />
+        <Route path='/detorden' element={<DetOrden />} />
 
         //Rutas para Administrador de Empleados
         <Route path='/homeadmin' element={<HomeAdmin />} />
