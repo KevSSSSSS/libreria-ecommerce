@@ -1,4 +1,4 @@
-export const baseUrlAPI = "https://1o7jpf8t3j.execute-api.us-west-1.amazonaws.com/dev/test/";
+export const baseUrlAPI = "https://localhost:4000";
 
 export const colors = {
     primary: "#fba71b",
