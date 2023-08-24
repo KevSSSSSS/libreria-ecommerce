@@ -1,4 +1,4 @@
-export const baseUrlAPI = "https://localhost:4000";
+export const baseUrlAPI = "http://localhost:4000/test/";
 
 export const colors = {
     primary: "#fba71b",

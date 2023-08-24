@@ -145,7 +145,7 @@ import DevolucionesHome from './views/Devoluciones/DevolucionesHome';
 
 import Atenderdev from './views/Devoluciones/AtenderDev';
 
-import PaqueteriaDev from './views/Devoluciones/PaqueteriaDev';
+
 
 import DevProcesadas from './views/Devoluciones/DevProcesadas';
 
@@ -183,7 +183,7 @@ function App() {
           <Route path='/devoluciones' element={<Devoluciones/>}/>
           <Route path='/devolucionesHome' element={<DevolucionesHome/>}/>
           <Route path='/atenderDev' element={<Atenderdev/>}/>
-          <Route path='/paqueteriaDev' element={<Paqueteriadev/>}/>
+  
           <Route path='/devprocesadas' element={<DevProcesadas/>}/>
           <Route path='/homealmacen' element={<HomeAlmacen/>}/>
           <Route path= '/NoRes' element={<NoRes/>}/>
@@ -273,7 +273,7 @@ function App() {
 
           <Route path='/atenderDev' element={<Atenderdev/>}/>
 
-          <Route path='/paqueteriadev' element={<PaqueteriaDev/>}/>
+
 
           <Route path='/devprocesadas' element={<DevProcesadas/>}/>
 
