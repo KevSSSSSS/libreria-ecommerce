@@ -7,6 +7,7 @@ import { UserContext } from "../../models/UserContext";
 import { useNavigate } from "react-router";
 
 export default function Register() {
+
      // Contexto de usuario
      const { user, login, logout } = useContext(UserContext);
     
@@ -15,6 +16,11 @@ export default function Register() {
 
 
      // Estado para los datos del usuario
+
+    const { user, login, logout } = useContext(UserContext);
+    const navigate = useNavigate();
+
+
     const [dataUser, setDataUser] = useState({
         id_usuario: "",
         nombre: "",
@@ -24,11 +30,16 @@ export default function Register() {
         email: "",
         contrasena: ""
     });
+
 // Manejar cambios en los campos del formulario
+
+
+
     const handleChange = (event) => {
         const { name, value } = event.target;
         setDataUser({ ...dataUser, [name]: value });
     };
+
 
 // Enviar el formulario de registro
 
@@ -55,7 +66,9 @@ export default function Register() {
                 console.error(error);
             });
     };
+
  // Renderizado del componente 
+
     return (
         <div style={{ textAlign: "center", display: "flex", alignItems: "center", height: "100vh", justifyContent: "center", backgroundImage: `url(${fondo})`, backgroundSize: "cover" }}>
             <div style={{ width: "50%", height: "80vh", backgroundColor: colors.white, borderRadius: 20, alignItems: "center", justifyContent: "center", display: "flex" }}>

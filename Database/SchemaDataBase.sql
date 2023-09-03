@@ -36,6 +36,41 @@ CREATE TABLE Usuarios (
   PRIMARY KEY (id_usuario)
 );
 
+CREATE TABLE Pedidos (
+  id_pedido INT(11) NOT NULL AUTO_INCREMENT,
+  id_usuario INT(11) NOT NULL,
+  fecha DATE NOT NULL,
+  total DECIMAL(10,2) NOT NULL,
+  PRIMARY KEY (id_pedido),
+  FOREIGN KEY (id_usuario) REFERENCES Usuarios(id_usuario)
+);
+
+
+CREATE TABLE Paqueterias (
+  id_paqueteria INT(11) NOT NULL AUTO_INCREMENT,
+  nombre VARCHAR(50) NOT NULL,
+  encargado VARCHAR(50) NOT NULL,
+  direccion VARCHAR(100) NOT NULL,
+  PRIMARY KEY (id_paqueteria)
+);
+
+CREATE TABLE Detalles_Pedidos (
+  id_detalle INT(11) NOT NULL AUTO_INCREMENT,
+  id_pedido INT(11) NOT NULL,
+  id_libro INT(11) NOT NULL,
+  id_paqueteria INT(11) NOT NULL,
+  cantidad INT(11) NOT NULL,
+  precio_unitario DECIMAL(10,2) NOT NULL,
+  fecha_envio DATE NOT NULL,
+  fecha_entrega DATE NOT NULL,
+  estatus INT(1) NOT NULL,
+  PRIMARY KEY (id_detalle),
+  FOREIGN KEY (id_pedido) REFERENCES Pedidos(id_pedido),
+  FOREIGN KEY (id_libro) REFERENCES Libros(id_libro),
+  FOREIGN KEY (id_paqueteria) REFERENCES Paqueterias(id_paqueteria)
+);
+
+
 //------------------- Después de hacer la base -----------------------
 CREATE TABLE Empleados (
   id_empleado INT(11) NOT NULL AUTO_INCREMENT,
@@ -112,8 +147,7 @@ CREATE TABLE Productos (
 CREATE TABLE Devoluciones (
   id_devolucion INT(11) NOT NULL AUTO_INCREMENT,
   id_libro INT(11) NOT NULL ,
-  id_cliente INT(11) NOT NULL,
-  id_empleado INT(11) NOT NULL
+  id_usuario INT(11) NOT NULL,
   precio INT(11) NOT NULL,
   num_guia VARCHAR(50) NOT NULL,
   fecha_envio VARCHAR(50) NOT NULL,
@@ -121,13 +155,11 @@ CREATE TABLE Devoluciones (
   fecha_recibido VARCHAR(50) NOT NULL,
   motivo_dev VARCHAR(50) NOT NULL,
   metodo_dev VARCHAR(50) NOT NULL,
-  status_dev VARCHAR(50) NOT NULL,
+  estatus_dev VARCHAR(50) NOT NULL,
   PRIMARY KEY (id_devolucion)
   FOREIGN KEY (id_libro) REFERENCES Libros(id_libro)
-  FOREIGN KEY (id_cliente) REFERENCES Clientes(id_cliente)
-  FOREIGN KEY (id_empleado) REFERENCES Empleados(id_empleado)
+  FOREIGN KEY (id_usuario) REFERENCES Clientes(id_usuario)
 );
-
 ------------- Kevin (Usuario Anonimo) ---------------
 CREATE TABLE Pedidos (
   id_pedido INT(11) NOT NULL AUTO_INCREMENT,
@@ -161,4 +193,3 @@ CREATE TABLE Metodos_pago (
   PRIMARY KEY (id_metodo_pago),
   FOREIGN KEY (id_usuario) REFERENCES Usuarios(id_usuario)
 );
-

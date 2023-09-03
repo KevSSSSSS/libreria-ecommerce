@@ -17,13 +17,15 @@ export default function Book() {
     const { foto, titulo, autor, descripcion, precio, stock } = state?.book;
     const book = state?.book;
 
-    const {cart, addCart} = useContext(UserContext);
+    const { cart, addCart } = useContext(UserContext);
 
     const [showToast, setShowToast] = useState(false);
 
-    const toggleShow = () =>{
+    const toggleShow = () => {
         setShowToast(!showToast);
     }
+
+    const [compra, setCompra] = useState({});
 
     return (
         <>
@@ -31,16 +33,16 @@ export default function Book() {
             <NavTabMenu />
             <BannerHome />
             <div style={{ alignItems: "center", justifyContent: "center", display: "flex" }}>
-            <ToastContainer>
-                <Toast onClose={toggleShow} show={showToast}>
-                    <Toast.Header>
-                        <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
-                        <strong className="me-auto">Libro insertado</strong>
-                        <small className="text-muted">Justo ahora</small>
-                    </Toast.Header>
-                    <Toast.Body>El libro {book.titulo} se ha agregado al carrito correctamente</Toast.Body>
-                </Toast>
-            </ToastContainer>
+                <ToastContainer>
+                    <Toast onClose={toggleShow} show={showToast}>
+                        <Toast.Header>
+                            <img src="holder.js/20x20?text=%20" className="rounded me-2" alt="" />
+                            <strong className="me-auto">Libro insertado</strong>
+                            <small className="text-muted">Justo ahora</small>
+                        </Toast.Header>
+                        <Toast.Body>El libro {book.titulo} se ha agregado al carrito correctamente</Toast.Body>
+                    </Toast>
+                </ToastContainer>
                 <div style={{ margin: 20, width: "60%", padding: 20, height: "80vh", display: "flex" }}>
                     <div style={{ width: "20%" }}>
                         <Image src={foto} width={"100%"} height={"280vh"} style={{ borderRadius: 10 }}></Image>
@@ -50,7 +52,7 @@ export default function Book() {
                         <h5 style={{ fontFamily: fontFamily.primary }}>Autor: {autor}</h5>
                         <h5>Stock: {stock}</h5>
                         <h5>Precio: ${precio}</h5>
-                        <Button style={{ backgroundColor: colors.primary, borderColor: colors.primary, marginTop: 40 }} onClick={()=>{addCart(book); setShowToast(true);}}>
+                        <Button style={{ backgroundColor: colors.primary, borderColor: colors.primary, marginTop: 40 }} onClick={() => { addCart({ ...book, cantidad: 1 }); setShowToast(true); }}>
                             <BsCartPlus size={24} style={{ marginRight: 12 }}></BsCartPlus>
                             Añadir al carrito
                         </Button>
