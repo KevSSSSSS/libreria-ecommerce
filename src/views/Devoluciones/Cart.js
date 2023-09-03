@@ -43,8 +43,6 @@ export default function Cart() {
                             <div>{b.titulo}</div>
                             <div>{b.cantidad} unidades</div>
                             <div>$ {b.precio}</div>
-                            <Button>Eliminar</Button>
-                            <Button>Agregar</Button>
                         </div>
                     )
                 })}
@@ -56,3 +54,5 @@ export default function Cart() {
         </>
     )
 }
+
+

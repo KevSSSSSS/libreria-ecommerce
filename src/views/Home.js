@@ -18,16 +18,26 @@ export default function Home() {
 
     const [loading, setLoading] = useState(false);
     const [search, setSearch] = useState("");
-    const handleChange = (event)=>
+    //boks array que almacena los libros
+    //search almacena lo ingresado para buscar
+    //navigate navegar entre las páginas de la aplicacion
+
+    const handleChange = (event)=> //Esta función se llama cuando se produce un evento de cambio en el formulario de búsqueda. Extrae el nombre y el valor del elemento de entrada y actualiza la variable de estado search con el nuevo valor.
     {
         const { name, value } = event.target;
      setSearch(value)
     }
 
+
+    //imprime el valor actual de search  en la consola y luego 
+    //manda a llamar ek termino de busqueda
     const onSubmit= ()=>
         {
             console.log(search);
         onSearch(search)
+//Esta función realiza una búsqueda de libros en función del término de búsqueda proporcionado
+//Si el término de búsqueda no está vacío, filtra los libros por título o autor
+
         }
 
         const onSearch = (search) => {
@@ -114,3 +124,6 @@ export default function Home() {
         </>
     )
 }
+
+
+
